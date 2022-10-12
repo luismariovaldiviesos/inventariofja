@@ -6,10 +6,10 @@
         <meta charset="utf-8">
         <link href="{{ asset('dist/images/logo.svg')}}" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Sistema FAstFooD">
-        <meta name="keywords" content="ventas,sistema,web,envio,comida,restaurante,ordenes,express,pantalla,táctil">
+        <meta name="description" content="Inventario FJA">
+        <meta name="keywords" content="inventario informático ">
         <meta name="author" content="khipu.com">
-        <title>Sistema de Ventas</title>
+        <title>Inventario FJA</title>
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{ asset('dist/css/app.css')}}" />
         <link rel="stylesheet" href="{{ asset('css/all.css')}}" />
