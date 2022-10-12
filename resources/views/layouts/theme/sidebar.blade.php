@@ -1,60 +1,59 @@
 <nav class="side-nav">
-    @hasrole('Admin')
+    {{-- @hasrole('Admin') --}}
     <a href="{{ url('dash') }}" class="intro-x flex items-center pl-5 pt-4">
         <img alt="logo" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
-        <span class="hidden xl:block text-white text-lg ml-3"><span class="font-medium">VENTAS</span> </span>
-
-
+        <span class="hidden xl:block text-white text-lg ml-3"><span class="font-medium">DASH</span> </span>
     </a>
-    @endhasrole
+    {{-- @endhasrole --}}
     <div class="side-nav__devider my-6"></div>
 
     <ul>
-        @hasrole('Admin')
+
+        {{-- @hasrole('Admin') --}}
         <li>
             <a href="{{ url('categories') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
                 <div class="side-menu__title"> CATEGORIAS  </div>
             </a>
         </li>
-        @endhasrole()
+        {{-- @endhasrole() --}}
 
         <li>
-            <a href="{{ route('products') }}" class="side-menu">
+            {{-- <a href="{{ route('products') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="coffee"></i> </div>
                 <div class="side-menu__title"> PRODUCTOS  </div>
-            </a>
+            </a> --}}
         </li>
 
         <li>
-            <a href="{{ route('sales') }}" class="side-menu">
+            {{-- <a href="{{ route('sales') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="dollar-sign"></i> </div>
                 <div class="side-menu__title"> FACTURAR  </div>
-            </a>
+            </a> --}}
         </li>
 
-        @hasrole('Admin')
+        {{-- @hasrole('Admin') --}}
         <li>
-            <a href="{{ route('cajas') }}" class="side-menu">
+            {{-- <a href="{{ route('cajas') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="shopping-cart"></i> </div>
                 <div class="side-menu__title"> CAJAS  </div>
-            </a>
+            </a> --}}
         </li>
-        @endhasrole
+        {{-- @endhasrole --}}
         <li>
-            <a href="{{ route('arqueos') }}" class="side-menu">
+            {{-- <a href="{{ route('arqueos') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
                 <div class="side-menu__title"> ARQUEOS  </div>
-            </a>
+            </a> --}}
         </li>
 
         <div class="side-nav__devider my-6"></div>
 
         <li>
-            <a href="{{ route('customers') }}" class="side-menu">
+            {{-- <a href="{{ route('customers') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title"> CLIENTES  </div>
-            </a>
+            </a> --}}
         </li>
 
 
@@ -62,20 +61,20 @@
 
         <div class="side-nav__devider my-6"></div>
 
-        @hasrole('admin')
+        {{-- @hasrole('admin') --}}
         <li>
-            <a href="{{ route('reports') }}" class="side-menu">
+            {{-- <a href="{{ route('reports') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
                 <div class="side-menu__title"> REPORTES  </div>
-            </a>
+            </a> --}}
         </li>
-        @endhasrole
+        {{-- @endhasrole --}}
 
         <li>
-            <a href="{{ route('diario') }}" class="side-menu">
+            {{-- <a href="{{ route('diario') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="eye"></i> </div>
                 <div class="side-menu__title"> VENTA DIARIA  </div>
-            </a>
+            </a> --}}
         </li>
 
         <div class="side-nav__devider my-6"></div>
@@ -85,47 +84,48 @@
 
         <li>
 
-            @hasrole('Admin')
+            {{-- @hasrole('Admin') --}}
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
                 <div class="side-menu__title">
-                    CONFIGURACIÓN
+                    SITIOS
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
-            @endhasrole
+            {{-- @endhasrole --}}
 
             <ul class="">
 
                 <li>
-                    <a href="{{ route('settings') }}" class="side-menu">
+                    <a href="{{ route('provincias') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
-                        <div class="side-menu__title"> EMPRESA  </div>
+                        <div class="side-menu__title"> provincias  </div>
                     </a>
                 </li>
+
                 <li>
-                    <a href="{{ route('roles') }}" class="side-menu">
+                    {{-- <a href="{{ route('roles') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
                         <div class="side-menu__title"> ROLES  </div>
-                    </a>
+                    </a> --}}
                 </li>
                 <li>
-                    <a href="{{ route('permisos') }}" class="side-menu">
+                    {{-- <a href="{{ route('permisos') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> PERMISOS  </div>
-                    </a>
+                    </a> --}}
                 </li>
                 <li>
-                    <a href="{{ route('asignar') }}" class="side-menu">
+                    {{-- <a href="{{ route('asignar') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> ASIGNAR PERMISOS  </div>
-                    </a>
+                    </a> --}}
                 </li>
                 <li>
-                    <a href="{{ route('users') }}" class="side-menu">
+                    {{-- <a href="{{ route('users') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="key"></i> </div>
                         <div class="side-menu__title"> USUARIOS  </div>
-                    </a>
+                    </a> --}}
                 </li>
             </ul>
         </li>
