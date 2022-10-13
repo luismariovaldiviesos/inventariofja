@@ -104,6 +104,13 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('cantones') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__title"> Cantones  </div>
+                    </a>
+                </li>
+
+                <li>
                     {{-- <a href="{{ route('roles') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
                         <div class="side-menu__title"> ROLES  </div>
