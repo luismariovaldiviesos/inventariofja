@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Cantones;
+use App\Http\Livewire\Edificios;
 use App\Http\Livewire\Provincias;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('provincias', Provincias::class)->name('provincias');
 Route::get('cantones', Cantones::class)->name('cantones');
+Route::get('edificios', Edificios::class)->name('edificios');
 
 Route::get('/', function () {
     return view('welcome');
