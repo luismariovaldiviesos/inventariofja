@@ -2,40 +2,39 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Canton;
 use App\Models\Edificio;
+use App\Models\Unidad;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Edificios extends Component
+class Unidades extends Component
 {
 
     use WithPagination;
 
-    public $nombre = '', $canton_id, $canton,  $selected_id = 0;
-    public $action = 'Listado', $componentName = 'Listado de Edificios', $search, $form = false;
+    public $nombre = '', $edificio_id, $canton,  $selected_id = 0;
+    public $action = 'Listado', $componentName = 'Listado de Unidades Judicial', $search, $form = false;
     private $pagination = 10;
     protected $paginationTheme = 'tailwind';
-
 
     public function render()
     {
         if(strlen($this->search) > 0)
-        $info =  Edificio::join('cantons as c','c.id','edificios.canton_id')
-            ->select('edificios.*','c.nombre as canton')
-            ->where('edificios.nombre','like',"%{$this->search}%")
-            ->orWhere('c.nombre','like',"%{$this->search}%")
+        $info =  Unidad::join('edificios as e','e.id','unidads.edificio_id')
+            ->select('unidads.*','e.nombre as edificio')
+            ->where('unidads.nombre','like',"%{$this->search}%")
+            ->orWhere('e.nombre','like',"%{$this->search}%")
             ->paginate($this->pagination);
         else
 
-        $info =  Edificio::join('cantons as c','c.id','edificios.canton_id')
-            ->select('edificios.*','c.nombre as canton')
-            ->paginate($this->pagination);
+        $info =  Unidad::join('edificios as e','e.id','unidads.edificio_id')
+        ->select('unidads.*','e.nombre as edificio')
+         ->paginate($this->pagination);
 
 
-        return view('livewire.edificios.component', [
-        'edificios' => $info,
-        'cantones' => Canton::orderBy('id','asc')->get(),
+        return view('livewire.unidades.component', [
+        'unidades' => $info,
+        'edificios' => Edificio::orderBy('id','asc')->get(),
            ])->layout('layouts.theme.app');
     }
 
@@ -72,43 +71,42 @@ class Edificios extends Component
         // regresar a la página inicial del componente
         $this->resetPage();
         // regresar propiedades a su valor por defecto
-        $this->reset('nombre', 'canton_id', 'selected_id', 'search', 'action', 'componentName', 'form','canton');
+        $this->reset('nombre', 'edificio_id', 'selected_id', 'search', 'action', 'componentName', 'form','edificio');
     }
 
-    public function Edit(Edificio $edificio)
+    public function Edit(Unidad $unidad)
     {
-        $this->selected_id = $edificio->id;
-        $this->nombre = $edificio->nombre;
-        $this->canton_id =  $edificio->canton_id;
+        $this->selected_id = $unidad->id;
+        $this->nombre = $unidad->nombre;
+        $this->edificio_id =  $unidad->edificio_id;
         $this->action = 'Editar';
         $this->form = true;
 
     }
-
     public function Store()
     {
         sleep(1);
 
-        $this->validate(Edificio::rules($this->selected_id), Edificio::$messages);
+        $this->validate(Unidad::rules($this->selected_id), Unidad::$messages);
 
-        $edificio = Edificio::updateOrCreate(
+        $unidad = Unidad::updateOrCreate(
             ['id' => $this->selected_id],
             [
                 'nombre' => $this->nombre,
-                'canton_id' => $this->canton_id
+                'edificio_id' => $this->edificio_id
             ]
         );
 
         // image
 
-        $this->noty($this->selected_id < 1 ? 'Edificio Registrado' : 'Edificio Actualizado', 'noty', false, 'close-modal');
+        $this->noty($this->selected_id < 1 ? 'Unidad Registrada' : 'UNidad Actualizada', 'noty', false, 'close-modal');
         $this->resetUI();
     }
 
-    public function Destroy(Edificio $edificio)
+    public function Destroy(Unidad $unidad)
     {
-        $edificio->delete();
-        $this->noty('Se eliminó el edificio');
+        $unidad->delete();
+        $this->noty('Se eliminó la unidad');
     }
 
 }

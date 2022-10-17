@@ -27,9 +27,9 @@ class Edificio extends Model
     }
 
     public static $messages = [
-        'nombre.required' => 'Nombre cantón requerido',
-        'nombre.unique' => 'La provincia ya existe en sistema',
-        'canton_id.required' => 'provincia cantón requerido',
+        'nombre.required' => 'Nombre edificio requerido',
+        'nombre.unique' => 'Edificio ya existe en sistema',
+        'canton_id.required' => ' cantón requerido',
     ];
 
 

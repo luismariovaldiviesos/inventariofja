@@ -118,6 +118,13 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('unidades') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__title"> Unidades Judiciales  </div>
+                    </a>
+                </li>
+
+                <li>
                     {{-- <a href="{{ route('roles') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
                         <div class="side-menu__title"> ROLES  </div>

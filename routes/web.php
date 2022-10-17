@@ -3,6 +3,7 @@
 use App\Http\Livewire\Cantones;
 use App\Http\Livewire\Edificios;
 use App\Http\Livewire\Provincias;
+use App\Http\Livewire\Unidades;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('provincias', Provincias::class)->name('provincias');
 Route::get('cantones', Cantones::class)->name('cantones');
 Route::get('edificios', Edificios::class)->name('edificios');
+Route::get('unidades', Unidades::class)->name('unidades');
 
 Route::get('/', function () {
     return view('welcome');
