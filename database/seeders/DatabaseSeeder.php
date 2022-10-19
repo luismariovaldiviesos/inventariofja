@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinciaSeeder::class);
         $this->call(CantonSeeder::class);
         $this->call(EdificioSeeder::class);
-        $this->call(UnidadSeederSeeder::class);
+        $this->call(UnidadSeeder::class);
+        $this->call(TipoSeeder::class);
     }
 }
