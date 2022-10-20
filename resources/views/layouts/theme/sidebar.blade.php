@@ -37,6 +37,13 @@
                         <div class="side-menu__title"> TIPOS   </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('modelos') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
+                        <div class="side-menu__title"> MODELOS   </div>
+                    </a>
+                </li>
+
 
 
 

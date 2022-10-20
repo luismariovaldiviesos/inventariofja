@@ -3,6 +3,7 @@
 use App\Http\Livewire\Cantones;
 use App\Http\Livewire\Edificios;
 use App\Http\Livewire\Marcas;
+use App\Http\Livewire\Modelos;
 use App\Http\Livewire\Provincias;
 use App\Http\Livewire\Tipos;
 use App\Http\Livewire\Unidades;
@@ -26,6 +27,8 @@ Route::get('unidades', Unidades::class)->name('unidades');
 
 Route::get('marcas', Marcas::class)->name('marcas');
 Route::get('tipos', Tipos::class)->name('tipos');
+Route::get('modelos',Modelos::class)->name('modelos');
+
 
 Route::get('/', function () {
     return view('welcome');

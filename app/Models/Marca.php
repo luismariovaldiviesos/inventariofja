@@ -39,6 +39,14 @@ class Marca extends Model
      }
 
 
+     // un tipo tiene varios modelos
 
-
+     public function modelos()
+     {
+      return $this->hasMany(Modelo::class);
+     }
 }
+
+
+
+

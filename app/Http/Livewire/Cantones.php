@@ -11,7 +11,7 @@ class Cantones extends Component
 {
     use WithPagination;
 
-    public $nombre = '', $provincia_id, $provincia,  $selected_id = 0, $category='elegir';
+    public $nombre = '', $provincia_id, $provincia,  $selected_id = 0;
     public $action = 'Listado', $componentName = 'Listado de cantones', $search, $form = false;
     private $pagination = 10;
     protected $paginationTheme = 'tailwind';

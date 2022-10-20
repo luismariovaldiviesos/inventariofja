@@ -38,4 +38,12 @@ class Tipo extends Model
        {
           return $this->belongsToMany(Marca::class, 'marcas_tipos', 'tipo_id', 'marca_id');
        }
+
+
+       // un tipo tiene varios modelos
+
+       public function modelos()
+       {
+        return $this->hasMany(Modelo::class);
+       }
 }
