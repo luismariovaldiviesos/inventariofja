@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('ci',13);
+            $table->string('phone',15)->nullable();
             $table->string('email')->unique();
+            $table->enum('profile',['Admin','Official'])->default('Admin');
+            $table->enum('status',['ACTIVE','LOCKED'])->default('ACTIVE');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

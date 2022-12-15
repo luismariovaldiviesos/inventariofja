@@ -44,13 +44,6 @@
                     </a>
                 </li>
 
-
-
-
-
-
-
-
                 <li>
                     {{-- <a href="{{ route('roles') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
@@ -74,6 +67,44 @@
                         <div class="side-menu__icon"> <i data-feather="key"></i> </div>
                         <div class="side-menu__title"> USUARIOS  </div>
                     </a> --}}
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                <div class="side-menu__title">
+                    PERMISOS
+                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                </div>
+            </a>
+            <ul class="">
+
+
+                <li>
+                    <a href="{{ route('roles') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__title"> ROLES  </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('permisos') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> PERMISOS  </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('asignar') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> ASIGNAR PERMISOS  </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('users') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="key"></i> </div>
+                        <div class="side-menu__title"> USUARIOS  </div>
+                    </a>
                 </li>
             </ul>
         </li>

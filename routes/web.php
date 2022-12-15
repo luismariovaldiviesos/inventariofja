@@ -7,6 +7,11 @@ use App\Http\Livewire\Modelos;
 use App\Http\Livewire\Provincias;
 use App\Http\Livewire\Tipos;
 use App\Http\Livewire\Unidades;
+use App\Http\Livewire\Users;
+use App\Http\Livewire\Roles;
+use App\Http\Livewire\Permisos;
+use App\Http\Livewire\Asignar;
+use App\Http\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,22 +25,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('provincias', Provincias::class)->name('provincias');
-Route::get('cantones', Cantones::class)->name('cantones');
-Route::get('edificios', Edificios::class)->name('edificios');
-Route::get('unidades', Unidades::class)->name('unidades');
+Route::middleware(['auth'])->group(function (){
 
-Route::get('marcas', Marcas::class)->name('marcas');
-Route::get('tipos', Tipos::class)->name('tipos');
-Route::get('modelos',Modelos::class)->name('modelos');
+    Route::get('provincias', Provincias::class)->name('provincias');
+    Route::get('cantones', Cantones::class)->name('cantones');
+    Route::get('edificios', Edificios::class)->name('edificios');
+    Route::get('unidades', Unidades::class)->name('unidades');
+
+    Route::get('marcas', Marcas::class)->name('marcas');
+    Route::get('tipos', Tipos::class)->name('tipos');
+    Route::get('modelos',Modelos::class)->name('modelos');
+
+    Route::get('users', Users::class)->name('users');
+    Route::get('roles', Roles::class)->name('roles');
+    Route::get('permisos', Permisos::class)->name('permisos');
+    Route::get('asignar', Asignar::class)->name('asignar');
+    Route::get('dash', Dashboard::class)->name('dash');
+
+});
 
 
+
+
+// ruta principal
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

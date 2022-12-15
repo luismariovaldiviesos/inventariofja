@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MarcaSeeder::class);
         $this->call(MarcaTipoSeeder::class);
         $this->call(ModeloSeeder::class);
+        $this->call(PermisosSeeder::class);
     }
 }
