@@ -73,9 +73,9 @@
 
         <li>
             <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title">
-                    PERMISOS
+                    ADMIN
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -181,7 +181,7 @@
 
             {{-- @hasrole('Admin') --}}
             <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="map-pin"></i> </div>
                 <div class="side-menu__title">
                     SITIOS
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
