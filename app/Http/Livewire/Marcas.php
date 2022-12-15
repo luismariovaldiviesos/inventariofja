@@ -32,9 +32,9 @@ class Marcas extends Component
         // dd($marcas->nombre);
 
         if (strlen($this->search) > 0)
-        $info = Marca::where('nombre', 'like', "%{$this->search}%")->paginate($this->pagination);
-    else
-        $info = Marca::paginate($this->pagination);
+            $info = Marca::where('nombre', 'like', "%{$this->search}%")->paginate($this->pagination);
+        else
+             $info = Marca::paginate($this->pagination);
 
 
 

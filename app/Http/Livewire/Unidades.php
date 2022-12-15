@@ -12,7 +12,7 @@ class Unidades extends Component
 
     use WithPagination;
 
-    public $nombre = '', $edificio_id, $canton,  $selected_id = 0;
+    public $nombre = '', $edificio_id, $edificio,  $selected_id = 0;
     public $action = 'Listado', $componentName = 'Listado de Unidades Judicial', $search, $form = false;
     private $pagination = 10;
     protected $paginationTheme = 'tailwind';

@@ -24,7 +24,7 @@ class Modelos extends Component
         // dd(Tipo::orderBy('id','asc')->get());
 
         if (strlen($this->search) > 0)
-            $info = Modelo::where('nombre', 'like', "%{$this->search}%")->paginate($this->pagination);
+        $info = Modelo::where('nombre', 'like', "%{$this->search}%")->paginate($this->pagination);
          else
             $info = Modelo::paginate($this->pagination);
 
