@@ -109,6 +109,71 @@
             </ul>
         </li>
 
+
+        <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                <div class="side-menu__title">
+                    EQUIPOS
+                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                </div>
+            </a>
+            <ul class="">
+
+
+                <li>
+                    <a href="{{ route('roles') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__title"> pcs  </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('permisos') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> laptos  </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                <div class="side-menu__title">
+                    PERIFERICOS
+                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                </div>
+            </a>
+            <ul class="">
+
+
+                <li>
+                    <a href="{{ route('roles') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__title"> Monitor  </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('permisos') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Teclado  </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('permisos') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Mouse  </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+
         {{-- @hasrole('Admin') --}}
 
         {{-- @endhasrole() --}}
