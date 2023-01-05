@@ -23,14 +23,6 @@ class Marcas extends Component
     {
 
 
-        // $marcas =  Marca::find(3);
-
-        // foreach($marcas->tipos as $tipo)
-        // {
-        //     dd($tipo->nombre);
-        // }
-        // dd($marcas->nombre);
-
         if (strlen($this->search) > 0)
             $info = Marca::where('nombre', 'like', "%{$this->search}%")->paginate($this->pagination);
         else

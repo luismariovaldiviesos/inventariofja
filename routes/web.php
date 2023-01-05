@@ -12,6 +12,7 @@ use App\Http\Livewire\Roles;
 use App\Http\Livewire\Permisos;
 use App\Http\Livewire\Asignar;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Monitores;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('users', Users::class)->name('users');
 
 Route::middleware(['auth'])->group(function (){
 
@@ -36,11 +38,14 @@ Route::middleware(['auth'])->group(function (){
     Route::get('tipos', Tipos::class)->name('tipos');
     Route::get('modelos',Modelos::class)->name('modelos');
 
-    Route::get('users', Users::class)->name('users');
+
     Route::get('roles', Roles::class)->name('roles');
     Route::get('permisos', Permisos::class)->name('permisos');
     Route::get('asignar', Asignar::class)->name('asignar');
     Route::get('dash', Dashboard::class)->name('dash');
+
+
+    Route::get('monitores', Monitores::class)->name('monitores');
 
 });
 

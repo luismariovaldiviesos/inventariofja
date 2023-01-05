@@ -45,6 +45,14 @@ class Marca extends Model
      {
       return $this->hasMany(Modelo::class);
      }
+
+
+     // una marca tiene varios monitores
+
+     public function monitores()
+     {
+      return $this->hasMany(Monitor::class);
+     }
 }
 
 
