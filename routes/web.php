@@ -14,6 +14,7 @@ use App\Http\Livewire\Asignar;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Monitores;
 use App\Http\Livewire\Mouses;
+use App\Http\Livewire\Ratones;
 use App\Http\Livewire\Teclados;
 use Illuminate\Support\Facades\Route;
 
@@ -49,7 +50,7 @@ Route::middleware(['auth'])->group(function (){
 
     Route::get('monitores', Monitores::class)->name('monitores');
     Route::get('teclados', Teclados::class)->name('teclados');
-    // Route::get('mouses', Mouses::class)->name('mouses');
+    Route::get('ratones', Ratones::class)->name('ratones');
 
 
 
