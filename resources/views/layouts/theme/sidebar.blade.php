@@ -157,14 +157,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('permisos') }}" class="side-menu">
+                    <a href="{{ route('teclados') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Teclado  </div>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('permisos') }}" class="side-menu">
+                    <a href="#" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Mouse  </div>
                     </a>
