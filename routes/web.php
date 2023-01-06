@@ -45,6 +45,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('dash', Dashboard::class)->name('dash');
 
 
+    Route::get('monitores', Monitores::class)->name('monitores');
+
+
 
 
 });

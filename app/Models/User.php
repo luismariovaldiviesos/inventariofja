@@ -8,6 +8,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use PhpParser\Node\Stmt\Return_;
 
 class User extends Authenticatable
 {
@@ -142,5 +143,11 @@ class User extends Authenticatable
    public function unidad()
    {
     return $this->belongsTo(Unidad::class);
+   }
+
+   // tiene monitores
+   public function monitores()
+   {
+     RETURN $this->hasMany(Monitor::class);
    }
 }
