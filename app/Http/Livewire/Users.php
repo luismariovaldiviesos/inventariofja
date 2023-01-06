@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Unidad;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -11,7 +12,7 @@ class Users extends Component
 {
     use WithPagination;
 
-    public $name='', $ci='', $phone ='', $email='', $profile ='cajero', $status = 'ACTIVE',  $password='',
+    public $name='', $ci='', $phone ='', $email='', $profile ='cajero', $status = 'ACTIVE', $unidad_id ='Elegir',  $password='',
     $temppass='', $selected_id ='', $search ='';
     public $componentName = 'Usuarios', $form  = false;
 
@@ -24,20 +25,30 @@ class Users extends Component
     {
         if(strlen($this->search) > 0)
         {
-            $users = User::where('name','like',"%{$this->search}%")
-                           ->orWhere('email','like',"%{$this->search}%")
-                           ->orderBy('id','asc')
-                           ->paginate($this->pagination);
+
+            $info =  User::join('unidads as u','u.id','users.unidad_id')
+            ->select('users.*','u.nombre as unidad')
+            ->where('users.nombre','like',"%{$this->search}%")
+            //->orWhere('p.nombre','like',"%{$this->search}%")
+            ->paginate($this->pagination);
+
+
+            // $users = User::where('name','like',"%{$this->search}%")
+            //                ->orWhere('email','like',"%{$this->search}%")
+            //                ->orderBy('id','asc')
+            //                ->paginate($this->pagination);
         }
         else
         {
-            $users = User::orderBy('id','asc')
-                           ->paginate($this->pagination);
+            $users =  User::join('unidads as u','u.id','users.unidad_id')
+            ->select('users.*','u.nombre as unidad')
+            ->paginate($this->pagination);
         }
         return view('livewire.users.component',
         [
             'users' => $users,
-            'roles' => Role::orderBy('name','asc')->get()
+            'roles' => Role::orderBy('name','asc')->get(),
+            'unidades' => Unidad::orderBy('nombre','asc')->get()
         ])
         ->layout('layouts.theme.app');
     }
@@ -63,7 +74,7 @@ class Users extends Component
     {
         $this->resetValidation();
         $this->resetPage();
-        $this->reset('name','ci','phone', 'status','selected_id','temppass','search','componentName', 'email','password','profile','form');
+        $this->reset('name','ci','phone', 'status','selected_id','temppass','search','componentName', 'email','password','profile','form','unidad_id');
     }
 
     public function Edit(User $user)
@@ -74,6 +85,7 @@ class Users extends Component
         $this->ci =  $user->ci;
         $this->phone =  $user->phone;
         $this->email = $user->email;
+        $this->unidad_id = $user->unidad_id;
         $this->profile = $user->profile;
         $this->status = $user->status;
         $this->password = null;
@@ -97,6 +109,7 @@ class Users extends Component
                 'ci' => $this->ci,
                 'phone' => $this->phone,
                 'email' =>  $this->email,
+                'unidad_id' =>  $this->unidad_id,
                 'profile' =>  $this->profile,
                 'status' => $this->status,
                 'password' => strlen($this->password) > 0 ? bcrypt($this->password) : $this->temppass

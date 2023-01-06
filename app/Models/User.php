@@ -24,6 +24,7 @@ class User extends Authenticatable
         'ci',
         'phone',
         'email',
+        'unidad_id',
         'profile',
         'status',
         'password',
@@ -57,6 +58,7 @@ class User extends Authenticatable
                 'ci' => 'required|min:10|max:13|unique:users',
                 'phone' => 'required',
                 'email' => 'required|email|unique:users',
+                'unidad_id' => 'required|not_in:elegir',
                 'profile'=> 'required|not_in:elegir',
                 'status'=> 'required|not_in:elegir'
             ];
@@ -69,6 +71,7 @@ class User extends Authenticatable
                 'ci' => "required|min:10|max:13|unique:users,ci,{$id}",
                 'phone' => 'required',
                 'email' => "required|email|unique:users,email,{$id}",
+                'unidad_id'=> 'required|not_in:elegir',
                 'profile'=> 'required|not_in:elegir',
                 'status'=> 'required|not_in:elegir'
             ];
@@ -93,6 +96,9 @@ class User extends Authenticatable
         'email.required' => 'email es requerido',
         'email.unique' => 'email ya esta en uso',
         'email.email' => 'email es inválido',
+
+        'unidad_id.required' => 'unidad judicial es requerido',
+        'unidad_id.not_in' => 'Seleccione una unidad válida',
 
         'status.required' => 'estado  es requerido',
         'status.not_in' => 'Seleccione un estado  válido',
@@ -128,5 +134,13 @@ class User extends Authenticatable
         }
 
         return 'storage/default_avatar.JPG';
+   }
+
+
+   // un usuario pertenece a una unidad
+
+   public function unidad()
+   {
+    return $this->belongsTo(Unidad::class);
    }
 }

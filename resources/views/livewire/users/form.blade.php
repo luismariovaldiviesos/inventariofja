@@ -47,6 +47,20 @@
                     </div>
                     <div class="grid grid-cols-6">
                         <div class="col-end-2 bg-amber-500">
+                            <label class="form-label">Unidad</label>
+                            <select wire:model.lazy='unidad_id' class="form-select form-select-lg sm:mr-2">
+                                <option value="Elegir" selected>Elegir</option>
+                                @foreach ($unidades as $unidad )
+                                <option value="{{$unidad->id}}" >{{$unidad->nombre}}</option>
+                                @endforeach
+                            </select>
+                            @error('unidad_id')
+                            <x-alert msg="{{ $message }}" />
+                        @enderror
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-6">
+                        <div class="col-end-2 bg-amber-500">
                             <label class="form-label">Perfil</label>
                             <select wire:model.lazy='profile' class="form-select form-select-lg sm:mr-2">
                                 <option value="Elegir" selected>Elegir</option>

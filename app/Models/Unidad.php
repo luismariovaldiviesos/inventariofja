@@ -49,4 +49,11 @@ class Unidad extends Model
     {
         return  $this->belongsTo(Edificio::class);
     }
+
+
+    //una unidad tien muchos usuarios
+    public function usuarios()
+    {
+        return  $this->hasMany(User::class);
+    }
 }
