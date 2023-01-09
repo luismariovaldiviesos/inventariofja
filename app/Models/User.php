@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Http\Livewire\Teclados;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -148,6 +150,32 @@ class User extends Authenticatable
    // tiene monitores
    public function monitores()
    {
-     RETURN $this->hasMany(Monitor::class);
+     return $this->hasMany(Monitor::class);
+   }
+
+   public function teclados()
+   {
+     return $this->hasMany(Teclado::class);
+   }
+
+   public function ratones()
+   {
+     return $this->hasMany(Raton::class);
+   }
+
+
+   public function telefonos()
+   {
+     return $this->hasMany(Telefono::class);
+   }
+
+   public function scanners()
+   {
+     return $this->hasMany(Scanner::class);
+   }
+
+   public function impresoras()
+   {
+     return $this->hasMany(Impresora::class);
    }
 }
