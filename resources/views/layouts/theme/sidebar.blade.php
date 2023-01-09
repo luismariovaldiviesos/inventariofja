@@ -199,7 +199,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('ratones') }}" class="side-menu">
+                    <a href="{{ route('impresoras') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Impresora  </div>
                     </a>

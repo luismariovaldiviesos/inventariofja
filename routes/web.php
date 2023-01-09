@@ -12,13 +12,12 @@ use App\Http\Livewire\Roles;
 use App\Http\Livewire\Permisos;
 use App\Http\Livewire\Asignar;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Impresoras;
 use App\Http\Livewire\Monitores;
-use App\Http\Livewire\Mouses;
 use App\Http\Livewire\Ratones;
 use App\Http\Livewire\Scanners;
 use App\Http\Livewire\Teclados;
 use App\Http\Livewire\Telefonos;
-use App\Models\Scanner;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +57,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('telefonos', Telefonos::class)->name('telefonos');
 
     Route::get('scanners', Scanners::class)->name('scanners');
+    Route::get('impresoras', Impresoras::class)->name('impresoras');
 
 
 
