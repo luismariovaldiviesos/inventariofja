@@ -174,6 +174,41 @@
             </ul>
         </li>
 
+        <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                <div class="side-menu__title">
+                    COMPLEMENTOS
+                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                </div>
+            </a>
+            <ul class="">
+
+
+                <li>
+                    <a href="{{ route('telefonos') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__title"> Teléfono  </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('teclados') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Scanner  </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('ratones') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Impresora  </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+
         {{-- @hasrole('Admin') --}}
 
         {{-- @endhasrole() --}}
