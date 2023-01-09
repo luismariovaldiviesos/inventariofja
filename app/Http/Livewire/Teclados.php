@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Marca;
 use App\Models\Teclado;
+use App\Models\Tipo;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -19,6 +20,12 @@ class Teclados extends Component
 
     public function render()
     {
+        $tip =  Tipo::where('nombre','=','TECLADO')->get();
+        foreach($tip as $t)
+        {
+            //dd($t->id);
+             $marcas = Tipo::find($t->id)->marcas()->orderBy('nombre')->get();
+        }
         if(strlen($this->search) > 0)
         $info =  Teclado::join('users as u','u.id','teclados.user_id')
             ->select('teclados.*','u.name as usuario')
@@ -35,7 +42,7 @@ class Teclados extends Component
         return view('livewire.teclados.component', [
         'teclados' => $info,
         'usuarios' => User::orderBy('id','asc')->get(),
-        'marcas' => Marca::orderBy('id','asc')->get(),
+        'marcas' => $marcas
 
            ])->layout('layouts.theme.app');
     }

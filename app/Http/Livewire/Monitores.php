@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Marca;
 use App\Models\Monitor;
+use App\Models\Tipo;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,6 +22,13 @@ class Monitores extends Component
 
     public function render()
     {
+        $tip =  Tipo::where('nombre','=','MONITOR')->get();
+        foreach($tip as $t)
+        {
+            //dd($t->id);
+             $marcas = Tipo::find($t->id)->marcas()->orderBy('nombre')->get();
+        }
+
         if(strlen($this->search) > 0)
         $info =  Monitor::join('users as u','u.id','monitors.user_id')
             ->select('monitors.*','u.name as usuario')
@@ -37,7 +45,7 @@ class Monitores extends Component
         return view('livewire.monitores.component', [
         'monitores' => $info,
         'usuarios' => User::orderBy('id','asc')->get(),
-        'marcas' => Marca::orderBy('id','asc')->get(),
+        'marcas' => $marcas
 
            ])->layout('layouts.theme.app');
     }

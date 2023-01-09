@@ -20,6 +20,14 @@ class Ratones extends Component
 
     public function render()
     {
+        $tip =  Tipo::where('nombre','=','MOUSE')->get();
+        foreach($tip as $t)
+        {
+            //dd($t->id);
+             $marcas = Tipo::find($t->id)->marcas()->orderBy('nombre')->get();
+        }
+
+
 
 
         if(strlen($this->search) > 0)
@@ -38,7 +46,7 @@ class Ratones extends Component
         return view('livewire.ratones.component', [
         'ratones' => $info,
         'usuarios' => User::orderBy('id','asc')->get(),
-        'marcas' => Marca::orderBy('id','asc')->get(),
+        'marcas' => $marcas
 
            ])->layout('layouts.theme.app');
     }
