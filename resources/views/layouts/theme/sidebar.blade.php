@@ -192,7 +192,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('teclados') }}" class="side-menu">
+                    <a href="{{ route('scanners') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Scanner  </div>
                     </a>
