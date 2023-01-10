@@ -13,6 +13,7 @@ use App\Http\Livewire\Permisos;
 use App\Http\Livewire\Asignar;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Impresoras;
+use App\Http\Livewire\Laptops;
 use App\Http\Livewire\Monitores;
 use App\Http\Livewire\Pcs;
 use App\Http\Livewire\Ratones;
@@ -61,6 +62,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('impresoras', Impresoras::class)->name('impresoras');
 
     Route::get('pcs', Pcs::class)->name('pcs');
+
+    Route::get('laptops', Laptops::class)->name('laptops');
 
 
 

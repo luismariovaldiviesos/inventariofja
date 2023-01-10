@@ -128,7 +128,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('permisos') }}" class="side-menu">
+                    <a href="{{ route('laptops') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> laptos  </div>
                     </a>
