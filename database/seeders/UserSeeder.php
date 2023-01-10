@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'ci' => '0104649843',
             'phone' => '09873086688',
             'email' => 'admin@mail.com',
+            'unidad_id' => 1,
             'profile' => 'Admin',
             'status' => 'ACTIVE',
             'password' => bcrypt('administrador')
