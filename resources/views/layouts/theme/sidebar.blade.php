@@ -8,8 +8,6 @@
     <div class="side-nav__devider my-6"></div>
 
     <ul>
-
-
         <li>
 
             {{-- @hasrole('Admin') --}}
@@ -26,48 +24,24 @@
 
                 <li>
                     <a href="{{ url('marcas') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
-                        <div class="side-menu__title"> MARCAS  </div>
+                        <div class="side-menu__icon"> <i data-feather="award"></i> </div>
+                        <div class="side-menu__title"> Marcas  </div>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ url('tipos') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
-                        <div class="side-menu__title"> TIPOS   </div>
+                        <div class="side-menu__icon"> <i data-feather="align-justify"></i> </div>
+                        <div class="side-menu__title"> Tipo Activos   </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('modelos') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
-                        <div class="side-menu__title"> MODELOS   </div>
+                        <div class="side-menu__icon"> <i data-feather="cloud"></i> </div>
+                        <div class="side-menu__title"> Modelos   </div>
                     </a>
                 </li>
 
-                <li>
-                    {{-- <a href="{{ route('roles') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
-                        <div class="side-menu__title"> ROLES  </div>
-                    </a> --}}
-                </li>
-                <li>
-                    {{-- <a href="{{ route('permisos') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> PERMISOS  </div>
-                    </a> --}}
-                </li>
-                <li>
-                    {{-- <a href="{{ route('asignar') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> ASIGNAR PERMISOS  </div>
-                    </a> --}}
-                </li>
-                <li>
-                    {{-- <a href="{{ route('users') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="key"></i> </div>
-                        <div class="side-menu__title"> USUARIOS  </div>
-                    </a> --}}
-                </li>
             </ul>
         </li>
 
@@ -75,7 +49,7 @@
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title">
-                    ADMIN
+                    PERSONAS
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -84,26 +58,26 @@
 
                 <li>
                     <a href="{{ route('roles') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
-                        <div class="side-menu__title"> ROLES  </div>
+                        <div class="side-menu__icon"> <i data-feather="aperture"></i> </div>
+                        <div class="side-menu__title"> Roles  </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('permisos') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> PERMISOS  </div>
+                        <div class="side-menu__icon"> <i data-feather="key"></i> </div>
+                        <div class="side-menu__title"> Permisos  </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('asignar') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> ASIGNAR PERMISOS  </div>
+                        <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
+                        <div class="side-menu__title"> Asignar Permisos  </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('users') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="key"></i> </div>
-                        <div class="side-menu__title"> USUARIOS  </div>
+                        <div class="side-menu__icon"> <i data-feather="user"></i> </div>
+                        <div class="side-menu__title"> Usuarios  </div>
                     </a>
                 </li>
             </ul>
@@ -112,7 +86,7 @@
 
         <li>
             <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="database"></i> </div>
                 <div class="side-menu__title">
                     EQUIPOS
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
@@ -123,14 +97,14 @@
 
                 <li>
                     <a href="{{ route('pcs') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
-                        <div class="side-menu__title"> pcs  </div>
+                        <div class="side-menu__icon"> <i data-feather="monitor"></i> </div>
+                        <div class="side-menu__title"> Pcs  </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('laptops') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> laptos  </div>
+                        <div class="side-menu__icon"> <i data-feather="cpu"></i> </div>
+                        <div class="side-menu__title"> Laptops  </div>
                     </a>
                 </li>
 
@@ -141,7 +115,7 @@
 
         <li>
             <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="shuffle"></i> </div>
                 <div class="side-menu__title">
                     PERIFERICOS
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
@@ -152,20 +126,20 @@
 
                 <li>
                     <a href="{{ route('monitores') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="monitor"></i> </div>
                         <div class="side-menu__title"> Monitor  </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('teclados') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="paperclip"></i> </div>
                         <div class="side-menu__title"> Teclado  </div>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('ratones') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="mouse-pointer"></i> </div>
                         <div class="side-menu__title"> Mouse  </div>
                     </a>
                 </li>
@@ -176,9 +150,9 @@
 
         <li>
             <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
                 <div class="side-menu__title">
-                    COMPLEMENTOS
+                    EXTRAS
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
@@ -187,20 +161,20 @@
 
                 <li>
                     <a href="{{ route('telefonos') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="phone"></i> </div>
                         <div class="side-menu__title"> Teléfono  </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('scanners') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="tablet"></i> </div>
                         <div class="side-menu__title"> Scanner  </div>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('impresoras') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="printer"></i> </div>
                         <div class="side-menu__title"> Impresora  </div>
                     </a>
                 </li>
@@ -293,28 +267,28 @@
 
                 <li>
                     <a href="{{ route('provincias') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
-                        <div class="side-menu__title"> provincias  </div>
+                        <div class="side-menu__icon"> <i data-feather="corner-right-down"></i> </div>
+                        <div class="side-menu__title"> Provincias  </div>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('cantones') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="corner-up-right"></i> </div>
                         <div class="side-menu__title"> Cantones  </div>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('edificios') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="corner-up-left"></i> </div>
                         <div class="side-menu__title"> Edificios  </div>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('unidades') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__icon"> <i data-feather="corner-left-up"></i> </div>
                         <div class="side-menu__title"> Unidades Judiciales  </div>
                     </a>
                 </li>
