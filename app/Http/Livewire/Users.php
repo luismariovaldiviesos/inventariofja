@@ -28,7 +28,7 @@ class Users extends Component
 
             $info =  User::join('unidads as u','u.id','users.unidad_id')
             ->select('users.*','u.nombre as unidad')
-            ->where('users.nombre','like',"%{$this->search}%")
+            ->where('users.name','like',"%{$this->search}%")
             //->orWhere('p.nombre','like',"%{$this->search}%")
             ->paginate($this->pagination);
 
@@ -40,13 +40,13 @@ class Users extends Component
         }
         else
         {
-            $users =  User::join('unidads as u','u.id','users.unidad_id')
+            $info =  User::join('unidads as u','u.id','users.unidad_id')
             ->select('users.*','u.nombre as unidad')
             ->paginate($this->pagination);
         }
         return view('livewire.users.component',
         [
-            'users' => $users,
+            'users' => $info,
             'roles' => Role::orderBy('name','asc')->get(),
             'unidades' => Unidad::orderBy('nombre','asc')->get()
         ])

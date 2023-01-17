@@ -1,9 +1,10 @@
 no olvidar proteger la ruta de usuarios
 
-hacer crud de perin
-hacer crud perex
-
 validar que usuario no se elimine si tiene activos
+
+
+HCER QIE SE SELECCIONE EL USUARIO
+usuario_id en activo puede ser nulo
 
 
 

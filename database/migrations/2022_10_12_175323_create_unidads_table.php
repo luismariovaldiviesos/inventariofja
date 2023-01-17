@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('unidads', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',50);
+            $table->string('nombre',150);
             $table->foreignId('edificio_id')->constrained();
             $table->timestamps();
         });

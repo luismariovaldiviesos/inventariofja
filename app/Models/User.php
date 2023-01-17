@@ -59,7 +59,6 @@ class User extends Authenticatable
             [
                 'name' => 'required|min:3|max:50|string|unique:users',
                 'ci' => 'required|min:10|max:13|unique:users',
-                'phone' => 'required',
                 'email' => 'required|email|unique:users',
                 'unidad_id' => 'required|not_in:elegir',
                 'profile'=> 'required|not_in:elegir',
@@ -72,7 +71,6 @@ class User extends Authenticatable
             [
                 'name' => "required|min:3|max:50|string|unique:users,name,{$id}",
                 'ci' => "required|min:10|max:13|unique:users,ci,{$id}",
-                'phone' => 'required',
                 'email' => "required|email|unique:users,email,{$id}",
                 'unidad_id'=> 'required|not_in:elegir',
                 'profile'=> 'required|not_in:elegir',
@@ -93,7 +91,7 @@ class User extends Authenticatable
         'ci.min' => 'ci-ruc debe tener al menos 10 caracteres',
         'ci.max' => 'ci-ruc debe tener maximo 13 caracteres',
 
-        'phone.required' => 'teléfono es requerido requerido',
+
 
 
         'email.required' => 'email es requerido',

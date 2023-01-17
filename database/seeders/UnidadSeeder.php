@@ -26,12 +26,7 @@ class UnidadSeeder extends Seeder
         ]);
 
         Unidad::create([
-            'nombre' =>  'ARCHIVO ALTO',
-            'edificio_id' => 1
-        ]);
-
-        Unidad::create([
-            'nombre' =>  'ARCHIVO BAJO',
+            'nombre' =>  'ARCHIVO',
             'edificio_id' => 1
         ]);
 
@@ -41,7 +36,7 @@ class UnidadSeeder extends Seeder
         ]);
 
         Unidad::create([
-            'nombre' =>  'CIVIL',
+            'nombre' =>  'UNIDAD CIVIL',
             'edificio_id' => 1
         ]);
 
@@ -75,12 +70,12 @@ class UnidadSeeder extends Seeder
         ]);
 
         Unidad::create([
-            'nombre' =>  'INFORMATICA',
+            'nombre' =>  'TECNOLOGIAS DE INFORMACION Y COMUNICACIONES',
             'edificio_id' => 1
         ]);
 
         Unidad::create([
-            'nombre' =>  'LABORAL',
+            'nombre' =>  'UNIDAD JUDICIAL DE TRABAJO',
             'edificio_id' => 1
         ]);
 
@@ -95,7 +90,7 @@ class UnidadSeeder extends Seeder
         ]);
 
         Unidad::create([
-            'nombre' =>  'TRIBUNALES',
+            'nombre' =>  'TRIBUNAL DE GARANTÍAS PENALES',
             'edificio_id' => 1
         ]);
 
@@ -103,6 +98,8 @@ class UnidadSeeder extends Seeder
             'nombre' =>  'VENTANILLA CONSULTA DE CAUSAS',
             'edificio_id' => 1
         ]);
+
+
 
 
         Unidad::create([
@@ -131,7 +128,7 @@ class UnidadSeeder extends Seeder
         ]);
 
         Unidad::create([
-            'nombre' =>  'FAMILIA',
+            'nombre' =>  'UNIDAD JUDICIAL DE FAMILIA, MUJER, NIÑEZ Y ADOLESCENCIA',
             'edificio_id' => 2
         ]);
 
@@ -199,7 +196,11 @@ class UnidadSeeder extends Seeder
 
 
         Unidad::create([
-            'nombre' =>  ' TRIBUNAL DISTRITAL CONTENCIOSO TRIBUTARIO',
+            'nombre' =>  ' TRIBUNAL DISTRITAL DE LO CONTENCIOSO TRIBUTARIO',
+            'edificio_id' => 2
+        ]);
+        Unidad::create([
+            'nombre' =>  ' TRIBUNAL DISTRITAL DE LO CONTENCIOSO ADMINISTRATIVO',
             'edificio_id' => 2
         ]);
 
@@ -209,7 +210,7 @@ class UnidadSeeder extends Seeder
         ]);
 
         Unidad::create([
-            'nombre' =>  'VIOLENCIA INTRAFAMILIAR',
+            'nombre' =>  'UNIDAD JUDICIAL DE VIOLENCIA CONTRA LA MUJER O MIEMBROS DEL NÚCLEO FAMILIAR',
             'edificio_id' => 2
         ]);
 
@@ -258,6 +259,10 @@ class UnidadSeeder extends Seeder
             'nombre' =>  'VENTANILLA CORTE',
             'edificio_id' => 3
         ]);
+        Unidad::create([
+            'nombre' =>  'CORTE PROVINCIAL',
+            'edificio_id' => 3
+        ]);
 
         Unidad::create([
             'nombre' =>  'UNIDAD JUDICIAL DE GUALACEO',
@@ -298,6 +303,33 @@ class UnidadSeeder extends Seeder
             'nombre' =>  'UNIDAD JUDICIAL DE PONCE ENRIQUEZ',
             'edificio_id' => 11
         ]);
+
+        Unidad::create([
+            'nombre' =>  'UNIDAD JUDICIAL ESPECIALIZADA DE GARANTIAS PENITENCIARIAS',
+            'edificio_id' => 1
+        ]);
+
+        Unidad::create([
+            'nombre' =>  'UNIDAD JUDICIAL ESPECIALIZADA DE TRÁNSITO',
+            'edificio_id' => 1
+        ]);
+
+
+
+        Unidad::create([
+            'nombre' =>  'UNIDAD PROVINCIAL DE COMUNICACION SOCIAL',
+            'edificio_id' => 2
+        ]);
+
+        Unidad::create([
+            'nombre' =>  'ESTUDIOS JURIMETRICOS Y ESTADISTICA JUDICIAL',
+            'edificio_id' => 2
+        ]);
+        Unidad::create([
+            'nombre' =>  'PLANIFICACIÓN',
+            'edificio_id' => 2
+        ]);
+
 
 
     }
