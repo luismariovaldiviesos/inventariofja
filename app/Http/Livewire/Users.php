@@ -18,7 +18,7 @@ class Users extends Component
 
     public $action = 'Listado';
     protected $paginationTheme = 'tailwind';
-    private $pagination = 10;
+    private $pagination = 20;
 
 
    public function render()
@@ -29,6 +29,8 @@ class Users extends Component
             $info =  User::join('unidads as u','u.id','users.unidad_id')
             ->select('users.*','u.nombre as unidad')
             ->where('users.name','like',"%{$this->search}%")
+            ->orWhere('users.ci','like',"%{$this->search}%")
+            ->orWhere('u.nombre','like',"%{$this->search}%")
             //->orWhere('p.nombre','like',"%{$this->search}%")
             ->paginate($this->pagination);
 

@@ -571,9 +571,109 @@ class UserSeeder extends Seeder
             'password' => bcrypt('1715119051')
         ]);
 
+        User::create([
+            'name' => 'AVILA CAMPOVERDE OLGA PATRICIA',
+            'ci' => '0103539540',
+            'phone' => '',
+            'email' => 'Olga.Avila@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0103539540')
+        ]);
 
+         User::create([
+            'name' => 'TORRES BORJA PABLO FERNANDO',
+            'ci' => '0101880219',
+            'phone' => '',
+            'email' => 'pablo.torres@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0101880219')
+        ]);
+        User::create([
+            'name' => 'VASQUEZ REINOSO FAUSTO SILVERIO',
+            'ci' => '0101956118',
+            'phone' => '',
+            'email' => 'fausto.vasquez@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0101956118')
+        ]);
+            User::create([
+            'name' => 'BOADA HERRERA LINETH ALEXANDRA',
+            'ci' => '0603528266',
+            'phone' => '',
+            'email' => 'lineth.boada@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0603528266')
+        ]);
+            User::create([
+            'name' => 'BRAVO ORDOÑEZ GINA FILOMENA',
+            'ci' => '0102295474',
+            'phone' => '',
+            'email' => 'gina.bravo@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0102295474')
+        ]);
+         User::create([
+            'name' => 'ALVAREZ MARQUEZ MARCO ESTEBAN',
+            'ci' => '0104738950',
+            'phone' => '',
+            'email' => 'marco.alvarez@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0104738950')
+        ]);
 
+           User::create([
+            'name' => 'ANDRADE SERRANO MARIA JOSE',
+            'ci' => '0102310299',
+            'phone' => '',
+            'email' => 'maria.andrades@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0102310299')
+        ]);
+            User::create([
+            'name' => 'AREVALO POLO LORENA DEL ROCIO',
+            'ci' => '0104628615',
+            'phone' => '',
+            'email' => 'lorena.arevalo@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0104628615')
+        ]);
 
+        User::create([
+            'name' => 'ARIAS GARCIA SOFIA DEL PILAR',
+            'ci' => '0104059852',
+            'phone' => '',
+            'email' => 'sofia.arias@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0104059852')
+        ]);
+        User::create([
+            'name' => 'CARRASCO VEINTEMILLA LUCÍA DEL CARMEN',
+            'ci' => '0101852572',
+            'phone' => '',
+            'email' => 'lucia.carrasco@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0101852572')
+        ]);
 
     }
 }
