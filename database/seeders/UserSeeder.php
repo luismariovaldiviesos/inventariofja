@@ -674,6 +674,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0101852572')
         ]);
+		
 
     }
 }

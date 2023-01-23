@@ -93,7 +93,8 @@
 
     @endif
 
-    {{-- @include('livewire.sales.keyboard') --}}
+    @include('livewire.impresoras.modal-customers')
+    @include('livewire.impresoras.script')
 
 
     {{-- para el buscador  --}}

@@ -59,13 +59,14 @@
                         <div class="grid grid-cols-6">
                             <div class="col-end-2 bg-amber-500">
                                 <label class="form-label">Usuario a cargo</label>
-                                <select wire:model='user_id' class="form-select form-select-lg sm:mr-2">
+                                <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">{{$customerSelected}}</button>
+                                {{-- <select wire:model='user_id' class="form-select form-select-lg sm:mr-2">
                                    <option selected="elegir">Elegir</option>
                                    @foreach ($usuarios as $user )
                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
 
-                                </select>
+                                </select> --}}
                                 @error('user_id')
                                 <x-alert msg="{{ $message }}" />
                             @enderror

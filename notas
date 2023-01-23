@@ -6,5 +6,9 @@ validar que usuario no se elimine si tiene activos
 HCER QIE SE SELECCIONE EL USUARIO
 usuario_id en activo puede ser nulo
 
+cambiar el inicio va al dashboard
+estamos en hacer que se seleccione el usuario de cada activo, ya seleccione pero muestra el id
+esto en impreesoras, hay que  hacer que se cierre el modal tambie
+
 
 
