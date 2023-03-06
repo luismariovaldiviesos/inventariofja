@@ -1,5 +1,8 @@
 no olvidar proteger la ruta de usuarios
 
+
+************* la ruta de inicio se cambia en app\Providers\RouteServiceProvider***********************
+
 validar que usuario no se elimine si tiene activos
 
 
