@@ -1,4 +1,4 @@
-<div wire:ignore.self id="modalCustomer" class="modal" data-backdrop="static" tabindex="-1">
+<div wire:ignore.self id="modalUsuario" class="modal" data-backdrop="static" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
@@ -17,7 +17,7 @@
 
                                     <div class="input-group">
                                         <div id="input-group-3" class="input-group-text"><i class="fas fa-search"></i></div>
-                                        <input wire:model="searchCustomer" id="customer-search" type="text" class="form-control form-control-lg kioskboard" placeholder="Buscar cliente" >
+                                        <input wire:model="searchUsuario" id="usuario-search" type="text" class="form-control form-control-lg kioskboard" placeholder="Buscar Usuario" >
                                     </div>
 
 
@@ -29,18 +29,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse($customers as $customer)
+                                            @forelse($usuarios as $usuario)
                                             <tr class="dark:bg-dark-1 text-lg {{$loop->index % 2 > 0 ? 'bg-gray-200' : ''}}">
                                                 <td class="border-b dark:border-dark-5 ">
-                                                    {{$customer->name}}
+                                                    {{$usuario->name}}
                                                 </td>
                                                 <td>
-                                                    <button wire:click.prevent="$set('customerSelected', '{{$customer->id}}')" class="btn btn-outline-primary">Seleccionar</button>
+                                                    <button wire:click.prevent="$set('usuarioSelected', '{{$usuario->name}}')" class="btn btn-outline-primary">Seleccionar</button>
                                                 </td>
                                             </tr>
                                             @empty
                                             <tr>
-                                                <td colspan="5" class="text-center">NO HAY CLIENTES REGISTRADOS</td>
+                                                <td colspan="5" class="text-center">NO HAY USUARIOS REGISTRADOS</td>
                                             </tr>
                                             @endforelse
                                         </tbody>

@@ -12,7 +12,7 @@ class Impresoras extends Component
 {
     use WithPagination;
 
-    public $serie = '', $af='',  $searchCustomer, $customerSelected ="Seleccionar Cliente", $ac='', $modelo_id, $user_id,  $selected_id = 0;
+    public $serie = '', $af='',  $searchUsuario, $usuarioSelected ="Seleccionar Usuario", $ac='', $modelo_id, $user_id,  $selected_id = 0;
     public $action = 'Listado', $componentName = 'Listado de Teléfonos', $search, $form = false;
     private $pagination = 10;
     protected $paginationTheme = 'tailwind';
@@ -21,7 +21,7 @@ class Impresoras extends Component
     public $year, $listYears=[];
 
     //usuarios
-   public  $customers =[];
+   public  $usuarios =[];
 
     public function mount()
     {
@@ -32,12 +32,12 @@ class Impresoras extends Component
 
     public function render()
     {
-        if(strlen($this->searchCustomer) > 0){
-            $this->customers =  User::where('name','like',"%{$this->searchCustomer}%")
+        if(strlen($this->searchUsuario) > 0){
+            $this->usuarios =  User::where('name','like',"%{$this->searchUsuario}%")
             ->orderBy('name','asc')->get()->take(5); //primeros 5 clientes
         }
         else{
-            $this->customers =  User::orderBy('name','asc')->get()->take(5); //primeros 5 clientes
+            $this->usuarios =  User::orderBy('name','asc')->get()->take(5); //primeros 5 clientes
         }
         //dd($this->customers);
 
@@ -128,7 +128,10 @@ class Impresoras extends Component
     {
         sleep(1);
 
+        $this->user_id = User::where('name',$this->usuarioSelected)->first()->id;
         $this->validate(Impresora::rules($this->selected_id), Impresora::$messages);
+
+        //dd($this->user_id);
 
         $impresora = Impresora::updateOrCreate(
             ['id' => $this->selected_id],
@@ -161,4 +164,6 @@ class Impresoras extends Component
         }
 
     }
+
+
 }
