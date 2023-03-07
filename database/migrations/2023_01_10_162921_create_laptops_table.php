@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('dd');
             $table->string('serie',50)->nullable();
             $table->string('af',50);
-            $table->year('ac'); //año comptra
+            $table->string('ac'); //año comptra
             $table->foreignId('modelo_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

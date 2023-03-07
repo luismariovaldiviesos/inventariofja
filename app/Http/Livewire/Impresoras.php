@@ -108,7 +108,7 @@ class Impresoras extends Component
         // regresar a la página inicial del componente
         $this->resetPage();
         // regresar propiedades a su valor por defecto
-        $this->reset('serie','af', 'ac', 'modelo_id','user_id', 'selected_id', 'search', 'action', 'componentName', 'form');
+        $this->reset('serie','af', 'ac', 'modelo_id','user_id', 'usuarioSelected', 'selected_id', 'search', 'action', 'componentName', 'form');
     }
 
     public function Edit(Impresora $impresora)
@@ -119,6 +119,7 @@ class Impresoras extends Component
         $this->ac = $impresora->ac;
         $this->modelo_id =  $impresora->modelo_id;
         $this->user_id =  $impresora->user_id;
+        $this->usuarioSelected  = User::where('id',$this->user_id)->first()->name;
         $this->action = 'Editar';
         $this->form = true;
 
@@ -127,9 +128,17 @@ class Impresoras extends Component
     public function Store()
     {
         sleep(1);
-
-        $this->user_id = User::where('name',$this->usuarioSelected)->first()->id;
         $this->validate(Impresora::rules($this->selected_id), Impresora::$messages);
+        if($this->usuarioSelected == 'Seleccionar Usuario' )
+        {
+            $this->noty('Se debe asignar usuario al activo fijo', 'noty', 'error');
+            return;
+
+        }
+        else{
+            $this->user_id = User::where('name',$this->usuarioSelected)->first()->id;
+        }
+
 
         //dd($this->user_id);
 
@@ -160,7 +169,7 @@ class Impresoras extends Component
 
         else
         {
-            $this->noty("LA impresora tiene usuario relacionado  y no es posible eliminarlo");
+            $this->noty("La impresora tiene usuario relacionado  y no es posible eliminarlo");
         }
 
     }

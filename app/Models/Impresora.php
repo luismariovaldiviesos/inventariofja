@@ -15,19 +15,19 @@ class Impresora extends Model
     {
         if ($id <= 0) {
             return [
-                'serie' => 'unique:telefonos',
-                'af' => 'required|unique:telefonos',
+                'serie' => 'unique:impresoras',
+                'af' => 'required|unique:impresoras',
                 'ac' => 'required',
-                'modelo_id' => 'required',
-                'user_id' => 'required'
+                'modelo_id' => 'required'
+                //'user_id' => 'required'
             ];
         } else {
             return [
-                'serie' => "unique:telefonos,serie,{$id}",
-                'af' => "required|unique:telefonos,af,{$id}",
+                'serie' => "unique:impresoras,serie,{$id}",
+                'af' => "required|unique:impresoras,af,{$id}",
                 'ac' => 'required',
-                'modelo_id' => 'required',
-                'user_id' => 'required'
+                'modelo_id' => 'required'
+                //'user_id' => 'required'
             ];
         }
     }
@@ -38,7 +38,7 @@ class Impresora extends Model
         'serie.unique' => 'número de serie ya existe en el sistema',
         'ac.required' => 'año de  compra es requerido',
         'modelo_id.required' => ' marca es requerida',
-        'user_id.required' => ' usuario a cargo del bien es requerido'
+        //'user_id.required' => ' usuario a cargo del bien es requerido'
     ];
 
 

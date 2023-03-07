@@ -1,10 +1,16 @@
 <script>
 
+
+//cerar modal usuario en este caso
+
     window.addEventListener('close-customer-modal', event => {
         closeModalCustomer()
     })
 
-    function openModalCustomer() {
+
+
+
+    function openModalCustomer() { //modal usuario
 		var modal = document.getElementById("modalUsuario")
 		modal.classList.add("overflow-y-auto", "show")
 		modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 1000;"
@@ -13,7 +19,7 @@
 
 
 
-    function closeModalCustomer() {
+    function closeModalCustomer() { //modal usuario
 		var modal = document.getElementById("modalUsuario")
 		modal.classList.remove("overflow-y-auto", "show")
 		modal.style.cssText = ""
