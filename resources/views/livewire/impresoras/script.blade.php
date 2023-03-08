@@ -3,8 +3,8 @@
 
 //cerar modal usuario en este caso
 
-    window.addEventListener('close-customer-modal', event => {
-        closeModalCustomer()
+    window.addEventListener('close-usuario-modal', event => {
+        closeModalUsuario()
     })
 
 
@@ -19,7 +19,7 @@
 
 
 
-    function closeModalCustomer() { //modal usuario
+    function closeModalUsuario() { //modal usuario
 		var modal = document.getElementById("modalUsuario")
 		modal.classList.remove("overflow-y-auto", "show")
 		modal.style.cssText = ""
@@ -32,25 +32,7 @@
         @this.searchUsuario = e.target.value
     })
 
-     //sincronizar valor de propiedades
-    //  const input2 =  document.getElementById('product-search')
-    // input2.addEventListener('change', (e) =>{
-    //     @this.searchProduct = e.target.value
-    // })
 
-        // const inputCash =  document.getElementById('cash')
-        // inputCash.addEventListener('change', (e) =>{
-        //     @this.cash = e.target.value
-        // })
-
-
-    // document.addEventListener('click', (e) => {
-    //     if(e.target.getAttribute('data-type') === 'qty'){
-    //         KioskBoard.run('#' + e.target.id, {})
-    //         document.getElementById( e.target.id).blur()
-    //         document.getElementById( e.target.id).focus()
-    //     }
-    // })
 
 
 </script>

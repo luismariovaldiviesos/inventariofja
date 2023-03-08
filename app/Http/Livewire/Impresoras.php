@@ -174,5 +174,13 @@ class Impresoras extends Component
 
     }
 
+    // para que se cierre al seleccionar el usuario
+    // esto va al front a script addEventListener(close-usuario-modal)
+    // que llama al metodo close modal usuario
+    public function updatedUsuarioSelected()
+    {
+        $this->dispatchBrowserEvent('close-usuario-modal');
+    }
+
 
 }
