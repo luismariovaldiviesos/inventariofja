@@ -93,8 +93,8 @@
 
     @endif
 
-    @include('livewire.impresoras.modal-customers')
-    @include('livewire.impresoras.script')
+    @include('livewire.usuariosaf.modal-customers')
+    @include('livewire.usuariosaf.script')
 
 
     {{-- para el buscador  --}}
