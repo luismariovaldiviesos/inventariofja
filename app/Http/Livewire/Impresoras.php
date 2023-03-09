@@ -131,7 +131,7 @@ class Impresoras extends Component
         $this->validate(Impresora::rules($this->selected_id), Impresora::$messages);
         if($this->usuarioSelected == 'Seleccionar Usuario' )
         {
-            $this->noty('Se debe asignar usuario al activo fijo', 'noty', 'error');
+            $this->noty('Se debe asignar usuario al activo fijo', 'noty', 'false');
             return;
 
         }
