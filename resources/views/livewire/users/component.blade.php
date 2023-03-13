@@ -20,9 +20,10 @@
                         <table class="table">
                             <thead>
                                 <tr class="text-theme-1">
+                                    <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >id</th>
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOMBRE</th>
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >CORREO</th>
-                                    <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >Unidad</th>
+                                    <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >UNIDAD</th>
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >PERFIL</th>
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ACCIONES</th>
                                 </tr>
@@ -31,6 +32,9 @@
                                 @forelse ($users as $user )
                                     <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
 
+                                        <td class="dark:border-dark-5">
+                                            <h6 class="mb-1 font-medium">{{ $user->id }}</h6>
+                                        </td>
                                         <td class="dark:border-dark-5">
                                             <h6 class="mb-1 font-medium">{{ $user->name }}</h6>
                                         </td>

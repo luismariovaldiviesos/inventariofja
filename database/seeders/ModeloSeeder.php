@@ -41,6 +41,11 @@ class ModeloSeeder extends Seeder
             'tipo_id' => 1
         ]);
         Modelo::create([
+            'nombre' => 'COMPAQ',
+            'marca_id' => 5,
+            'tipo_id' => 1
+        ]);
+        Modelo::create([
             'nombre' => 'DC7600',
             'marca_id' => 5,
             'tipo_id' => 1

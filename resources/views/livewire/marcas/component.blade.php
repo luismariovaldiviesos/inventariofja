@@ -23,6 +23,7 @@
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap">ID</th>
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap">NOMBRE</th>
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap">TIPO</th>
+                                    <th class="border-b-2 dark:border-dark-5 whitespace-nowrap">MODELOS</th>
                                     <th class="border-b-2 dark:border-dark-5 whitespace-nowrap">ACCIONES</th>
                                 </tr>
                             </thead>
@@ -43,6 +44,12 @@
                                             {{-- <small class="font-normal">{{ $marca->tipos->count() }} tipos en esta marca</small> --}}
                                             @foreach ($marca->tipos  as  $tipo)
                                             <h6 class="mb-1 font-medium">{{ $tipo->nombre }}</h6>
+                                            @endforeach
+                                        </td>
+                                        <td class="dark:border-dark-5">
+                                            {{-- <small class="font-normal">{{ $marca->tipos->count() }} tipos en esta marca</small> --}}
+                                            @foreach ($marca->modelos  as  $modelo)
+                                            <h6 class="mb-1 font-medium">{{ $modelo->nombre }}</h6>
                                             @endforeach
                                         </td>
 
