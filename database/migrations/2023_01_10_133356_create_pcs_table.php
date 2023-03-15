@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('pcs', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',50)->nullable();
-            $table->integer('ram');
-            $table->integer('dd');
+            $table->string('ram')->nullable();
+            $table->string('dd')->nullable();
             $table->string('serie',50)->nullable();
             $table->string('af',50);
             $table->string('ac'); //año comptra
