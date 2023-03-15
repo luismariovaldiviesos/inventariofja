@@ -6273,5 +6273,76 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0104972716')
         ]);
 
+        User::create([
+            'name' => 'GUNCAY ZHUNIO EDWIN PATRICIO',
+            'ci' => '0401112693',
+            'phone' => '',
+            'email' => ' 	edwin.guncay@funcionjudicial.gob.ec ',
+            'unidad_id' => 50,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0401112693')
+        ]);
+
+        User::create([
+            'name' => 'PLAZA TINTIN GALO ANDRES',
+            'ci' => '0104571633',
+            'phone' => '',
+            'email' => 'galo.plaza@funcionjudicial.gob.ec',
+            'unidad_id' => 53,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0104571633')
+        ]);
+
+        User::create([
+            'name' => 'PERALTA PULLA WALTER LEONARDO',
+            'ci' => '0104774484',
+            'phone' => '',
+            'email' => 'walter.peralta@funcionjudicial.gob.ec ',
+            'unidad_id' => 39,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0104774484')
+        ]);
+
+        User::create([
+            'name' => 'JARAMILLO RAMIREZ JORGE EDUARDO',
+            'ci' => '0102424371',
+            'phone' => '',
+            'email' => ' 	jorge.jaramillor@funcionjudicial.gob.ec',
+            'unidad_id' => 40,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0102424371')
+        ]);
+
+        User::create([
+            'name' => 'VAZQUEZ LEON JUAN ANDRES',
+            'ci' => '0105490866',
+            'phone' => '',
+            'email' => 'juan.vazquez@funcionjudicial.gob.ec',
+            'unidad_id' => 50,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0105490866')
+        ]);
+
+        User::create([
+            'name' => 'AVILES PADILLA MARIA JOSE',
+            'ci' => '0106547722',
+            'phone' => '',
+            'email' => 'maria.aviles@funcionjudicial.gob.ec',
+            'unidad_id' => 39,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0106547722')
+        ]);
+
+
+
+
+
+
     }
 }

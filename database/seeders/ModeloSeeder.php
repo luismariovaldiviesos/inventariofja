@@ -311,5 +311,15 @@ class ModeloSeeder extends Seeder
             'tipo_id' => 8
         ]);
 
+
+
+        // PC ADIKTA SIN MODELO
+        Modelo::create([
+            'nombre' => 'ADIKTA SIN MODELO ',
+            'marca_id' => 2,
+            'tipo_id' => 1
+        ]);
+
+
     }
 }
