@@ -6340,6 +6340,18 @@ class UserSeeder extends Seeder
         ]);
 
 
+        User::create([
+            'name' => 'USUARIO POR ASIGNAR',
+            'ci' => '0101010101',
+            'phone' => '',
+            'email' => 'porasignar@funcionjudicial.gob.ec',
+            'unidad_id' => 2,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0101010101')
+        ]);
+
+
 
 
 

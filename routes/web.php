@@ -21,6 +21,7 @@ use App\Http\Livewire\Scanners;
 use App\Http\Livewire\Teclados;
 use App\Http\Livewire\Telefonos;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImportPcsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,12 @@ Route::middleware(['auth'])->group(function (){
     Route::get('pcs', Pcs::class)->name('pcs');
 
     Route::get('laptops', Laptops::class)->name('laptops');
+
+
+    Route::get('pcs-archivo', [ImportPcsController::class, 'index']);
+    Route::post('importar-pcs', [ImportPcsController::class, 'cargaPcs']);
+
+
 
 
 
