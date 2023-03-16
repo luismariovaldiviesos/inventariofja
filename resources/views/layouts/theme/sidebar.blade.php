@@ -183,6 +183,42 @@
             </ul>
         </li>
 
+
+        <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
+                <div class="side-menu__title">
+                    IMPORTAR
+                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                </div>
+            </a>
+            <ul class="">
+
+
+                <li>
+                    <a href="{{ route('importarpcs') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="phone"></i> </div>
+                        <div class="side-menu__title"> PCs  </div>
+                    </a>
+                </li>
+                {{-- <li>
+                    <a href="{{ route('scanners') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="tablet"></i> </div>
+                        <div class="side-menu__title"> Scanner  </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('impresoras') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="printer"></i> </div>
+                        <div class="side-menu__title"> Impresora  </div>
+                    </a>
+                </li> --}}
+
+
+            </ul>
+        </li>
+
         {{-- @hasrole('Admin') --}}
 
         {{-- @endhasrole() --}}
