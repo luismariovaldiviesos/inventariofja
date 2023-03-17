@@ -321,5 +321,13 @@ class ModeloSeeder extends Seeder
         ]);
 
 
+        //LENOVO LAPTOP
+          Modelo::create([
+            'nombre' => 'THINKPAD ',
+            'marca_id' => 18,
+            'tipo_id' => 2
+        ]);
+
+
     }
 }

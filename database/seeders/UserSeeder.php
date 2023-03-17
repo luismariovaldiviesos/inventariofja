@@ -6351,7 +6351,38 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0101010101')
         ]);
 
+        User::create([
+            'name' => 'CARDENAS ORDOÑEZ DALILA MAGDALENA',
+            'ci' => '0302123807',
+            'phone' => '',
+            'email' => 'dalila.cardenas@funcionjudicial.gob.ec',
+            'unidad_id' => 28,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0302123807')
+        ]);
 
+        User::create([
+            'name' => 'REINOSO AVILA CHRISTIAN MARCOS',
+            'ci' => '0103141933',
+            'phone' => '',
+            'email' => 'christian.reinoso@funcionjudicial.gob.ec ',
+            'unidad_id' => 2,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0103141933')
+        ]);
+
+        User::create([
+            'name' => 'RIOFRIO PEREZ ANABEL DEL CISNE',
+            'ci' => '1104491699',
+            'phone' => '',
+            'email' => 'anabel.riofrio@funcionjudicial.gob.ec ',
+            'unidad_id' => 29,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('1104491699')
+        ]);
 
 
 
