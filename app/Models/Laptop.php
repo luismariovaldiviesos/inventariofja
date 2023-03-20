@@ -15,9 +15,9 @@ class Laptop extends Model
     {
         if ($id <= 0) {
             return [
-                'nombre' => 'required',
-                'ram' => 'required|numeric',
-                'dd' => 'required|numeric',
+                // 'nombre' => 'required',
+                // 'ram' => 'required|numeric',
+                // 'dd' => 'required|numeric',
                 'serie' => 'unique:pcs',
                 'af' => 'required|unique:pcs',
                 'ac' => 'required',
@@ -26,9 +26,9 @@ class Laptop extends Model
             ];
         } else {
             return [
-                'nombre' => 'required',
-                'ram' => 'required|numeric',
-                'dd' => 'required|numeric',
+                // 'nombre' => 'required',
+                // 'ram' => 'required|numeric',
+                // 'dd' => 'required|numeric',
                 'serie' => "unique:pcs,serie,{$id}",
                 'af' => "required|unique:pcs,af,{$id}",
                 'ac' => 'required',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Imports\LaptopImport;
 use Livewire\Component;
 use App\Imports\PcsImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -13,7 +14,7 @@ class ImportController extends Component
 
     public $action = 'Listado', $componentName = 'Modulo Importar Catálagos', $search, $form = false;
 
-    public $filePcs;
+    public $filePcs, $fileLaptops;
 
     public function render()
     {
@@ -26,6 +27,17 @@ class ImportController extends Component
             'filePcs' => 'required|mimes:xlsx,xls'
         ]);
         Excel::import(new PcsImport, $this->filePcs);
+        $this->noty('archivo cargado correctamente');
+
+    }
+
+
+    public function cargaLaptops()
+    {
+        $this->validate([
+            'fileLaptops' => 'required|mimes:xlsx,xls'
+        ]);
+        Excel::import(new LaptopImport, $this->fileLaptops);
         $this->noty('archivo cargado correctamente');
 
     }

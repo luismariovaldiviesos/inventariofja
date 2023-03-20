@@ -196,9 +196,9 @@
 
 
                 <li>
-                    <a href="{{ route('importarpcs') }}" class="side-menu">
+                    <a href="{{ route('importar') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="phone"></i> </div>
-                        <div class="side-menu__title"> PCs  </div>
+                        <div class="side-menu__title"> CARGAR  </div>
                     </a>
                 </li>
                 {{-- <li>

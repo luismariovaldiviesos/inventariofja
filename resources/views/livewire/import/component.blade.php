@@ -15,22 +15,6 @@
 
 
                 <div class="widget-content">
-                    {{-- <div class="row">
-                        <div class="col-sm-12 col-md-11">
-                            <div class="form-group custom-file">
-                                <input type="file" class="custom-file-input form-control" wire:model="fileCategories" accept=".xlsx, .xls,">
-                                <label class="custom-file-label">Buscar excel CATEGORIAS</label>
-                                @error('fileCategories') <span class="text-danger er">{{ $message}}</span>@enderror
-
-                            </div>
-
-
-
-                        </div>
-                        <div class="col-sm-12 col-md-1 text-right">
-                            <button wire:click.prevent="uploadCategories()" class="btn btn-dark" {{$fileCategories =='' ? 'disabled' : ''}}>Importar</button>
-                        </div>
-                    </div> --}}
 
                     <div class="row mt-5">
                         <div class="col-sm-12 col-md-11">
@@ -39,11 +23,21 @@
                                     @error('filePcs')
                                         <span class="text-danger er">{{ $message}}</span>
                                     @enderror
-                                <div class="col-sm-12 col-md-1 text-right">
-                                    <button wire:click.prevent="cargaPCS()" {{$filePcs =='' ? 'disabled' : ''}} class="btn btn-dark">Importar</button>
-                                </div>
+                                    <button wire:click.prevent="cargaPCS()" {{$filePcs =='' ? 'disabled' : ''}} class="btn btn-dark">Carga PC</button>
+
                             </div>
 
+                        </div>
+
+                    </div>
+
+                     <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group custom-file">
+                                <input type="file" class="custom-file-input form-control" wire:model="fileLaptops" accept=".xlsx, .xls,">
+                                    @error('fileLaptops') <span class="text-danger er">{{ $message}}</span>@enderror <br>
+                                <button wire:click.prevent="cargaLaptops()" class="btn btn-dark" {{$fileLaptops =='' ? 'disabled' : ''}}>Carga Laptops</button>
+                            </div>
                         </div>
 
                     </div>

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('laptops', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',50)->nullable();
-            $table->integer('ram');
-            $table->integer('dd');
+            $table->integer('ram')->nullable();
+            $table->integer('dd')->nullable();
             $table->string('serie',50)->nullable();
             $table->string('af',50);
             $table->string('ac'); //año comptra

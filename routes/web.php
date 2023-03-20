@@ -66,11 +66,11 @@ Route::middleware(['auth'])->group(function (){
     Route::get('pcs', Pcs::class)->name('pcs');
 
     Route::get('laptops', Laptops::class)->name('laptops');
-    Route::get('importarpcs', ImportController::class)->name('importarpcs');
+    Route::get('importar', ImportController::class)->name('importar');
 
 
-    Route::get('pcs-archivo', [ImportPcsController::class, 'index']);
-    Route::post('importar-pcs', [ImportPcsController::class, 'cargaPcs']);
+    // Route::get('pcs-archivo', [ImportPcsController::class, 'index']);
+    // Route::post('importar-pcs', [ImportPcsController::class, 'cargaPcs']);
 
 
 
