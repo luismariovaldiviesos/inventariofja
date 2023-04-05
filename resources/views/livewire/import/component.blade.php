@@ -42,6 +42,76 @@
 
                     </div>
 
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group custom-file">
+                                <input type="file" class="custom-file-input form-control" wire:model="fileImpresoras" accept=".xlsx, .xls,">
+                                    @error('fileImpresoras') <span class="text-danger er">{{ $message}}</span>@enderror <br>
+                                <button wire:click.prevent="cargaImpresoras()" class="btn btn-dark" {{$fileImpresoras =='' ? 'disabled' : ''}}>Carga Impresoras</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group custom-file">
+                                <input type="file" class="custom-file-input form-control" wire:model="fileMonitores" accept=".xlsx, .xls,">
+                                    @error('fileMonitores') <span class="text-danger er">{{ $message}}</span>@enderror <br>
+                                <button wire:click.prevent="cargaMonitores()" class="btn btn-dark" {{$fileMonitores =='' ? 'disabled' : ''}}>Carga MOnitores</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group custom-file">
+                                <input type="file" class="custom-file-input form-control" wire:model="fileTeclados" accept=".xlsx, .xls,">
+                                    @error('fileTeclados') <span class="text-danger er">{{ $message}}</span>@enderror <br>
+                                <button wire:click.prevent="cargaTeclados()" class="btn btn-dark" {{$fileTeclados =='' ? 'disabled' : ''}}>Carga Teclados</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group custom-file">
+                                <input type="file" class="custom-file-input form-control" wire:model="fileratones" accept=".xlsx, .xls,">
+                                    @error('fileratones') <span class="text-danger er">{{ $message}}</span>@enderror <br>
+                                <button wire:click.prevent="cargaRatones()" class="btn btn-dark" {{$fileratones =='' ? 'disabled' : ''}}>Carga Mouse</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group custom-file">
+                                <input type="file" class="custom-file-input form-control" wire:model="fileTelefonos" accept=".xlsx, .xls,">
+                                    @error('fileTelefonos') <span class="text-danger er">{{ $message}}</span>@enderror <br>
+                                <button wire:click.prevent="cargaTelefonos()" class="btn btn-dark" {{$fileTelefonos =='' ? 'disabled' : ''}}>Carga Telefonos</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group custom-file">
+                                <input type="file" class="custom-file-input form-control" wire:model="fileScanners" accept=".xlsx, .xls,">
+                                    @error('fileScanners') <span class="text-danger er">{{ $message}}</span>@enderror <br>
+                                <button wire:click.prevent="cargaScanners()" class="btn btn-dark" {{$fileScanners =='' ? 'disabled' : ''}}>Carga Scanners</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
 
 
 

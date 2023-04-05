@@ -15,16 +15,16 @@ class Scanner extends Model
     {
         if ($id <= 0) {
             return [
-                'serie' => 'unique:telefonos',
-                'af' => 'required|unique:telefonos',
+                'serie' => 'unique:scanners',
+                'af' => 'required|unique:scanners',
                 'ac' => 'required',
                 'modelo_id' => 'required',
                 'user_id' => 'required'
             ];
         } else {
             return [
-                'serie' => "unique:telefonos,serie,{$id}",
-                'af' => "required|unique:telefonos,af,{$id}",
+                'serie' => "unique:scanners,serie,{$id}",
+                'af' => "required|unique:scanners,af,{$id}",
                 'ac' => 'required',
                 'modelo_id' => 'required',
                 'user_id' => 'required'

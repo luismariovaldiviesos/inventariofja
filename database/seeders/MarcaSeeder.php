@@ -152,6 +152,10 @@ class MarcaSeeder extends Seeder
             'nombre' => 'CISCO'
         ]);
 
+        Marca::create([
+            'nombre' => 'SIN MARCA'
+        ]);
+
 
 
     }

@@ -329,5 +329,133 @@ class ModeloSeeder extends Seeder
         ]);
 
 
+        // impresora
+           Modelo::create([
+            'nombre' => 'COLOR 6280 ',
+            'marca_id' => 22,
+            'tipo_id' =>  6
+        ]);
+
+             Modelo::create([
+            'nombre' => 'COLOR 6360',
+            'marca_id' => 22,
+            'tipo_id' =>  6
+        ]);
+
+            Modelo::create([
+            'nombre' => ' ECOTANK L4260',
+            'marca_id' => 19,
+            'tipo_id' =>  6
+        ]);
+
+        Modelo::create([
+            'nombre' => 'DESKJET 2755E L',
+            'marca_id' => 5,
+            'tipo_id' =>  6
+        ]);
+          Modelo::create([
+            'nombre' => 'LABEL TLP 2844',
+            'marca_id' => 23,
+            'tipo_id' =>  6
+        ]);
+
+           Modelo::create([
+            'nombre' => 'LASER',
+            'marca_id' => 20,
+            'tipo_id' =>  6
+        ]);
+
+          Modelo::create([
+            'nombre' => '11 B N 6700',
+            'marca_id' => 22,
+            'tipo_id' =>  6
+        ]);
+
+           Modelo::create([
+            'nombre' => 'P 361A',
+            'marca_id' => 19,
+            'tipo_id' =>  6
+        ]);
+
+           Modelo::create([
+            'nombre' => 'PHASER 3428',
+            'marca_id' => 22,
+            'tipo_id' =>  6
+        ]);
+           Modelo::create([
+            'nombre' => 'ML1610',
+            'marca_id' => 11,
+            'tipo_id' =>  6
+        ]);
+
+          Modelo::create([
+            'nombre' => 'TERMICA',
+            'marca_id' => 23,
+            'tipo_id' =>  6
+        ]);
+          Modelo::create([
+            'nombre' => 'WF-6590',
+            'marca_id' => 19,
+            'tipo_id' =>  6
+        ]);
+        Modelo::create([
+            'nombre' => '3635',
+            'marca_id' => 22,
+            'tipo_id' =>  6
+        ]);
+
+        Modelo::create([
+            'nombre' => 'USBB369487',
+            'marca_id' => 5,
+            'tipo_id' =>  6
+        ]);
+
+        // sin modelos de telefonos
+
+
+        Modelo::create([
+            'nombre' => '4004',
+            'marca_id' => 26,
+            'tipo_id' =>  8
+        ]);
+
+        // modelo panasonic
+
+        Modelo::create([
+            'nombre' => 'KX TS500LXB',
+            'marca_id' => 17,
+            'tipo_id' =>  8
+        ]);
+
+        //alcatel
+        Modelo::create([
+            'nombre' => 'M594',
+            'marca_id' => 26,
+            'tipo_id' =>  8
+        ]);
+
+        // SIN MODELO PASANASONNIC
+        Modelo::create([
+            'nombre' => 'SIN MODELO PANASONIC',
+            'marca_id' => 17,
+            'tipo_id' =>  8
+        ]);
+
+
+        // SIN MODELO ALCATEL
+        Modelo::create([
+            'nombre' => 'SIN MODELO ALCATEL',
+            'marca_id' => 26,
+            'tipo_id' =>  8
+        ]);
+
+          // SIN MODELO ALCATEL
+          Modelo::create([
+            'nombre' => 'SIN MODELO SIN MARCA',
+            'marca_id' => 28,
+            'tipo_id' =>  8
+        ]);
+
+
     }
 }
