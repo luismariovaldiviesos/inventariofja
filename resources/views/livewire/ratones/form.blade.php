@@ -12,14 +12,14 @@
                 <div class="mt-3">
                     <div class="sm:grid grid-cols-2 gap-5">
                         <div>
-                            <label  class="form-label">Serie del monitor</label>
+                            <label  class="form-label">Serie del Mouse</label>
                             <input wire:model='serie' id="serie" type="text" class="form-control form-control-lg border-start-0 kioskboard" maxlength="250">
                             @error('serie')
                                 <x-alert msg="{{ $message }}" />
                             @enderror
                         </div>
                         <div>
-                            <label  class="form-label">Activo fijp del monitor</label>
+                            <label  class="form-label">Activo fijo del Mouse</label>
                             <input wire:model='af' id="af" type="text" class="form-control form-control-lg border-start-0 kioskboard" maxlength="250">
                             @error('af')
                                 <x-alert msg="{{ $message }}" />
@@ -45,14 +45,8 @@
                         <div class="grid grid-cols-6">
                             <div class="col-end-2 bg-amber-500">
                                 <label class="form-label">Usuario a cargo</label>
-                                <select wire:model='user_id' class="form-select form-select-lg sm:mr-2">
-                                   <option selected="elegir">Elegir</option>
-                                   @foreach ($usuarios as $user )
-                                   <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-
-                                </select>
-                                @error('user_id')
+                                <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">{{$usuarioSelected}}</button>
+                            @error('user_id')
                                 <x-alert msg="{{ $message }}" />
                             @enderror
                             </div>

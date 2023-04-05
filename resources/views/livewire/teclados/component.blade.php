@@ -88,7 +88,9 @@
 
     @endif
 
-    {{-- @include('livewire.sales.keyboard') --}}
+    @include('livewire.usuariosaf.modal-customers')
+    @include('livewire.usuariosaf.script')
+
 
 
     {{-- para el buscador  --}}

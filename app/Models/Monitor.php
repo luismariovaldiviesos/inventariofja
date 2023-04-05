@@ -18,14 +18,14 @@ class Monitor extends Model
                 'serie' => 'unique:monitors',
                 'af' => 'required|unique:monitors',
                 'marca_id' => 'required',
-                'user_id' => 'required'
+               // 'user_id' => 'required'
             ];
         } else {
             return [
                 'serie' => "unique:monitors,serie,{$id}",
                 'af' => "required|unique:monitors,af,{$id}",
                 'marca_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         }
     }
@@ -35,7 +35,7 @@ class Monitor extends Model
         'af.unique' => 'código activo fijo ya existe en el sistema',
         'serie.unique' => 'número de serie ya existe en el sistema',
         'marca_id.required' => ' marca es requerida',
-        'user_id.required' => ' usuario a cargo del bien es requerido'
+        //'user_id.required' => ' usuario a cargo del bien es requerido'
     ];
 
 

@@ -15,13 +15,23 @@ class Monitores extends Component
 
     use WithPagination;
 
-    public $serie = '', $af='', $marca_id, $user_id,  $selected_id = 0;
+    public $serie = '', $af='', $marca_id, $user_id,  $searchUsuario, $usuarioSelected ="Seleccionar Usuario", $selected_id = 0 ;
     public $action = 'Listado', $componentName = 'Listado de Monitores', $search, $form = false;
     private $pagination = 10;
     protected $paginationTheme = 'tailwind';
 
+      //usuarios
+   public  $usuarios =[];
+
     public function render()
     {
+        if(strlen($this->searchUsuario) > 0){
+            $this->usuarios =  User::where('name','like',"%{$this->searchUsuario}%")
+            ->orderBy('name','asc')->get()->take(8); //primeros 8 clientes
+        }
+        else{
+            $this->usuarios =  User::orderBy('name','asc')->get()->take(8); //primeros 8 clientes
+        }
         $tip =  Tipo::where('nombre','=','MONITOR')->get();
         foreach($tip as $t)
         {
@@ -83,7 +93,7 @@ class Monitores extends Component
         // regresar a la página inicial del componente
         $this->resetPage();
         // regresar propiedades a su valor por defecto
-        $this->reset('serie','af', 'marca_id','user_id', 'selected_id', 'search', 'action', 'componentName', 'form');
+        $this->reset('serie','af', 'marca_id','user_id', 'selected_id', 'usuarioSelected','searchUsuario', 'search', 'action', 'componentName', 'form');
     }
 
     public function Edit(Monitor $monitor)
@@ -93,6 +103,7 @@ class Monitores extends Component
         $this->af = $monitor->af;
         $this->marca_id =  $monitor->marca_id;
         $this->user_id =  $monitor->user_id;
+        $this->usuarioSelected  = User::where('id',$this->user_id)->first()->name;
         $this->action = 'Editar';
         $this->form = true;
 
@@ -103,6 +114,15 @@ class Monitores extends Component
         sleep(1);
 
         $this->validate(Monitor::rules($this->selected_id), Monitor::$messages);
+        if($this->usuarioSelected == 'Seleccionar Usuario' )
+        {
+            $this->noty('Se debe asignar usuario al activo fijo', 'noty', 'false');
+            return;
+
+        }
+        else{
+            $this->user_id = User::where('name',$this->usuarioSelected)->first()->id;
+        }
 
         $monitor = Monitor::updateOrCreate(
             ['id' => $this->selected_id],
@@ -133,6 +153,16 @@ class Monitores extends Component
             $this->noty("El monitor tiene usuario relacionadas, no es posible eliminarlo");
         }
     }
+
+
+       // para que se cierre al seleccionar el usuario
+    // esto va al front a script addEventListener(close-usuario-modal)
+    // que llama al metodo close modal usuario
+    public function updatedUsuarioSelected()
+    {
+        $this->dispatchBrowserEvent('close-usuario-modal');
+    }
+
 
 
 }

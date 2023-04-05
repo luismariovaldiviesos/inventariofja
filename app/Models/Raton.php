@@ -17,14 +17,14 @@ class Raton extends Model
                 'serie' => 'unique:ratons',
                 'af' => 'required|unique:ratons',
                 'marca_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         } else {
             return [
                 'serie' => "unique:ratons,serie,{$id}",
                 'af' => "required|unique:ratons,af,{$id}",
                 'marca_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         }
     }
@@ -34,7 +34,7 @@ class Raton extends Model
         'af.unique' => 'código activo fijo ya existe en el sistema',
         'serie.unique' => 'número de serie ya existe en el sistema',
         'marca_id.required' => ' marca es requerida',
-        'user_id.required' => ' usuario a cargo del bien es requerido'
+        //'user_id.required' => ' usuario a cargo del bien es requerido'
     ];
 
 

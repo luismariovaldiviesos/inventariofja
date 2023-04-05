@@ -13,13 +13,23 @@ class Teclados extends Component
 {
     use WithPagination;
 
-    public $serie = '', $af='', $marca_id, $user_id,  $selected_id = 0;
+    public $serie = '', $af='', $marca_id, $user_id, $searchUsuario, $usuarioSelected ="Seleccionar Usuario", $selected_id = 0;
     public $action = 'Listado', $componentName = 'Listado de Teclados', $search, $form = false;
     private $pagination = 10;
     protected $paginationTheme = 'tailwind';
 
+       //usuarios
+   public  $usuarios =[];
+
     public function render()
     {
+        if(strlen($this->searchUsuario) > 0){
+            $this->usuarios =  User::where('name','like',"%{$this->searchUsuario}%")
+            ->orderBy('name','asc')->get()->take(8); //primeros 5 clientes
+        }
+        else{
+            $this->usuarios =  User::orderBy('name','asc')->get()->take(8); //primeros 5 clientes
+        }
         $tip =  Tipo::where('nombre','=','TECLADO')->get();
         foreach($tip as $t)
         {
@@ -80,7 +90,7 @@ class Teclados extends Component
         // regresar a la página inicial del componente
         $this->resetPage();
         // regresar propiedades a su valor por defecto
-        $this->reset('serie','af', 'marca_id','user_id', 'selected_id', 'search', 'action', 'componentName', 'form');
+        $this->reset('serie','af', 'marca_id','user_id', 'usuarioSelected','searchUsuario', 'selected_id', 'search', 'action', 'componentName', 'form');
     }
 
     public function Edit(Teclado $teclado)
@@ -90,6 +100,7 @@ class Teclados extends Component
         $this->af = $teclado->af;
         $this->marca_id =  $teclado->marca_id;
         $this->user_id =  $teclado->user_id;
+        $this->usuarioSelected  = User::where('id',$this->user_id)->first()->name;
         $this->action = 'Editar';
         $this->form = true;
 
@@ -100,6 +111,15 @@ class Teclados extends Component
         sleep(1);
 
         $this->validate(Teclado::rules($this->selected_id), Teclado::$messages);
+        if($this->usuarioSelected == 'Seleccionar Usuario' )
+        {
+            $this->noty('Se debe asignar usuario al activo fijo', 'noty', 'false');
+            return;
+
+        }
+        else{
+            $this->user_id = User::where('name',$this->usuarioSelected)->first()->id;
+        }
 
         $teclado = Teclado::updateOrCreate(
             ['id' => $this->selected_id],
@@ -130,5 +150,13 @@ class Teclados extends Component
             $this->noty("El teclado tiene usuario relacionadas, no es posible eliminarlo");
         }
 
+    }
+
+      // para que se cierre al seleccionar el usuario
+    // esto va al front a script addEventListener(close-usuario-modal)
+    // que llama al metodo close modal usuario
+    public function updatedUsuarioSelected()
+    {
+        $this->dispatchBrowserEvent('close-usuario-modal');
     }
 }

@@ -34,10 +34,10 @@ class Impresoras extends Component
     {
         if(strlen($this->searchUsuario) > 0){
             $this->usuarios =  User::where('name','like',"%{$this->searchUsuario}%")
-            ->orderBy('name','asc')->get()->take(5); //primeros 5 clientes
+            ->orderBy('name','asc')->get()->take(8); //primeros 5 clientes
         }
         else{
-            $this->usuarios =  User::orderBy('name','asc')->get()->take(5); //primeros 5 clientes
+            $this->usuarios =  User::orderBy('name','asc')->get()->take(8); //primeros 5 clientes
         }
         //dd($this->customers);
 
@@ -108,7 +108,7 @@ class Impresoras extends Component
         // regresar a la página inicial del componente
         $this->resetPage();
         // regresar propiedades a su valor por defecto
-        $this->reset('serie','af', 'ac', 'modelo_id','user_id', 'usuarioSelected', 'selected_id', 'search', 'action', 'componentName', 'form');
+        $this->reset('serie','af', 'ac', 'modelo_id','user_id', 'usuarioSelected','searchUsuario', 'selected_id', 'search', 'action', 'componentName', 'form');
     }
 
     public function Edit(Impresora $impresora)

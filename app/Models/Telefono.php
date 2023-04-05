@@ -20,7 +20,7 @@ class Telefono extends Model
                 'af' => 'required|unique:telefonos',
                 'ac' => 'required',
                 'modelo_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         } else {
             return [
@@ -28,7 +28,7 @@ class Telefono extends Model
                 'af' => "required|unique:telefonos,af,{$id}",
                 'ac' => 'required',
                 'modelo_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         }
     }
@@ -39,7 +39,7 @@ class Telefono extends Model
         'serie.unique' => 'número de serie ya existe en el sistema',
         'ac.required' => 'año de  compra es requerido',
         'modelo_id.required' => ' marca es requerida',
-        'user_id.required' => ' usuario a cargo del bien es requerido'
+        //'user_id.required' => ' usuario a cargo del bien es requerido'
     ];
 
 

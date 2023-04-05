@@ -15,31 +15,31 @@ class Pc extends Model
     {
         if ($id <= 0) {
             return [
-                //'nombre' => 'required',
-                //'ram' => 'required|numeric',
-                //'dd' => 'required|numeric',
+                'nombre' => 'required',
+                'ram' => 'required|numeric',
+                'dd' => 'required|numeric',
                 'serie' => 'unique:pcs',
                 'af' => 'required|unique:pcs',
                 'ac' => 'required',
                 'modelo_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         } else {
             return [
-                //'nombre' => 'required',
-                //'ram' => 'required|numeric',
-                //'dd' => 'required|numeric',
+                'nombre' => 'required',
+                'ram' => 'required|numeric',
+                'dd' => 'required|numeric',
                 'serie' => "unique:pcs,serie,{$id}",
                 'af' => "required|unique:pcs,af,{$id}",
                 'ac' => 'required',
                 'modelo_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         }
     }
 
     public static $messages = [
-       // 'nombre.required' => 'nombre es requerido',
+        'nombre.required' => 'nombre es requerido',
         'ram.required' => 'cantidad de ram es requerida',
         'ram.numeric' => 'cantidad de ram debe ser expresada en números',
         'dd.required' => 'tamaño de disco es requerido',
@@ -49,7 +49,7 @@ class Pc extends Model
         'serie.unique' => 'número de serie ya existe en el sistema',
         'ac.required' => 'año de  compra es requerido',
         'modelo_id.required' => ' marca es requerida',
-        'user_id.required' => ' usuario a cargo del bien es requerido'
+       // 'user_id.required' => ' usuario a cargo del bien es requerido'
     ];
 
 

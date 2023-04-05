@@ -12,13 +12,16 @@ class Pcs extends Component
 {
     use WithPagination;
 
-    public $nombre='', $ram='', $dd='', $serie = '', $af='', $ac='', $modelo_id, $user_id,  $selected_id = 0;
+    public $nombre='', $ram='', $dd='', $serie = '', $af='', $ac='',$searchUsuario, $usuarioSelected ="Seleccionar Usuario", $modelo_id, $user_id,  $selected_id = 0;
     public $action = 'Listado', $componentName = 'Listado de PCS', $search, $form = false;
     private $pagination = 10;
     protected $paginationTheme = 'tailwind';
 
     // para lelnar los años
     public $year, $listYears=[];
+
+      //usuarios
+   public  $usuarios =[];
 
     public function mount()
     {
@@ -27,6 +30,13 @@ class Pcs extends Component
 
     public function render()
     {
+        if(strlen($this->searchUsuario) > 0){
+            $this->usuarios =  User::where('name','like',"%{$this->searchUsuario}%")
+            ->orderBy('name','asc')->get()->take(8); //primeros 8 clientes
+        }
+        else{
+            $this->usuarios =  User::orderBy('name','asc')->get()->take(8); //primeros 8 clientes
+        }
 
         $this->listYears =[];
         $currentYear =  date('Y') -14;
@@ -94,7 +104,7 @@ class Pcs extends Component
         // regresar a la página inicial del componente
         $this->resetPage();
         // regresar propiedades a su valor por defecto
-        $this->reset('nombre', 'ram', 'dd','serie','af', 'ac', 'modelo_id','user_id', 'selected_id', 'search', 'action', 'componentName', 'form');
+        $this->reset('nombre', 'ram', 'dd','serie','af', 'ac', 'modelo_id', 'usuarioSelected' , 'searchUsuario','user_id', 'selected_id', 'search', 'action', 'componentName', 'form');
     }
 
     public function Edit(Pc $pc)
@@ -108,6 +118,7 @@ class Pcs extends Component
         $this->ac = $pc->ac;
         $this->modelo_id =  $pc->modelo_id;
         $this->user_id =  $pc->user_id;
+        $this->usuarioSelected  = User::where('id',$this->user_id)->first()->name;
         $this->action = 'Editar';
         $this->form = true;
 
@@ -118,6 +129,15 @@ class Pcs extends Component
         sleep(1);
 
         $this->validate(Pc::rules($this->selected_id), Pc::$messages);
+        if($this->usuarioSelected == 'Seleccionar Usuario' )
+        {
+            $this->noty('Se debe asignar usuario al activo fijo', 'noty', 'false');
+            return;
+
+        }
+        else{
+            $this->user_id = User::where('name',$this->usuarioSelected)->first()->id;
+        }
 
         $pc = Pc::updateOrCreate(
             ['id' => $this->selected_id],
@@ -152,5 +172,13 @@ class Pcs extends Component
             $this->noty("El PC tiene usuario relacionado  y no es posible eliminarlo");
         }
 
+    }
+
+    // para que se cierre al seleccionar el usuario
+    // esto va al front a script addEventListener(close-usuario-modal)
+    // que llama al metodo close modal usuario
+    public function updatedUsuarioSelected()
+    {
+        $this->dispatchBrowserEvent('close-usuario-modal');
     }
 }

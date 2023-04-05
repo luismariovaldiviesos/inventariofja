@@ -19,14 +19,14 @@ class Teclado extends Model
                 'serie' => 'unique:teclados',
                 'af' => 'required|unique:teclados',
                 'marca_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         } else {
             return [
                 'serie' => "unique:teclados,serie,{$id}",
                 'af' => "required|unique:teclados,af,{$id}",
                 'marca_id' => 'required',
-                'user_id' => 'required'
+                //'user_id' => 'required'
             ];
         }
     }
@@ -36,7 +36,7 @@ class Teclado extends Model
         'af.unique' => 'código activo fijo ya existe en el sistema',
         'serie.unique' => 'número de serie ya existe en el sistema',
         'marca_id.required' => ' marca es requerida',
-        'user_id.required' => ' usuario a cargo del bien es requerido'
+        //'user_id.required' => ' usuario a cargo del bien es requerido'
     ];
 
 
