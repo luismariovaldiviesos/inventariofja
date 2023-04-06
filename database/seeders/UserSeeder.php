@@ -29,23 +29,23 @@ class UserSeeder extends Seeder
         //2
         User::create([
             'name' => 'ARGUDO DUMAN JUAN BERNARDO',
-            'ci' => '301089561',
+            'ci' => '0301089561',
             'phone' => '',
             'email' => 'juan.argudo@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('301089561')
+            'password' => bcrypt('0301089561')
         ]);
         User::create([
             'name' => 'ASTUDILLO CAÑAR ZONIA ELIZABETH',
-            'ci' => '703100644',
+            'ci' => '0703100644',
             'phone' => '',
             'email' => 'zonia.astudillo@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('703100644')
+            'password' => bcrypt('0703100644')
         ]);
 
         User::create([
@@ -61,89 +61,89 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'BELTRAN BERMEO ESTEBAN VICENTE',
-            'ci' => '705039386',
+            'ci' => '0705039386',
             'phone' => '',
             'email' => 'esteban.beltran@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('705039386')
+            'password' => bcrypt('0705039386')
         ]);
 
         User::create([
             'name' => 'CARDENAS ORDOÑEZ TARQUINO EDUARDO',
-            'ci' => '301164042',
+            'ci' => '0301164042',
             'phone' => '',
             'email' => 'tarquino.cardenas@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('301164042')
+            'password' => bcrypt('0301164042')
         ]);
 
         User::create([
             'name' => 'GONZALEZ ALVAREZ RENE OSWALDO',
-            'ci' => '300827821',
+            'ci' => '0300827821',
             'phone' => '',
             'email' => 'rene.gonzalez@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('300827821')
+            'password' => bcrypt('0300827821')
         ]);
 
         User::create([
             'name' => 'LUPERCIO CAMPOVERDE OLGA SUSANA',
-            'ci' => '102372034',
+            'ci' => '0102372034',
             'phone' => '',
             'email' => 'olga.lupercio@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('102372034')
+            'password' => bcrypt('0102372034')
         ]);
         User::create([
             'name' => 'ORTEGA VINTIMILLA ALEXANDRA PATRICIA',
-            'ci' => '102603636',
+            'ci' => '0102603636',
             'phone' => '',
             'email' => 'alexandra.ortega@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('102603636')
+            'password' => bcrypt('0102603636')
         ]);
 
         User::create([
             'name' => 'PORTILLA VELEZ ALEX RUBEN',
-            'ci' => '103803904',
+            'ci' => '0103803904',
             'phone' => '',
             'email' => 'alex.portilla@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('103803904')
+            'password' => bcrypt('0103803904')
         ]);
 
         User::create([
             'name' => 'QUIZHPI CRIOLLO JORGE FELIPE',
-            'ci' => '103169009',
+            'ci' => '0103169009',
             'phone' => '',
             'email' => 'jorge.quizhpi@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('103169009')
+            'password' => bcrypt('0103169009')
         ]);
 
         User::create([
             'name' => 'RAMON RIVERA HENRY FABIAN',
-            'ci' => '102288776',
+            'ci' => '0102288776',
             'phone' => '',
             'email' => 'henry.ramon@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('102288776')
+            'password' => bcrypt('0102288776')
         ]);
 
         User::create([
@@ -159,13 +159,13 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'URGILES VERDUGO MARTIN ANGEL',
-            'ci' => '101848232',
+            'ci' => '0101848232',
             'phone' => '',
             'email' => 'martin.urgiles@funcionjudicial.gob.ec',
             'unidad_id' => 2,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('101848232')
+            'password' => bcrypt('0101848232')
         ]);
 
         //3
@@ -243,23 +243,23 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'name' => 'CHICAIZA JARA CHRISTIAN FABIAN',
-            'ci' => '106544422',
+            'ci' => '0106544422',
             'phone' => '',
             'email' => 'christian.chicaiza@funcionjudicial.gob.ec',
             'unidad_id' => 3,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('106544422')
+            'password' => bcrypt('0106544422')
         ]);
         User::create([
             'name' => 'CONDOR VINTIMILLA JUAN PABLO',
-            'ci' => '103815296',
+            'ci' => '0103815296',
             'phone' => '',
             'email' => 'juan.condor@funcionjudicial.gob.ec',
             'unidad_id' => 3,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('103815296')
+            'password' => bcrypt('0103815296')
         ]);
         User::create([
             'name' => 'CRESPO VALDIVIESO CRISTIAN ESTEBAN',
@@ -335,33 +335,33 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'name' => 'ORDOÑEZ CARDENAS JUAN FERNANDO',
-            'ci' => '104973474',
+            'ci' => '0104973474',
             'phone' => '',
             'email' => 'juan.ordonez@funcionjudicial.gob.ec',
             'unidad_id' => 3,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('104973474')
+            'password' => bcrypt('0104973474')
         ]);
         User::create([
             'name' => 'ORTEGA PALACIOS NOELIA JANINA',
-            'ci' => '301910063',
+            'ci' => '0301910063',
             'phone' => '',
             'email' => 'noelia.ortega@funcionjudicial.gob.ec',
             'unidad_id' => 3,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('301910063')
+            'password' => bcrypt('0301910063')
         ]);
         User::create([
             'name' => 'PACHECO BORJA JOSUE SEBASTIAN',
-            'ci' => '103959193',
+            'ci' => '0103959193',
             'phone' => '',
             'email' => 'josue.pacheco@funcionjudicial.gob.ec',
             'unidad_id' => 3,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('103959193')
+            'password' => bcrypt('0103959193')
         ]);
         User::create([
             'name' => 'RIVERA GUTIERRES FREDDY EUGENIO',
@@ -1064,13 +1064,13 @@ class UserSeeder extends Seeder
 
 	    User::create([
             'name' => 'RESTREPO NIÑO LILIAM CRISTINA',
-            'ci' => '01723949010',
+            'ci' => '1723949010',
             'phone' => '',
             'email' => 'liliam.restrepo@funcionjudicial.gob.ec',
             'unidad_id' => 5,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('01723949010')
+            'password' => bcrypt('1723949010')
         ]);
 
 	    User::create([
@@ -5285,7 +5285,7 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'CORDERO SANMARTIN ANDRES PAUL',
-            'ci' => '103876447',
+            'ci' => '0103876447',
             'phone' => '',
             'email' => 'andres.cordero@funcionjudicial.gob.ec',
             'unidad_id' => 52,
