@@ -1,99 +1,19 @@
 <script>
+    document.addEventListener('livewire:load', function(){
 
-    document.addEventListener('livewire:load', function () {
-
-        //-------------------------------------------------------------------------------------//
-        //                        TOP 5 PRODUCTS
-        // ------------------------------------------------------------------------------------//
-        var optionsTop5 = {
-            //   AQUI SE PONE LA DATA QUE VIENE DESDE EL BACK
-            series: [
-            parseFloat(@this.top5Data[0]['total']),
-            parseFloat(@this.top5Data[1]['total']),
-            parseFloat(@this.top5Data[2]['total']),
-            parseFloat(@this.top5Data[3]['total']),
-            parseFloat(@this.top5Data[4]['total'])
-          ],
-          chart: {
-          type: 'donut',
-          height:392,
-        },
-        labels:[
-            @this.top5Data[0]['product'],
-            @this.top5Data[1]['product'],
-            @this.top5Data[2]['product'],
-            @this.top5Data[3]['product'],
-            @this.top5Data[4]['product']
-        ],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-        };
-
-        var chartTop5 = new ApexCharts(document.querySelector("#chartTop5"), optionsTop5);
-        chartTop5.render();
-
-
-
-
-
-        /// graficoventas de la semana
-
-
-        var optionsWeek = {
+        var options = {
           series: [{
-          name: 'Ventas del día',
+          name: 'Cantidad',
           data: [
-            parseFloat(@this.weekSales_Data[0]),
-            parseFloat(@this.weekSales_Data[1]),
-            parseFloat(@this.weekSales_Data[2]),
-            parseFloat(@this.weekSales_Data[3]),
-            parseFloat(@this.weekSales_Data[4]),
-            parseFloat(@this.weekSales_Data[5]),
-            parseFloat(@this.weekSales_Data[6])
-          ]
-        }],
-          chart: {
-          height: 380,
-          type: 'area'
-        },
-        dataLabels: {
-          enabled: true,
-          formatter: function(val){
-            return '$' + parseFloat(val).toFixed(2);
-          }
-        },
-        stroke: {
-          curve: 'smooth'
-        },
-        xaxis: {
-          categories: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
-        },
-        tooltip: {
-          x: {
-            format: 'dd/MM/yy HH:mm'
-          },
-        },
-        };
-
-        var chartWeek = new ApexCharts(document.querySelector("#chartArea"), optionsWeek);
-        chartWeek.render();
-
-
-
-        //  GRAFICO VENTAS ANUALES POR MES
-        var optionsMonth = {
-          series: [{
-          name: 'Ventas del año mensuales',
-          data: @this.salesByMonth_Data
+            parseFloat(@this.totalPcs),
+            parseFloat(@this.totalLaptops),
+            parseFloat(@this.totalMonitor),
+            parseFloat(@this.totalTeclado),
+            parseFloat(@this.totalMouse),
+            parseFloat(@this.totalTelefono),
+            parseFloat(@this.totalScanner),
+            parseFloat(@this.totalImpresora)
+             ]
         }],
           chart: {
           height: 350,
@@ -101,7 +21,6 @@
         },
         plotOptions: {
           bar: {
-            borderRadius: 10,
             dataLabels: {
               position: 'top', // top, center, bottom
             },
@@ -110,7 +29,7 @@
         dataLabels: {
           enabled: true,
           formatter: function (val) {
-            return "$" + parseFloat(val).toFixed(2) ;
+            return val + "";
           },
           offsetY: -20,
           style: {
@@ -120,7 +39,7 @@
         },
 
         xaxis: {
-          categories: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+          categories: ["PCs", "LAPTOPS", "MONITOR", "TECLADO", "MOUSE", "TELEFONO", "SCANNER", "IMPRESORA", "Sep", "Oct", "Nov", "Dec"],
           position: 'top',
           axisBorder: {
             show: false
@@ -154,13 +73,13 @@
           labels: {
             show: false,
             formatter: function (val) {
-              return "$" + parseFloat(val).toFixed(2) ;
+              return val + "";
             }
           }
 
         },
         title: {
-          text: totalYearSales(),
+          text: 'Total de equipos informáticos en inventario',
           floating: true,
           offsetY: 330,
           align: 'center',
@@ -170,50 +89,52 @@
         }
         };
 
-        var chartMonth = new ApexCharts(document.querySelector("#chartMonth"), optionsMonth);
-        chartMonth.render();
-
-
-        function totalYearSales() {
-            var total = 0
-            @this.salesByMonth_Data.forEach(item => {
-                total += parseFloat(item)
-            });
-
-            return 'Total: $' + total.toFixed(2)
-        }
-
-
-        //reload charts info
-        window.addEventListener('reload-scripts', event => {
-            // actualizar grafico semanal
-            chartWeek.updateSeries([{
-                data: @this.weekSales_Data
-            }])
-
-            //actualixar grafico mensual
-            chartMonth.updateSeries([{
-                data: @this.salesByMonth_Data
-            }])
-
-            // actualixar grafico top 5
-            var newData = [
-                parseFloat(@this.top5Data[0]['total']),
-                parseFloat(@this.top5Data[1]['total']),
-                parseFloat(@this.top5Data[2]['total']),
-                parseFloat(@this.top5Data[3]['total']),
-                parseFloat(@this.top5Data[4]['total'])
-
-            ]
-            chartTop5.updateSeries(newData)
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
 
 
 
-        })
+
+        // grafico de af por asignar
+
+    var optionsTop5 = {
+            //   AQUI SE PONE LA DATA QUE VIENE DESDE EL BACK
+            series: [
+            parseFloat(@this.x_asignarPcs),
+            parseFloat(@this.x_asignarLap),
+            parseFloat(@this.x_asignarMoni),
+            parseFloat(@this.x_asignarTecla),
+            parseFloat(@this.x_asignarMouse)
+          ],
+          chart: {
+          type: 'donut',
+          height:392,
+        },
+        labels:[
+            'PCS',
+            'LAPTOPS',
+            'MONITORES',
+            'TECLADOS',
+            'RATONES'
+        ],
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+        };
+
+        var chartTop5 = new ApexCharts(document.querySelector("#chartxasignar"), optionsTop5);
+        chartTop5.render();
 
 
     })
-
 
 
 
