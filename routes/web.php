@@ -23,6 +23,7 @@ use App\Http\Livewire\Telefonos;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportPcsController;
 use App\Http\Livewire\ImportController;
+use App\Http\Livewire\ReportsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,10 @@ Route::middleware(['auth'])->group(function (){
 
     Route::get('laptops', Laptops::class)->name('laptops');
     Route::get('importar', ImportController::class)->name('importar');
+    Route::get('reportes', ReportsController::class)->name('reportes');
+
+    //para el excel boton
+    Route::get('reportexls/{tipo}',[ReportsController::class, 'reporteGeneral']);
 
 
     // Route::get('pcs-archivo', [ImportPcsController::class, 'index']);
