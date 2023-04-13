@@ -74,8 +74,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('reportexls/{tipo}',[ReportsController::class, 'reporteGeneral']);
 
 
-    // Route::get('pcs-archivo', [ImportPcsController::class, 'index']);
-    // Route::post('importar-pcs', [ImportPcsController::class, 'cargaPcs']);
+
 
 
 
