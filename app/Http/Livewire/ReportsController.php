@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Exports\LaptopsExport;
+use App\Exports\MonitoresExport;
 use App\Exports\PcsExport;
 use App\Models\Tipo;
 use Livewire\Component;
@@ -38,7 +39,8 @@ class ReportsController extends Component
      }
      if($tipo == 3)
      {
-        dd("monitor");
+        $reportName = 'Reporte de monitores' . uniqid() . '.xlsx';
+        return Excel::download(new MonitoresExport(), $reportName);
      }
      if($tipo == 4)
      {

@@ -51,7 +51,7 @@ class PcsExport implements  FromCollection, WithHeadings, WithCustomStartCell, W
     }
     public function title(): string
     {
-        return 'inventario de pcs';
+        return 'PCS';
     }
 
 

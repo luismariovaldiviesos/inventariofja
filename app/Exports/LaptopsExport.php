@@ -47,6 +47,6 @@ class LaptopsExport implements FromCollection, WithHeadings, WithCustomStartCell
      }
      public function title(): string
      {
-         return 'inventario de laptops';
+         return 'LAPTOPS';
      }
 }
