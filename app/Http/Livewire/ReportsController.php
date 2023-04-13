@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Exports\LaptopsExport;
 use App\Exports\PcsExport;
 use App\Models\Tipo;
 use Livewire\Component;
@@ -32,7 +33,8 @@ class ReportsController extends Component
 
      if($tipo == 2)
      {
-        dd("laptopas");
+        $reportName = 'Reporte de laptops' . uniqid() . '.xlsx';
+        return Excel::download(new LaptopsExport(), $reportName);
      }
      if($tipo == 3)
      {
