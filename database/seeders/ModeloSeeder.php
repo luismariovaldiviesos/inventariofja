@@ -457,5 +457,20 @@ class ModeloSeeder extends Seeder
         ]);
 
 
+        // sin modelo scanner  sin marca
+
+            Modelo::create([
+                'nombre' => 'MS 9535 VOYAGER MANO',
+                'marca_id' => 28,
+                'tipo_id' =>  7
+            ]);
+
+             Modelo::create([
+                'nombre' => 'MS7120 ORBIT',
+                'marca_id' => 28,
+                'tipo_id' =>  7
+            ]);
+
+
     }
 }
