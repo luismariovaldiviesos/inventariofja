@@ -73,6 +73,9 @@ Route::middleware(['auth'])->group(function (){
     //para el excel boton
     Route::get('reportexls/{tipo}',[ReportsController::class, 'reporteGeneral']);
 
+    Route::get('inventario',[ReportsController::class, 'Inventario']);
+
+
 
 
 

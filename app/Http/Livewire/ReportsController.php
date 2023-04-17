@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Exports\ImpresorasExport;
+use App\Exports\InventarioTotal;
 use App\Exports\LaptopsExport;
 use App\Exports\MonitoresExport;
 use App\Exports\PcsExport;
@@ -74,6 +75,12 @@ class ReportsController extends Component
      }
 
 
+    }
+
+    public function Inventario()
+    {
+
+        return (new InventarioTotal)->download('inventarioFJA.xlsx');
     }
 
 

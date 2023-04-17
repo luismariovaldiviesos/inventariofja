@@ -37,6 +37,10 @@
                         href="{{ url('reportexls' . '/' . $tipo_id) }}" target="_blank">Exportar a Excel</a>"
                     </a>
                     @endif
+
+                    <a class="btn btn-danger"
+                    href="{{ url('inventario') }}" target="_blank">Inventario total</a>"
+                </a>
                 </div>
 
 
