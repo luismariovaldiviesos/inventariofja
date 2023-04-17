@@ -2,9 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Exports\ImpresorasExport;
 use App\Exports\LaptopsExport;
 use App\Exports\MonitoresExport;
 use App\Exports\PcsExport;
+use App\Exports\RatonesExport;
+use App\Exports\ScannersExport;
+use App\Exports\TecladosExport;
+use App\Exports\TelefonosExport;
 use App\Models\Tipo;
 use Livewire\Component;
 use Maatwebsite\Excel\Facades\Excel;
@@ -44,23 +49,28 @@ class ReportsController extends Component
      }
      if($tipo == 4)
      {
-        dd("teclado");
+        $reportName = 'Reporte de teclaods' . uniqid() . '.xlsx';
+        return Excel::download(new TecladosExport(), $reportName);
      }
      if($tipo == 5)
      {
-        dd("mosue");
+        $reportName = 'Reporte de mouse' . uniqid() . '.xlsx';
+        return Excel::download(new RatonesExport(), $reportName);
      }
      if($tipo == 6)
      {
-        dd("impresora");
+        $reportName = 'Reporte de impresora' . uniqid() . '.xlsx';
+        return Excel::download(new ImpresorasExport(), $reportName);
      }
      if($tipo == 7)
      {
-        dd("scanner");
+        $reportName = 'Reporte de scanner' . uniqid() . '.xlsx';
+        return Excel::download(new ScannersExport(), $reportName);
      }
      if($tipo == 8)
      {
-        dd("telefono");
+        $reportName = 'Reporte de TELEFONOS' . uniqid() . '.xlsx';
+        return Excel::download(new TelefonosExport(), $reportName);
      }
 
 
