@@ -20,8 +20,9 @@ class ScannersExport implements FromCollection, WithHeadings, WithCustomStartCel
     {
         $data = Scanner::join('users as u','u.id','scanners.user_id')
         ->join('modelos as m','m.id','scanners.modelo_id')
+        ->join('unidads as uni', 'uni.id','u.unidad_id')
         ->select('u.name as usuario','scanners.serie',
-                'scanners.af', 'm.nombre as marca'
+                'scanners.af', 'm.nombre as marca','uni.nombre'
                )
         ->get();
 
@@ -31,7 +32,7 @@ class ScannersExport implements FromCollection, WithHeadings, WithCustomStartCel
      // cabecera del reporte
      public function headings(): array
      {
-         return ["USUARIO","SERIE","ACTIVO FIJO","MARCA"];
+         return ["USUARIO","SERIE","ACTIVO FIJO","MARCA","UBICACION"];
      }
 
      public function startCell(): string

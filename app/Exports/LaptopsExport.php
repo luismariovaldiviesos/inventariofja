@@ -19,10 +19,10 @@ class LaptopsExport implements FromCollection, WithHeadings, WithCustomStartCell
     {
         $data = Laptop::join('users as u','u.id','laptops.user_id')
                 ->join('modelos as m','m.id','laptops.modelo_id')
+                ->join('unidads as uni', 'uni.id','u.unidad_id')
                 ->select('u.name as usuario','laptops.ram',
                         'laptops.ram','laptops.dd','laptops.serie',
-                        'laptops.af', 'm.nombre as modelo','laptops.ac',
-                       )
+                        'laptops.af', 'm.nombre as modelo','laptops.ac','uni.nombre')
                 ->get();
 
         return $data;

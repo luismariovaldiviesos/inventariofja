@@ -21,9 +21,9 @@ class ImpresorasExport implements FromCollection, WithHeadings, WithCustomStartC
         $data = Impresora::join('users as u','u.id','impresoras.user_id')
          ->join('modelos as m','m.id','impresoras.modelo_id')
         //->join('unidads as uni', 'uni.id','u.id')
+        ->join('unidads as uni', 'uni.id','u.unidad_id')
         ->select('u.name as usuario','impresoras.serie',
-                'impresoras.af', 'm.nombre as marca'
-               )
+                'impresoras.af', 'm.nombre as marca','uni.nombre')
         ->get();
 
         return $data;

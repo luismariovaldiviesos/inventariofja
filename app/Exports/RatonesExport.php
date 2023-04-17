@@ -19,9 +19,9 @@ class RatonesExport implements FromCollection, WithHeadings, WithCustomStartCell
     {
         $data = Raton::join('users as u','u.id','ratons.user_id')
         ->join('marcas as m','m.id','ratons.marca_id')
+        ->join('unidads as uni', 'uni.id','u.unidad_id')
         ->select('u.name as usuario','ratons.serie',
-                'ratons.af', 'm.nombre as marca'
-               )
+                'ratons.af', 'm.nombre as marca','uni.nombre')
         ->get();
 
         return $data;
@@ -30,7 +30,7 @@ class RatonesExport implements FromCollection, WithHeadings, WithCustomStartCell
     // cabecera del reporte
     public function headings(): array
     {
-        return ["USUARIO","SERIE","ACTIVO FIJO","MARCA"];
+        return ["USUARIO","SERIE","ACTIVO FIJO","MARCA","UBICACION"];
     }
 
     public function startCell(): string

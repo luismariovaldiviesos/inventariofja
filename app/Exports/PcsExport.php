@@ -21,9 +21,10 @@ class PcsExport implements  FromCollection, WithHeadings, WithCustomStartCell, W
         //$data =  [];
         $data = Pc::join('users as u','u.id','pcs.user_id')
                 ->join('modelos as m','m.id','pcs.modelo_id')
+                ->join('unidads as uni', 'uni.id','u.unidad_id')
                 ->select('u.name as usuario','pcs.ram',
                         'pcs.ram','pcs.dd','pcs.serie',
-                        'pcs.af', 'm.nombre as modelo','pcs.ac',
+                        'pcs.af', 'm.nombre as modelo','pcs.ac','uni.nombre',
                        )
                 ->get();
 
@@ -36,7 +37,7 @@ class PcsExport implements  FromCollection, WithHeadings, WithCustomStartCell, W
     // cabecera del reporte
     public function headings(): array
     {
-        return ["USUARIO","RAM","DISCO DURO","SERIE","ACTIVO FIJO","MODELO","AÑO DE COMPRA"];
+        return ["USUARIO","RAM","DISCO DURO","SERIE","ACTIVO FIJO","MODELO","AÑO DE COMPRA","UBICACIÓN"];
     }
 
     public function startCell(): string

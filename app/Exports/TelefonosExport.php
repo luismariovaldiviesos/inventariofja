@@ -20,9 +20,9 @@ class TelefonosExport implements FromCollection, WithHeadings, WithCustomStartCe
     {
         $data = Telefono::join('users as u','u.id','telefonos.user_id')
          ->join('modelos as m','m.id','telefonos.modelo_id')
-        //->join('unidads as uni', 'uni.id','u.id')
+         ->join('unidads as uni', 'uni.id','u.unidad_id')
         ->select('u.name as usuario','telefonos.serie',
-                'telefonos.af', 'm.nombre as marca'
+                'telefonos.af', 'm.nombre as marca','uni.nombre'
                )
         ->get();
 
@@ -32,7 +32,7 @@ class TelefonosExport implements FromCollection, WithHeadings, WithCustomStartCe
      // cabecera del reporte
      public function headings(): array
      {
-         return ["USUARIO","SERIE","ACTIVO FIJO","MODELO"];
+         return ["USUARIO","SERIE","ACTIVO FIJO","MODELO","UBICACION"];
      }
 
      public function startCell(): string

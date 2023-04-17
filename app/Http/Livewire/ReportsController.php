@@ -69,7 +69,7 @@ class ReportsController extends Component
      }
      if($tipo == 8)
      {
-        $reportName = 'Reporte de TELEFONOS' . uniqid() . '.xlsx';
+        $reportName = 'Reporte de telefonos' . uniqid() . '.xlsx';
         return Excel::download(new TelefonosExport(), $reportName);
      }
 

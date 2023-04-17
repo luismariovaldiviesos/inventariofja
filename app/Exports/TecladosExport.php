@@ -19,8 +19,9 @@ class TecladosExport implements FromCollection, WithHeadings, WithCustomStartCel
     {
         $data = Teclado::join('users as u','u.id','teclados.user_id')
         ->join('marcas as m','m.id','teclados.marca_id')
+        ->join('unidads as uni', 'uni.id','u.unidad_id')
         ->select('u.name as usuario','teclados.serie',
-                'teclados.af', 'm.nombre as marca'
+                'teclados.af', 'm.nombre as marca','uni.nombre'
                )
         ->get();
 
@@ -30,7 +31,7 @@ class TecladosExport implements FromCollection, WithHeadings, WithCustomStartCel
     // cabecera del reporte
     public function headings(): array
     {
-        return ["USUARIO","SERIE","ACTIVO FIJO","MARCA"];
+        return ["USUARIO","SERIE","ACTIVO FIJO","MARCA","UBICACION"];
     }
 
     public function startCell(): string
