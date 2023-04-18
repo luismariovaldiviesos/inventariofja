@@ -24,7 +24,7 @@ class ImportController extends Component
 
     public function render()
     {
-        return view('livewire.import.component')->layout('layouts.theme.app');;
+        return view('livewire.import.component')->layout('layouts.theme.app');
     }
 
     public function cargaPCS()
