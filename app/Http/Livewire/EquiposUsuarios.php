@@ -15,10 +15,9 @@ use Livewire\Component;
 
 class EquiposUsuarios extends Component
 {
-    public $componentName =  'Equipos asignados';
+
     public $tabPcs = true, $tabLaptops = false, $tabMonitores = false, $tabTeclados =false, $tabMouses=false,
             $tabTelefonos = false, $tabScanners = false, $tabImpresoras = false;
-
 
     public $pcs, $laptops ,$monitores, $teclados, $mouses, $telefonos, $scanners, $impresoras;
     public $totpcs, $totlaptops ,$totmonitores, $totteclados, $totmouses, $tottelefonos, $totscanners, $totimpresoras;
@@ -204,7 +203,9 @@ class EquiposUsuarios extends Component
 
     }
 
-    // valida inventario pc
+
+
+   // valida inventario pc
     public  function aceptaPc($id)
     {
         dd($id);

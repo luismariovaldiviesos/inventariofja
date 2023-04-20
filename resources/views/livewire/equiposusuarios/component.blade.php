@@ -1,13 +1,8 @@
-
-
-
-<h2 class="text-lg font-medium text-center text-them-1 py-4">
-    {{ $componentName }}
-</h2>
-
     <div class="pos intro-y grid grid-cols-12 gap-5 mt-5">
         <div class="intro-y col-span-12 lg:col-span-9">
-
+            <h2 class="text-lg font-medium text-center text-theme-1 py-4">
+                EQUIPOS ASIGNADOS
+            </h2>
             <div class="post intro-y overflow-hidden box">
                 <div class="post__tabs nav nav-tabs flex-col sm:flex-row bg-gray-300 dark:bg-dark-2 text-gray-600" role="tablist">
 
@@ -95,61 +90,66 @@
                                 <div class="overflow-x-auto">
                                     <table class="table">
                                         <thead>
-                                            <tr class="text-theme-6">
+                                            <tr class="text-theme-1">
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
-
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >INVENTARIO</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse($pcs as $pc)
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            @forelse ($pcs as $pc )
+                                                <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $pc->serie }}</h6>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $pc->serie }}</h6>
 
-                                                </td>
+                                                    </td>
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $pc->af }}</h6>
-                                                    {{-- <small class="font-normal">{{ $unidad->unidades->count() }} unidades en este edificio</small> --}}
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $pc->modelo->nombre }}</h6>
-                                                    {{-- <small class="font-normal">{{ $unidad->unidades->count() }} unidades en este edificio</small> --}}
-                                                </td>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $pc->af }}</h6>
+                                                        {{-- <small class="font-normal">{{ $unidad->unidades->count() }} unidades en este edificio</small> --}}
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $pc->modelo->nombre }}</h6>
+                                                        {{-- <small class="font-normal">{{ $unidad->unidades->count() }} unidades en este edificio</small> --}}
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $pc->usuario }}</h6>
+                                                        {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
+                                                        <div class="d-flex justify-content-center">
+                                                            <button class="btn btn-warning text-white border-0 ml-3"
+                                                                wire:click.prevent="aceptaPc({{ $pc->id }})"
+                                                                type="button"
 
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
+                                                                type="button">
 
-                                                        <button class="btn btn-warning text-white border-0 ml-3"
-                                                            wire:click.prevent="Edit({{ $pc->id }})"
-                                                            type="button">
-                                                                <i class=" fas fa-edit f-2x"></i>
+
+
+                                                                <i class="fas fa-thumbs-up"></i>
                                                             </button>
-                                                    </div>
-                                                </td>
+                                                            {{-- @if ($unidad->unidades->count() < 1) --}}
+                                                                <button class="btn btn-danger text-white border-0"
+                                                                onclick="destroy('pcs','Destroy', {{ $pc->id }})"
+                                                                type="button">
+                                                                <i class="fas fa-thumbs-down"></i>
+                                                                </button>
+                                                            {{-- @endif --}}
 
-                                            </tr>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
                                             @empty
-                                            <tr>
-                                                <td colspan="5" class="text-center">NO TIENE PCS A SU CARGO</td>
-                                            </tr>
+                                                <tr class="bg-gray-200 dark:bg-dark-1">
+                                                    <td colspan="2">
+                                                        <h6 class="text-center">    NO HAY PC REGISTRADOS </h6>
+                                                    </td>
+                                                </tr>
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -255,12 +255,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -310,12 +304,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -327,7 +315,6 @@
                      {{-- mouses --}}
 
                      <div id="tabMouses" class="tab-pane p-5 {{$tabMouses ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
-
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">
@@ -366,12 +353,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -382,7 +363,6 @@
                       {{-- telefonos --}}
 
                       <div id="tabTelefonos" class="tab-pane p-5 {{$tabTelefonos ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
-
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">
@@ -421,12 +401,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -437,7 +411,6 @@
                      {{-- scanner --}}
 
                      <div id="tabScanners" class="tab-pane p-5 {{$tabScanners ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
-
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">
@@ -476,12 +449,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -492,7 +459,6 @@
                      {{-- scanner --}}
 
                      <div id="tabImpresoras" class="tab-pane p-5 {{$tabImpresoras ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
-
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">
@@ -531,12 +497,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -549,15 +509,10 @@
 
         </div>
 
-
         <div class="col-span-12 lg:col-span-3">
             <div class="intro-y box p-5">
                 <div>
                     <h2 class="text-2xl text-center mb-3">Resumen de Inventario</h2>
-
-                    La mierda que arrastramos sin remedio
-
-
                 </div>
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">ITEMS</h1>
@@ -596,45 +551,14 @@
                     <h4 class="text-2x1"> {{$totimpresoras}} </h4>
                 </div>
 
-
-                <div class="mt-6">
-                    <div class="input-group">
-                        <div id="input-group-3" class="input-group-text">
-
-                            <a class="btn btn-danger"
-                            href="#" target="_blank">Imprimir  <i class="fas fa-file-pdf"></i> </a>
-
-                        </div>
-                </div>
-                <div class="mt-8">
-                    {{-- @if($totalCart > 0 && ($cash >= $totalCart))
-                        <button wire:loading.attr="disabled" wire:target="storeSale" wire:click.prevent="storeSale" class="btn btn-primary w-full"><i class="fas fa-database mr-2"></i> Guardar Venta</button>
-                        <button wire:loading.attr="disabled" wire:target="storeSale" wire:click.prevent="storeSale(true)" class="btn btn-outline-primary w-full mt-5"><i class="fas fa-receipt mr-2"></i> Guardar e Imprimir</button>
-                    @endif --}}
-
-                    {{-- @if($totalCart >0)
-                        <button onclick="Cancel()" class="btn btn-danger w-full mt-5">
-                        <i class="fas fa-trash mr-2"> </i>
-                        Cancelar Venta</button>
-                    @endif --}}
-
-                </div>
-
             </div>
         </div>
 
 
-    <!-- END: Post Info -->
-        {{-- @include('livewire.sales.modal-changes')
-        @include('livewire.sales.modal-customers')
-        @include('livewire.sales.modal-products')
-        @include('livewire.sales.script')
-        @include('livewire.sales.keyboard') --}}
+
+
 
 
 
 
     </div>
-
-
-
