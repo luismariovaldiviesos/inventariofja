@@ -20,12 +20,7 @@
             </a>
             {{-- @endhasrole --}}
 
-            <li>
-                <a href="{{ route('misequipos') }}" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="database"></i> </div>
-                    <div class="side-menu__title"> MIS EQUIPOS  </div>
-                </a>
-            </li>
+
 
             <ul class="">
 
@@ -50,6 +45,13 @@
                 </li>
 
             </ul>
+        </li>
+
+        <li>
+            <a href="{{ route('misequipos') }}" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="database"></i> </div>
+                <div class="side-menu__title"> MIS EQUIPOS  </div>
+            </a>
         </li>
 
         <li>

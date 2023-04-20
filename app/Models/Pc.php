@@ -66,4 +66,12 @@ class Pc extends Model
     {
         return $this->belongsTo(Modelo::class);
     }
+
+
+    public function aceptaPc($id, $state)
+    {
+        $pc = Pc::find($id);
+        $pc->inventario_state = $state;
+        $pc->update();
+    }
 }
