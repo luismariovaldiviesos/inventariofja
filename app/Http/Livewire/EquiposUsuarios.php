@@ -22,6 +22,9 @@ class EquiposUsuarios extends Component
     public $pcs, $laptops ,$monitores, $teclados, $mouses, $telefonos, $scanners, $impresoras;
     public $totpcs, $totlaptops ,$totmonitores, $totteclados, $totmouses, $tottelefonos, $totscanners, $totimpresoras;
 
+    // para el modal de cambios
+    public $afId,$observaciones,$af;
+
 
     public function render()
     {
@@ -209,6 +212,13 @@ class EquiposUsuarios extends Component
     public  function aceptaPc($id)
     {
         dd($id);
+    }
+
+    // agrega observaciones
+    public function addObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+        dd($this->observaciones);
     }
 
 }

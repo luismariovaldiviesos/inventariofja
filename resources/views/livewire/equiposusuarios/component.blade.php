@@ -94,7 +94,7 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >INVENTARIO</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACEPTAR INVENTARIO </th>
 
                                             </tr>
                                         </thead>
@@ -130,12 +130,13 @@
                                                                 <i class="fas fa-thumbs-up"></i>
                                                             </button>
                                                             {{-- @if ($unidad->unidades->count() < 1) --}}
-                                                                <button class="btn btn-danger text-white border-0"
-                                                                onclick="destroy('pcs','Destroy', {{ $pc->id }})"
-                                                                type="button">
-                                                                <i class="fas fa-thumbs-down"></i>
-                                                                </button>
+                                                            <button onclick="openModal()"
+                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">{{$af}}
+
+                                                            </button>
                                                             {{-- @endif --}}
+
+
 
                                                         </div>
                                                     </td>
@@ -554,11 +555,8 @@
             </div>
         </div>
 
-
-
-
-
-
+        @include('livewire.equiposusuarios.modal-changes')
+        @include('livewire.equiposusuarios.script')
 
 
     </div>
