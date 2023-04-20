@@ -87,6 +87,13 @@
                         <div class="side-menu__title"> Usuarios  </div>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('delegados') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="user"></i> </div>
+                        <div class="side-menu__title"> Delegados  </div>
+                    </a>
+                </li>
             </ul>
         </li>
 

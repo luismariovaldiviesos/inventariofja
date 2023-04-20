@@ -56,4 +56,10 @@ class Unidad extends Model
     {
         return  $this->hasMany(User::class);
     }
+
+    //un delegado
+    public function delegado()
+   {
+    return $this->belongsTo(Delegado::class);
+   }
 }

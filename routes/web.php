@@ -22,6 +22,7 @@ use App\Http\Livewire\Teclados;
 use App\Http\Livewire\Telefonos;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportPcsController;
+use App\Http\Livewire\Delegados;
 use App\Http\Livewire\EquiposUsuarios;
 use App\Http\Livewire\ImportController;
 use App\Http\Livewire\ReportsController;
@@ -77,6 +78,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('inventario',[ReportsController::class, 'Inventario']);
 
     Route::get('misequipos', EquiposUsuarios::class)->name('misequipos');
+
+    //delegados
+    Route::get('delegados', Delegados::class)->name('delegados');
 
 
 

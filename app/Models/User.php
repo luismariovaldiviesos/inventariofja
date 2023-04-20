@@ -176,4 +176,9 @@ class User extends Authenticatable
    {
      return $this->hasMany(Impresora::class);
    }
+
+   public function delegado()
+   {
+    return $this->belongsTo(Delegado::class);
+   }
 }
