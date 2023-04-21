@@ -30,12 +30,12 @@
     //     modal.classList.add("overflow-y-auto", "show")
 	// 	modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
     // }
-    function openModal(afId, observaciones, af){
+    function openModal(afId, observaciones){
 
         var modal = document.getElementById('modalChanges')
         @this.afId = afId
         @this.observaciones = observaciones
-        @this.af = af
+        //@this.af = af
 
         modal.classList.add("overflow-y-auto", "show")
 		modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"

@@ -218,7 +218,7 @@ class EquiposUsuarios extends Component
     public function addObservaciones($observaciones)
     {
         $this->observaciones = $observaciones;
-        dd($this->observaciones);
+        dd($this->observaciones, $this->afId);
     }
 
 }

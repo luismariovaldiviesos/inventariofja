@@ -94,7 +94,8 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACEPTAR INVENTARIO </th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" > INVENTARIO </th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th>
 
                                             </tr>
                                         </thead>
@@ -129,9 +130,19 @@
 
                                                                 <i class="fas fa-thumbs-up"></i>
                                                             </button>
+
+
+
+                                                        </div>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+
+                                                        {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
+                                                        <div class="d-flex justify-content-center">
+
                                                             {{-- @if ($unidad->unidades->count() < 1) --}}
-                                                            <button onclick="openModal()"
-                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">{{$af}}
+                                                            <button onclick="openModal({{ $pc->id }})"
+                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
 
                                                             </button>
                                                             {{-- @endif --}}
