@@ -150,6 +150,7 @@ class Pcs extends Component
                 'ac' => $this->ac,
                 'modelo_id' => $this->modelo_id,
                 'user_id' => $this->user_id,
+                'observaciones_inv' => ""
             ]
         );
 

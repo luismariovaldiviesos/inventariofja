@@ -94,8 +94,8 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" > INVENTARIO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" > INVENTARIADO </th>
+                                                {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
 
                                             </tr>
                                         </thead>
@@ -117,38 +117,35 @@
                                                         {{-- <small class="font-normal">{{ $unidad->unidades->count() }} unidades en este edificio</small> --}}
                                                     </td>
                                                     <td class="dark:border-dark-5">
-
                                                         {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
                                                         <div class="d-flex justify-content-center">
-                                                            <button class="btn btn-warning text-white border-0 ml-3"
+                                                           {{ $pc->id }}
+                                                            @if ($pc->inventariado == false && $pc->revisar_delegado == false)
+                                                                <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="aceptaPc({{ $pc->id }})"
-                                                                type="button"
-
                                                                 type="button">
+                                                                <i class="fas fa-thumbs-up"></i>&nbsp
+                                                                <small class="font-normal">aceptar</small>
+                                                                </button>
 
+                                                                <button onclick="openModal({{ $pc->id }})"
+                                                                class="btn btn-danger fas fa-thumbs-down  mb-3">
+                                                                </button>&nbsp
+                                                                {{-- <small class="font-normal">novedad</small> --}}
 
-
-                                                                <i class="fas fa-thumbs-up"></i>
+                                                            @endif
+                                                            @if ($pc->inventariado == true && $pc->revisar_delegado == false)
+                                                                <button class="btn btn-success text-white border-0 ml-3"
+                                                                type="button">
+                                                               VALIDADO
+                                                                </button>
+                                                            @endif
+                                                            @if ($pc->inventariado == false && $pc->revisar_delegado == true)
+                                                            <button class="btn btn-dark text-white border-0 ml-3"
+                                                            type="button">
+                                                                REVISAR DELEGADO
                                                             </button>
-
-
-
-                                                        </div>
-                                                    </td>
-                                                    <td class="dark:border-dark-5">
-
-                                                        {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
-                                                        <div class="d-flex justify-content-center">
-
-                                                            {{-- @if ($unidad->unidades->count() < 1) --}}
-                                                            <button onclick="openModal({{ $pc->id }})"
-                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
-
-                                                            </button>
-                                                            {{-- @endif --}}
-
-
-
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -156,7 +153,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">    NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse
