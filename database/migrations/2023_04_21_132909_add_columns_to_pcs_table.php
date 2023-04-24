@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('pcs', function (Blueprint $table) {
             $table->boolean('inventariado')->default(false)->before('user_id');
             $table->boolean('revisar_delegado')->default(false)->before('inventariado');;
-            $table->string('observaciones_inv', 255)->before('revisar_delegado');;
+
         });
     }
 
