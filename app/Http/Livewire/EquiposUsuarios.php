@@ -209,7 +209,7 @@ class EquiposUsuarios extends Component
 
 
    // valida inventario pc
-    public  function aceptaPc($id)
+    public  function aceptaActivo($id)
     {
         dd($id);
     }

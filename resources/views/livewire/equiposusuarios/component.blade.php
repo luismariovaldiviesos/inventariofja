@@ -122,7 +122,7 @@
                                                            {{ $pc->id }}
                                                             @if ($pc->inventariado == false && $pc->revisar_delegado == false)
                                                                 <button class="btn btn-primary text-white border-0 ml-3"
-                                                                wire:click.prevent="aceptaPc({{ $pc->id }})"
+                                                                wire:click.prevent="aceptaActivo({{ $pc->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">aceptar</small>
