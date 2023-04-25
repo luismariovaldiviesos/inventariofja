@@ -211,7 +211,10 @@ class EquiposUsuarios extends Component
    // valida inventario pc
     public  function aceptaActivo($id)
     {
-        dd($id);
+        $pc = Pc::find($id);
+        $pc->inventariado = true;
+        $pc->update();
+        dd('actualizado');
     }
 
     // agrega observaciones

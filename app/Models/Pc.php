@@ -74,12 +74,7 @@ class Pc extends Model
         return $this->morphMany(Observacion::class, 'model');
     }
 
-    public function aceptaPc($id, $state)
-    {
-        $pc = Pc::find($id);
-        $pc->inventario_state = $state;
-        $pc->update();
-    }
+
 
 
 
