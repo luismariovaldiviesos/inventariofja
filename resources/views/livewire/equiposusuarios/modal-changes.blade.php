@@ -19,9 +19,9 @@
 
             <div class="modal-footer text-right">
                 <button onclick="closeModal()" class="btn btn-outline-secondary mr-5">Cerrar Ventana</button>
-                @if(strlen($observaciones) >0)
+                {{-- @if(strlen($observaciones) >0)
                 <button wire:click.prevent="removeChanges" class="btn btn-outline-primary mr-5">Quitar Cambios</button>
-                @endif
+                @endif --}}
                 <button type="button" wire:click.prevent="addObservaciones(document.getElementById('observaciones').value)" class="btn btn-primary">Aplicar Cambios</button>
             </div>
 

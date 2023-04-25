@@ -24,9 +24,7 @@
         closeModal()
     })
 
-    window.addEventListener('close-modal', event => {
-        closeModal()
-    })
+
 
 
 

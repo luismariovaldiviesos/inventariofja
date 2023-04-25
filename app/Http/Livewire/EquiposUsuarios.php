@@ -224,7 +224,7 @@ class EquiposUsuarios extends Component
         // limpiar mensajes rojos de validación
         $this->resetValidation();
         // regresar a la página inicial del componente
-        $this->resetPage();
+        //$this->resetPage();
         // regresar propiedades a su valor por defecto
        // $this->reset('nombre', 'provincia_id', 'selected_id', 'search', 'action', 'componentName', 'form','provincia');
     }
@@ -240,14 +240,13 @@ class EquiposUsuarios extends Component
         $this->noty('Inventario actualizado', 'noty', false);
     }
 
-    // agrega observaciones
+    // agrega observaciones pc
     public function addObservaciones($observaciones)
     {
         $this->observaciones = $observaciones;
         $pc = Pc::find($this->afId);
         $pc->inventariado = false;
         $pc->revisar_delegado = true;
-        //obervaciones
         $pc->update();
         $observacion =  Observacion::create([
             'observacion' => $this->observaciones,
@@ -255,7 +254,8 @@ class EquiposUsuarios extends Component
             'af_type' => 'App\Models\Pc'
         ]);
 
-        $this->noty('Inventario actualizado', 'noty', false,'close-modal-changes');
+        $this->noty('Inventario actualizado', 'noty');
+        $this->dispatchBrowserEvent('close-modal-changes'); // evento que va al front para cerrar el modal (a traves de JS)
     }
 
 }

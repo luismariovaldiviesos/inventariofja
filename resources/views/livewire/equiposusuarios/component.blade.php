@@ -94,7 +94,7 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" > INVENTARIADO </th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
                                                 {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
 
                                             </tr>
@@ -116,10 +116,10 @@
                                                         <h6 class="mb-1 font-medium">{{ $pc->modelo->nombre }}</h6>
                                                         {{-- <small class="font-normal">{{ $unidad->unidades->count() }} unidades en este edificio</small> --}}
                                                     </td>
-                                                    <td class="dark:border-dark-5">
+                                                    <td class="dark:border-dark-5 text-center">
                                                         {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
                                                         <div class="d-flex justify-content-center">
-                                                           {{ $pc->id }}
+
                                                             @if ($pc->inventariado == false && $pc->revisar_delegado == false)
                                                                 <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="aceptaActivo({{ $pc->id }})"
