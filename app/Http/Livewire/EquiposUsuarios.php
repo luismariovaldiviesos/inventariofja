@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Impresora;
 use App\Models\Laptop;
 use App\Models\Monitor;
+use App\Models\Observacion;
 use App\Models\Pc;
 use App\Models\Raton;
 use App\Models\Scanner;
@@ -206,6 +207,28 @@ class EquiposUsuarios extends Component
 
     }
 
+    public function noty($msg, $eventName = 'noty', $reset = true, $action = '')
+    {
+        $this->dispatchBrowserEvent($eventName, ['msg' => $msg, 'type' => 'success', 'action' => $action]);
+        if ($reset) $this->resetUI();
+    }
+
+    public function CloseModal()
+    {
+        $this->resetUI();
+        $this->noty(null, 'close-modal');
+    }
+
+    public function resetUI()
+    {
+        // limpiar mensajes rojos de validación
+        $this->resetValidation();
+        // regresar a la página inicial del componente
+        $this->resetPage();
+        // regresar propiedades a su valor por defecto
+       // $this->reset('nombre', 'provincia_id', 'selected_id', 'search', 'action', 'componentName', 'form','provincia');
+    }
+
 
 
    // valida inventario pc
@@ -214,14 +237,25 @@ class EquiposUsuarios extends Component
         $pc = Pc::find($id);
         $pc->inventariado = true;
         $pc->update();
-        dd('actualizado');
+        $this->noty('Inventario actualizado', 'noty', false);
     }
 
     // agrega observaciones
     public function addObservaciones($observaciones)
     {
         $this->observaciones = $observaciones;
-        dd($this->observaciones, $this->afId);
+        $pc = Pc::find($this->afId);
+        $pc->inventariado = false;
+        $pc->revisar_delegado = true;
+        //obervaciones
+        $pc->update();
+        $observacion =  Observacion::create([
+            'observacion' => $this->observaciones,
+            'af_id' => $this->afId,
+            'af_type' => 'App\Models\Pc'
+        ]);
+
+        $this->noty('Inventario actualizado', 'noty', false,'close-modal-changes');
     }
 
 }
