@@ -67,6 +67,12 @@ class Pc extends Model
         return $this->belongsTo(Modelo::class);
     }
 
+ // observaciones
+
+ public function observaciones()
+    {
+        return $this->morphMany(Observacion::class, 'model');
+    }
 
     public function aceptaPc($id, $state)
     {
@@ -74,4 +80,7 @@ class Pc extends Model
         $pc->inventario_state = $state;
         $pc->update();
     }
+
+
+
 }
