@@ -26,6 +26,8 @@ class EquiposUsuarios extends Component
     // para el modal de cambios
     public $afId,$observaciones,$af;
 
+    public $observacionesLa;
+
 
     public function render()
     {
@@ -256,6 +258,31 @@ class EquiposUsuarios extends Component
 
         $this->noty('Inventario actualizado', 'noty');
         $this->dispatchBrowserEvent('close-modal-changes'); // evento que va al front para cerrar el modal (a traves de JS)
+    }
+
+    public  function aceptLaptop($id)
+    {
+        $laptop = Laptop::find($id);
+        $laptop->inventariado = true;
+        $laptop->update();
+        $this->noty('Inventario actualizado', 'noty', false);
+    }
+
+    // agrega observaciones pc
+    public function addObservacionesLa($observaciones)
+    {
+        $this->observacionesLa = $observaciones;
+        $laptop = Laptop::find($this->afId);
+        $laptop->inventariado = false;
+        $laptop->revisar_delegado = true;
+        $laptop->update();
+        $observacion =  Observacion::create([
+            'observacion' => $this->observacionesLa,
+            'af_id' => $this->afId,
+            'af_type' => 'App\Models\Laptop'
+        ]);
+        $this->noty('Inventario actualizado', 'noty');
+        $this->dispatchBrowserEvent('close-modal-changes-la'); // evento que va al front para cerrar el modal (a traves de JS)
     }
 
 }

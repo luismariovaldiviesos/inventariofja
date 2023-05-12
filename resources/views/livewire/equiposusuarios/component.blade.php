@@ -201,6 +201,39 @@
                                                     <h6 class="mb-1 font-medium">{{ $laptop->modelo->nombre }}</h6>
                                                     {{-- <small class="font-normal">{{ $unidad->unidades->count() }} unidades en este edificio</small> --}}
                                                 </td>
+
+                                                <td class="dark:border-dark-5 text-center">
+                                                    {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
+                                                    <div class="d-flex justify-content-center">
+
+                                                        @if ($laptop->inventariado == false && $laptop->revisar_delegado == false)
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="aceptLaptop({{ $laptop->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">aceptar</small>
+                                                            </button>
+
+                                                            <button onclick="openModalLaptop({{ $laptop->id }})"
+                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
+                                                            </button>&nbsp
+                                                            {{-- <small class="font-normal">novedad</small> --}}
+
+                                                        @endif
+                                                        @if ($laptop->inventariado == true && $laptop->revisar_delegado == false)
+                                                            <button class="btn btn-success text-white border-0 ml-3"
+                                                            type="button">
+                                                           VALIDADO
+                                                            </button>
+                                                        @endif
+                                                        @if ($laptop->inventariado == false && $laptop->revisar_delegado == true)
+                                                        <button class="btn btn-dark text-white border-0 ml-3"
+                                                        type="button">
+                                                            REVISAR DELEGADO
+                                                        </button>
+                                                        @endif
+                                                    </div>
+                                                </td>
                                             </tr>
                                             @empty
                                             <tr>
@@ -564,7 +597,9 @@
         </div>
 
         @include('livewire.equiposusuarios.modal-changes')
+        @include('livewire.equiposusuarios.modal-changes-laptop')
         @include('livewire.equiposusuarios.script')
+
 
 
     </div>

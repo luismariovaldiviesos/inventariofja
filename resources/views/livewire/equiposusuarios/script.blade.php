@@ -26,6 +26,31 @@
 
 
 
+    function openModalLaptop(afId, observacionesLa){
+
+        var modal = document.getElementById('modalChangesLa')
+        @this.afId = afId
+        @this.observacionesLa = observacionesLa
+        //@this.af = af
+
+        modal.classList.add("overflow-y-auto", "show")
+        modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
+    }
+
+    function closeModalLa()
+    {
+        var modal = document.getElementById('modalChangesLa')
+        modal.classList.remove("overflow-y-auto", "show")
+		modal.style.cssText = ""
+    }
+
+       // listeners que vienen desde el front -end
+       window.addEventListener('close-modal-changes-la', event => {
+        closeModalLa()
+    })
+
+
+
 
 
 
