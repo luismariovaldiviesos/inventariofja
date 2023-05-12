@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('pcs', function (Blueprint $table) {
+        Schema::table('laptops', function (Blueprint $table) {
             $table->boolean('inventariado')->default(false)->before('user_id');
             $table->boolean('revisar_delegado')->default(false)->before('inventariado');
 
@@ -27,7 +27,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('pcs', function (Blueprint $table) {
+        Schema::table('laptops', function (Blueprint $table) {
             $table->dropColumn(['inventariado', 'revisar_delegado']);
         });
     }

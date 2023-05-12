@@ -9,7 +9,7 @@ class Laptop extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre','ram','dd','serie','af','ac','modelo_id','user_id'];
+    protected $fillable = ['nombre','ram','dd','serie','af','ac','modelo_id','user_id','inventariado','revisar_delegado'];
 
     public static function rules($id)
     {
@@ -66,4 +66,11 @@ class Laptop extends Model
     {
         return $this->belongsTo(Modelo::class);
     }
+
+     // observaciones
+
+ public function observaciones()
+ {
+     return $this->morphMany(Observacion::class, 'model');
+ }
 }
