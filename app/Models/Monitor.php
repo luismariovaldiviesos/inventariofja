@@ -9,7 +9,7 @@ class Monitor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['serie','af','marca_id','user_id'];
+    protected $fillable = ['serie','af','marca_id','user_id','inventariado','revisar_delegado'];
 
     public static function rules($id)
     {
@@ -52,6 +52,12 @@ class Monitor extends Model
     {
         return $this->belongsTo(Marca::class);
     }
+
+     // observaciones
+     public function observaciones()
+     {
+         return $this->morphMany(Observacion::class, 'model');
+     }
 
 
 }

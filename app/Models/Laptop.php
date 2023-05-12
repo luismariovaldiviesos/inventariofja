@@ -67,10 +67,9 @@ class Laptop extends Model
         return $this->belongsTo(Modelo::class);
     }
 
-     // observaciones
-
- public function observaciones()
- {
-     return $this->morphMany(Observacion::class, 'model');
- }
+    // observaciones
+    public function observaciones()
+    {
+        return $this->morphMany(Observacion::class, 'model');
+    }
 }

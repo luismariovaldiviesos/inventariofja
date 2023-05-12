@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Raton extends Model
 {
     use HasFactory;
-    protected $fillable = ['serie','af','marca_id','user_id'];
+    protected $fillable = ['serie','af','marca_id','user_id','inventariado','revisar_delegado'];
 
     public static function rules($id)
     {
@@ -50,5 +50,11 @@ class Raton extends Model
     public function marca()
     {
         return $this->belongsTo(Marca::class);
+    }
+
+    // observaciones
+    public function observaciones()
+    {
+        return $this->morphMany(Observacion::class, 'model');
     }
 }
