@@ -26,7 +26,7 @@ class EquiposUsuarios extends Component
     // para el modal de cambios
     public $afId,$observaciones,$af;
 
-    public $observacionesLa;
+    public $observacionesLa, $observacionesMo ;
 
 
     public function render()
@@ -268,7 +268,7 @@ class EquiposUsuarios extends Component
         $this->noty('Inventario actualizado', 'noty', false);
     }
 
-    // agrega observaciones pc
+    // agrega observaciones la
     public function addObservacionesLa($observaciones)
     {
         $this->observacionesLa = $observaciones;
@@ -283,6 +283,33 @@ class EquiposUsuarios extends Component
         ]);
         $this->noty('Inventario actualizado', 'noty');
         $this->dispatchBrowserEvent('close-modal-changes-la'); // evento que va al front para cerrar el modal (a traves de JS)
+    }
+
+    public  function aceptMonitor($id)
+    {
+        $monitor = Monitor::find($id);
+        $monitor->inventariado = true;
+        $monitor->update();
+        $this->noty('Inventario actualizado', 'noty', false);
+    }
+
+
+
+    // agrega observaciones Monitor
+    public function addObservacionesMo($observaciones)
+    {
+        $this->observacionesMo = $observaciones;
+        $monitor = Monitor::find($this->afId);
+        $monitor->inventariado = false;
+        $monitor->revisar_delegado = true;
+        $monitor->update();
+        $observacion =  Observacion::create([
+            'observacion' => $this->observacionesMo,
+            'af_id' => $this->afId,
+            'af_type' => 'App\Models\Monitor'
+        ]);
+        $this->noty('Inventario actualizado', 'noty');
+        $this->dispatchBrowserEvent('close-modal-changes-mo'); // evento que va al front para cerrar el modal (a traves de JS)
     }
 
 }

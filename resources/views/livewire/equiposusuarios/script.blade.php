@@ -51,6 +51,33 @@
 
 
 
+    /// MONITOR
+
+    function openModalMonitor(afId, observacionesLa){
+
+        var modal = document.getElementById('modalChangesMo')
+        @this.afId = afId
+        @this.observacionesLa = observacionesLa
+        //@this.af = af
+
+        modal.classList.add("overflow-y-auto", "show")
+        modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
+    }
+
+    function closeModalMo()
+    {
+        var modal = document.getElementById('modalChangesMo')
+        modal.classList.remove("overflow-y-auto", "show")
+		modal.style.cssText = ""
+    }
+
+    // listeners que vienen desde el front -end
+    window.addEventListener('close-modal-changes-mo', event => {
+        closeModalMo()
+    })
+
+
+
 
 
 
