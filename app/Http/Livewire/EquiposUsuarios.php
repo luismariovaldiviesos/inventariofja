@@ -26,7 +26,7 @@ class EquiposUsuarios extends Component
     // para el modal de cambios
     public $afId,$observaciones,$af;
 
-    public $observacionesLa, $observacionesMo ;
+    public $observacionesLa, $observacionesMo, $observacionesTe, $observacionesRa;
 
 
     public function render()
@@ -311,5 +311,61 @@ class EquiposUsuarios extends Component
         $this->noty('Inventario actualizado', 'noty');
         $this->dispatchBrowserEvent('close-modal-changes-mo'); // evento que va al front para cerrar el modal (a traves de JS)
     }
+
+
+
+    public  function aceptTeclado($id)
+    {
+        $teclado = Teclado::find($id);
+        $teclado->inventariado = true;
+        $teclado->update();
+        $this->noty('Inventario actualizado', 'noty', false);
+    }
+
+     // agrega observaciones tecldo
+     public function addObservacionesTe($observaciones)
+     {
+         $this->observacionesTe = $observaciones;
+         $teclado = Teclado::find($this->afId);
+         $teclado->inventariado = false;
+         $teclado->revisar_delegado = true;
+         $teclado->update();
+         $observacion =  Observacion::create([
+             'observacion' => $this->observacionesTe,
+             'af_id' => $this->afId,
+             'af_type' => 'App\Models\Teclado'
+         ]);
+         $this->noty('Inventario actualizado', 'noty');
+         $this->dispatchBrowserEvent('close-modal-changes-te'); // evento que va al front para cerrar el modal (a traves de JS)
+     }
+
+
+
+     public  function aceptRaton($id)
+     {
+         $raton = Raton::find($id);
+         $raton->inventariado = true;
+         $raton->update();
+         $this->noty('Inventario actualizado', 'noty', false);
+     }
+
+
+
+     // agrega observaciones mouse
+     public function addObservacionesRa($observaciones)
+     {
+         $this->observacionesRa = $observaciones;
+         $raton = Raton::find($this->afId);
+         $raton->inventariado = false;
+         $raton->revisar_delegado = true;
+         $raton->update();
+         $observacion =  Observacion::create([
+             'observacion' => $this->observacionesRa,
+             'af_id' => $this->afId,
+             'af_type' => 'App\Models\Raton'
+         ]);
+         $this->noty('Inventario actualizado', 'noty');
+         $this->dispatchBrowserEvent('close-modal-changes-ra'); // evento que va al front para cerrar el modal (a traves de JS)
+     }
 
 }

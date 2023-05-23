@@ -271,6 +271,7 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -352,6 +353,7 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA </th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
 
                                             </tr>
                                         </thead>
@@ -370,6 +372,39 @@
 
                                                 <td class="dark:border-dark-5">
                                                     <h6 class="mb-1 font-medium">{{ $teclado->marca->nombre }}</h6>
+                                                </td>
+
+                                                <td class="dark:border-dark-5 text-center">
+                                                    {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
+                                                    <div class="d-flex justify-content-center">
+
+                                                        @if ($teclado->inventariado == false && $teclado->revisar_delegado == false)
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="aceptTeclado({{ $teclado->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">aceptar</small>
+                                                            </button>
+
+                                                            <button onclick="openModalTeclado({{ $teclado->id }})"
+                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
+                                                            </button>&nbsp
+                                                            {{-- <small class="font-normal">novedad</small> --}}
+
+                                                        @endif
+                                                        @if ($teclado->inventariado == true && $teclado->revisar_delegado == false)
+                                                            <button class="btn btn-success text-white border-0 ml-3"
+                                                            type="button">
+                                                           VALIDADO
+                                                            </button>
+                                                        @endif
+                                                        @if ($teclado->inventariado == false && $teclado->revisar_delegado == true)
+                                                        <button class="btn btn-dark text-white border-0 ml-3"
+                                                        type="button">
+                                                            REVISAR DELEGADO
+                                                        </button>
+                                                        @endif
+                                                    </div>
                                                 </td>
 
 
@@ -401,6 +436,7 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA </th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
 
                                             </tr>
                                         </thead>
@@ -419,6 +455,39 @@
 
                                                 <td class="dark:border-dark-5">
                                                     <h6 class="mb-1 font-medium">{{ $mouse->marca->nombre }}</h6>
+                                                </td>
+
+                                                <td class="dark:border-dark-5 text-center">
+                                                    {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
+                                                    <div class="d-flex justify-content-center">
+
+                                                        @if ($mouse->inventariado == false && $mouse->revisar_delegado == false)
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="aceptRaton({{ $mouse->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">aceptar</small>
+                                                            </button>
+
+                                                            <button onclick="openModalRaton({{ $mouse->id }})"
+                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
+                                                            </button>&nbsp
+                                                            {{-- <small class="font-normal">novedad</small> --}}
+
+                                                        @endif
+                                                        @if ($mouse->inventariado == true && $mouse->revisar_delegado == false)
+                                                            <button class="btn btn-success text-white border-0 ml-3"
+                                                            type="button">
+                                                           VALIDADO
+                                                            </button>
+                                                        @endif
+                                                        @if ($mouse->inventariado == false && $mouse->revisar_delegado == true)
+                                                        <button class="btn btn-dark text-white border-0 ml-3"
+                                                        type="button">
+                                                            REVISAR DELEGADO
+                                                        </button>
+                                                        @endif
+                                                    </div>
                                                 </td>
 
 
@@ -634,6 +703,8 @@
         @include('livewire.equiposusuarios.modal-changes')
         @include('livewire.equiposusuarios.modal-changes-laptop')
         @include('livewire.equiposusuarios.modal-changes-monitor')
+        @include('livewire.equiposusuarios.modal-changes-teclado')
+        @include('livewire.equiposusuarios.modal-changes-mouse')
         @include('livewire.equiposusuarios.script')
 
 
