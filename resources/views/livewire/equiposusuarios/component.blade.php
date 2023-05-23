@@ -170,7 +170,7 @@
 
                     {{-- LAPTOPS --}}
 
-                    <div id="tabLaptops" class="tab-pane p-5 {{$tabLaptops ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
+                    <div id="tabLaptops" class="tab-pane  {{$tabLaptops ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
 
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
@@ -259,7 +259,7 @@
 
                     {{-- MONITORES --}}
 
-                    <div id="tabMonitores" class="tab-pane p-5 {{$tabMonitores ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
+                    <div id="tabMonitores" class="tab-pane  {{$tabMonitores ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
 
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
@@ -342,7 +342,7 @@
 
                      {{-- teclados --}}
 
-                     <div id="tabTeclados" class="tab-pane p-5 {{$tabTeclados ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
+                     <div id="tabTeclados" class="tab-pane  {{$tabTeclados ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
 
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
@@ -426,7 +426,7 @@
 
                      {{-- mouses --}}
 
-                     <div id="tabMouses" class="tab-pane p-5 {{$tabMouses ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
+                     <div id="tabMouses" class="tab-pane  {{$tabMouses ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">
@@ -508,7 +508,7 @@
 
                       {{-- telefonos --}}
 
-                      <div id="tabTelefonos" class="tab-pane p-5 {{$tabTelefonos ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
+                      <div id="tabTelefonos" class="tab-pane  {{$tabTelefonos ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">
@@ -556,7 +556,7 @@
 
                      {{-- scanner --}}
 
-                     <div id="tabScanners" class="tab-pane p-5 {{$tabScanners ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
+                     <div id="tabScanners" class="tab-pane  {{$tabScanners ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">
@@ -604,7 +604,7 @@
 
                      {{-- scanner --}}
 
-                     <div id="tabImpresoras" class="tab-pane p-5 {{$tabImpresoras ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
+                     <div id="tabImpresoras" class="tab-pane  {{$tabImpresoras ? 'active' : '' }}" role="tabpanel" aria-labelledby="content-tab">
                         <div class="p-5" id="striped-rows-table">
                             <div class="preview">
                                 <div class="overflow-x-auto">

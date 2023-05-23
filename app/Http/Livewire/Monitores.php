@@ -131,6 +131,8 @@ class Monitores extends Component
                 'af' => $this->af,
                 'marca_id' => $this->marca_id,
                 'user_id' => $this->user_id,
+                'inventariado' => false,
+                'revisar_delegado' => false
             ]
         );
 
