@@ -10,7 +10,7 @@ class Telefono extends Model
     use HasFactory;
 
 
-    protected $fillable = ['serie','af','ac','modelo_id','user_id'];
+    protected $fillable = ['serie','af','ac','modelo_id','user_id','inventariado','revisar_delegado'];
 
     public static function rules($id)
     {
@@ -55,5 +55,11 @@ class Telefono extends Model
     public function modelo()
     {
         return $this->belongsTo(Modelo::class);
+    }
+
+    // observaciones
+    public function observaciones()
+    {
+        return $this->morphMany(Observacion::class, 'model');
     }
 }

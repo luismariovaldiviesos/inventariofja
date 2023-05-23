@@ -147,6 +147,8 @@ class Telefonos extends Component
                 'ac' => $this->ac,
                 'modelo_id' => $this->modelo_id,
                 'user_id' => $this->user_id,
+                'inventariado' => false,
+                'revisar_delegado' => false
             ]
         );
 
