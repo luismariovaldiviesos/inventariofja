@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <b>OBSERVACIONES AL MOUSE</b>
-                        <textarea id="observaciones" cols="30" rows="10" class="form-control kioskboard"></textarea>
+                        <textarea id="observacionesRA" cols="30" rows="10" class="form-control kioskboard"></textarea>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="modal-footer text-right">
                 <button onclick="closeModalRa()" class="btn btn-outline-secondary mr-5">Cerrar Ventana</button>
 
-                <button type="button" wire:click.prevent="addObservacionesRa(document.getElementById('observaciones').value)" class="btn btn-primary">Aplicar Cambios</button>
+                <button type="button" wire:click.prevent="addObservacionesRa(document.getElementById('observacionesRA').value)" class="btn btn-primary">Aplicar Cambios</button>
             </div>
 
         </div>

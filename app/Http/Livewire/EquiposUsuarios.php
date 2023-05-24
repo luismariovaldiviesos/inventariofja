@@ -26,7 +26,7 @@ class EquiposUsuarios extends Component
     // para el modal de cambios
     public $afId,$observaciones,$af;
 
-    public $observacionesLa, $observacionesMo, $observacionesTe, $observacionesRa, $observacionesTel, $observacionesSca;
+    public $observacionesLa, $observacionesMo, $observacionesTe, $observacionesRa, $observacionesTel, $observacionesSca, $observacionesImp;
 
 
     public function render()
@@ -246,7 +246,7 @@ class EquiposUsuarios extends Component
     public function addObservaciones($observaciones)
     {
         $this->observaciones = $observaciones;
-        dd($this->observaciones);
+        //dd($this->observaciones);
         $pc = Pc::find($this->afId);
         $pc->inventariado = false;
         $pc->revisar_delegado = true;
@@ -274,13 +274,13 @@ class EquiposUsuarios extends Component
     {
         //dd($this->observaciones);
         $this->observacionesLa = $observaciones;
-        dd($this->observacionesLa);
+        //dd($this->observacionesLa);
         $laptop = Laptop::find($this->afId);
         $laptop->inventariado = false;
         $laptop->revisar_delegado = true;
         $laptop->update();
         $observacion =  Observacion::create([
-            'observacion' => $this->observaciones,
+            'observacion' => $this->observacionesLa,
             'af_id' => $this->afId,
             'af_type' => 'App\Models\Laptop'
         ]);
@@ -302,6 +302,7 @@ class EquiposUsuarios extends Component
     public function addObservacionesMo($observaciones)
     {
         $this->observacionesMo = $observaciones;
+        //dd($this->observacionesMo);
         $monitor = Monitor::find($this->afId);
         $monitor->inventariado = false;
         $monitor->revisar_delegado = true;
@@ -329,6 +330,7 @@ class EquiposUsuarios extends Component
      public function addObservacionesTe($observaciones)
      {
          $this->observacionesTe = $observaciones;
+         //dd($this->observacionesTe);
          $teclado = Teclado::find($this->afId);
          $teclado->inventariado = false;
          $teclado->revisar_delegado = true;
@@ -358,6 +360,7 @@ class EquiposUsuarios extends Component
      public function addObservacionesRa($observaciones)
      {
          $this->observacionesRa = $observaciones;
+         //dd($this->observacionesRa);
          $raton = Raton::find($this->afId);
          $raton->inventariado = false;
          $raton->revisar_delegado = true;
@@ -384,6 +387,7 @@ class EquiposUsuarios extends Component
      public function addObservacionesTel($observaciones)
      {
          $this->observacionesTel = $observaciones;
+        // dd($this->observacionesTel);
          $telefono = Telefono::find($this->afId);
          $telefono->inventariado = false;
          $telefono->revisar_delegado = true;
@@ -411,6 +415,7 @@ class EquiposUsuarios extends Component
       public function addObservacionesSca($observaciones)
       {
           $this->observacionesSca = $observaciones;
+          //dd($this->observacionesSca);
           $scanner = Scanner::find($this->afId);
           $scanner->inventariado = false;
           $scanner->revisar_delegado = true;
@@ -423,6 +428,37 @@ class EquiposUsuarios extends Component
           $this->noty('Inventario actualizado', 'noty');
           $this->dispatchBrowserEvent('close-modal-changes-sca'); // evento que va al front para cerrar el modal (a traves de JS)
       }
+
+
+
+
+      public  function aceptImpresora($id)
+      {
+          $impresora = Impresora::find($id);
+          $impresora->inventariado = true;
+          $impresora->update();
+          $this->noty('Inventario actualizado', 'noty', false);
+      }
+
+
+      // agrega observaciones impresora
+      public function addObservacionesImp($observaciones)
+      {
+          $this->observacionesImp = $observaciones;
+          //dd($this->observacionesImp);
+          $impresora = Impresora::find($this->afId);
+          $impresora->inventariado = false;
+          $impresora->revisar_delegado = true;
+          $impresora->update();
+          $observacion =  Observacion::create([
+              'observacion' => $this->observacionesImp,
+              'af_id' => $this->afId,
+              'af_type' => 'App\Models\Impresora'
+          ]);
+          $this->noty('Inventario actualizado', 'noty');
+          $this->dispatchBrowserEvent('close-modal-changes-imp'); // evento que va al front para cerrar el modal (a traves de JS)
+      }
+
 
 
 }

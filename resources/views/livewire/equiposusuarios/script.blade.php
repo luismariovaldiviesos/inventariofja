@@ -1,10 +1,10 @@
 <script>
 
-    function openModal(afId, observaciones){
+    function openModal(afId){
 
         var modal = document.getElementById('modalChanges')
         @this.afId = afId
-        @this.observaciones = observaciones
+
         //@this.af = af
 
         modal.classList.add("overflow-y-auto", "show")
@@ -26,13 +26,10 @@
 
 
 
-    function openModalLaptop(afId, observaciones){
+    function openModalLaptop(afId){
 
         var modal = document.getElementById('modalChangesLa')
         @this.afId = afId
-        @this.observacionesLa= observaciones
-        //@this.af = af
-
         modal.classList.add("overflow-y-auto", "show")
         modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
     }
@@ -53,13 +50,10 @@
 
     /// MONITOR
 
-    function openModalMonitor(afId, observacionesMo){
+    function openModalMonitor(afId){
 
         var modal = document.getElementById('modalChangesMo')
         @this.afId = afId
-        @this.observacionesMo = observacionesMo
-        //@this.af = af
-
         modal.classList.add("overflow-y-auto", "show")
         modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
     }
@@ -78,13 +72,10 @@
 
      /// teclado
 
-        function openModalTeclado(afId, observacionesTe){
+        function openModalTeclado(afId){
 
         var modal = document.getElementById('modalChangesTe')
         @this.afId = afId
-        @this.observacionesTe = observacionesTe
-        //@this.af = af
-
         modal.classList.add("overflow-y-auto", "show")
         modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
         }
@@ -105,12 +96,9 @@
 
     /// mosuse
 
-    function openModalRaton(afId, observacionesRa){
+    function openModalRaton(afId){
         var modal = document.getElementById('modalChangesRa')
         @this.afId = afId
-        @this.observacionesRa = observacionesRa
-        //@this.af = af
-
         modal.classList.add("overflow-y-auto", "show")
         modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
     }
@@ -129,12 +117,9 @@
 
      /// telefono
 
-     function openModalTelefono(afId, observacionesTel){
+     function openModalTelefono(afId){
         var modal = document.getElementById('modalChangesTel')
         @this.afId = afId
-        @this.observacionesTel = observacionesTel
-        //@this.af = af
-
         modal.classList.add("overflow-y-auto", "show")
         modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
     }
@@ -157,12 +142,9 @@
 
     /// scanner
 
-    function openModalScanner(afId, observacionesSca){
+    function openModalScanner(afId){
         var modal = document.getElementById('modalChangesSca')
         @this.afId = afId
-        @this.observacionesSca = observacionesSca
-        //@this.af = af
-
         modal.classList.add("overflow-y-auto", "show")
         modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
     }
@@ -177,6 +159,25 @@
     // listeners que vienen desde el front -end
     window.addEventListener('close-modal-changes-sca', event => {
     closeModalSca()
+    })
+
+    function openModalImpresora(afId){
+        var modal = document.getElementById('modalChangesImp')
+        @this.afId = afId
+        modal.classList.add("overflow-y-auto", "show")
+        modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
+    }
+
+    function closeModalImp()
+    {
+    var modal = document.getElementById('modalChangesImp')
+    modal.classList.remove("overflow-y-auto", "show")
+    modal.style.cssText = ""
+    }
+
+    // listeners que vienen desde el front -end
+    window.addEventListener('close-modal-changes-imp', event => {
+        closeModalImp()
     })
 
 
