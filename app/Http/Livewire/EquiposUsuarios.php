@@ -26,7 +26,7 @@ class EquiposUsuarios extends Component
     // para el modal de cambios
     public $afId,$observaciones,$af;
 
-    public $observacionesLa, $observacionesMo, $observacionesTe, $observacionesRa, $observacionesTel;
+    public $observacionesLa, $observacionesMo, $observacionesTe, $observacionesRa, $observacionesTel, $observacionesSca;
 
 
     public function render()
@@ -246,6 +246,7 @@ class EquiposUsuarios extends Component
     public function addObservaciones($observaciones)
     {
         $this->observaciones = $observaciones;
+        dd($this->observaciones);
         $pc = Pc::find($this->afId);
         $pc->inventariado = false;
         $pc->revisar_delegado = true;
@@ -271,13 +272,15 @@ class EquiposUsuarios extends Component
     // agrega observaciones la
     public function addObservacionesLa($observaciones)
     {
+        //dd($this->observaciones);
         $this->observacionesLa = $observaciones;
+        dd($this->observacionesLa);
         $laptop = Laptop::find($this->afId);
         $laptop->inventariado = false;
         $laptop->revisar_delegado = true;
         $laptop->update();
         $observacion =  Observacion::create([
-            'observacion' => $this->observacionesLa,
+            'observacion' => $this->observaciones,
             'af_id' => $this->afId,
             'af_type' => 'App\Models\Laptop'
         ]);
@@ -393,6 +396,33 @@ class EquiposUsuarios extends Component
          $this->noty('Inventario actualizado', 'noty');
          $this->dispatchBrowserEvent('close-modal-changes-tel'); // evento que va al front para cerrar el modal (a traves de JS)
      }
+
+     public  function aceptScanner($id)
+     {
+         $scanner = Scanner::find($id);
+         $scanner->inventariado = true;
+         $scanner->update();
+         $this->noty('Inventario actualizado', 'noty', false);
+     }
+
+
+
+      // agrega observaciones scanner
+      public function addObservacionesSca($observaciones)
+      {
+          $this->observacionesSca = $observaciones;
+          $scanner = Scanner::find($this->afId);
+          $scanner->inventariado = false;
+          $scanner->revisar_delegado = true;
+          $scanner->update();
+          $observacion =  Observacion::create([
+              'observacion' => $this->observacionesSca,
+              'af_id' => $this->afId,
+              'af_type' => 'App\Models\Scanner'
+          ]);
+          $this->noty('Inventario actualizado', 'noty');
+          $this->dispatchBrowserEvent('close-modal-changes-sca'); // evento que va al front para cerrar el modal (a traves de JS)
+      }
 
 
 }

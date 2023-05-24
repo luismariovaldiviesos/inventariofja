@@ -26,11 +26,11 @@
 
 
 
-    function openModalLaptop(afId, observacionesLa){
+    function openModalLaptop(afId, observaciones){
 
         var modal = document.getElementById('modalChangesLa')
         @this.afId = afId
-        @this.observacionesLa = observacionesLa
+        @this.observacionesLa= observaciones
         //@this.af = af
 
         modal.classList.add("overflow-y-auto", "show")
@@ -149,6 +149,34 @@
     // listeners que vienen desde el front -end
     window.addEventListener('close-modal-changes-tel', event => {
     closeModalTel()
+    })
+
+
+
+
+
+    /// scanner
+
+    function openModalScanner(afId, observacionesSca){
+        var modal = document.getElementById('modalChangesSca')
+        @this.afId = afId
+        @this.observacionesSca = observacionesSca
+        //@this.af = af
+
+        modal.classList.add("overflow-y-auto", "show")
+        modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
+    }
+
+    function closeModalSca()
+    {
+    var modal = document.getElementById('modalChangesSca')
+    modal.classList.remove("overflow-y-auto", "show")
+    modal.style.cssText = ""
+    }
+
+    // listeners que vienen desde el front -end
+    window.addEventListener('close-modal-changes-sca', event => {
+    closeModalSca()
     })
 
 
