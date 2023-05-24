@@ -53,11 +53,11 @@
 
     /// MONITOR
 
-    function openModalMonitor(afId, observacionesLa){
+    function openModalMonitor(afId, observacionesMo){
 
         var modal = document.getElementById('modalChangesMo')
         @this.afId = afId
-        @this.observacionesLa = observacionesLa
+        @this.observacionesMo = observacionesMo
         //@this.af = af
 
         modal.classList.add("overflow-y-auto", "show")
@@ -78,11 +78,11 @@
 
      /// teclado
 
-        function openModalTeclado(afId, observacionesLa){
+        function openModalTeclado(afId, observacionesTe){
 
         var modal = document.getElementById('modalChangesTe')
         @this.afId = afId
-        @this.observacionesLa = observacionesLa
+        @this.observacionesTe = observacionesTe
         //@this.af = af
 
         modal.classList.add("overflow-y-auto", "show")
@@ -105,10 +105,10 @@
 
     /// mosuse
 
-    function openModalRaton(afId, observacionesLa){
+    function openModalRaton(afId, observacionesRa){
         var modal = document.getElementById('modalChangesRa')
         @this.afId = afId
-        @this.observacionesLa = observacionesLa
+        @this.observacionesRa = observacionesRa
         //@this.af = af
 
         modal.classList.add("overflow-y-auto", "show")
@@ -126,6 +126,34 @@
     window.addEventListener('close-modal-changes-ra', event => {
     closeModalRa()
     })
+
+     /// telefono
+
+     function openModalTelefono(afId, observacionesTel){
+        var modal = document.getElementById('modalChangesTel')
+        @this.afId = afId
+        @this.observacionesTel = observacionesTel
+        //@this.af = af
+
+        modal.classList.add("overflow-y-auto", "show")
+        modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
+    }
+
+    function closeModalTel()
+    {
+    var modal = document.getElementById('modalChangesTel')
+    modal.classList.remove("overflow-y-auto", "show")
+    modal.style.cssText = ""
+    }
+
+    // listeners que vienen desde el front -end
+    window.addEventListener('close-modal-changes-tel', event => {
+    closeModalTel()
+    })
+
+
+
+
 
 
 

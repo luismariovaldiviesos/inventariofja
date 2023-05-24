@@ -518,7 +518,7 @@
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO </th>
-
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -536,6 +536,38 @@
 
                                                 <td class="dark:border-dark-5">
                                                     <h6 class="mb-1 font-medium">{{ $telefono->modelo->nombre }}</h6>
+                                                </td>
+                                                <td class="dark:border-dark-5 text-center">
+                                                    {{-- AQUI TIENE QUE IR EL IF SI INVENTARIO ES FALSE  --}}
+                                                    <div class="d-flex justify-content-center">
+
+                                                        @if ($telefono->inventariado == false && $telefono->revisar_delegado == false)
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="aceptTelefono({{ $telefono->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">aceptar</small>
+                                                            </button>
+
+                                                            <button onclick="openModalTelefono({{ $telefono->id }})"
+                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
+                                                            </button>&nbsp
+                                                            {{-- <small class="font-normal">novedad</small> --}}
+
+                                                        @endif
+                                                        @if ($telefono->inventariado == true && $telefono->revisar_delegado == false)
+                                                            <button class="btn btn-success text-white border-0 ml-3"
+                                                            type="button">
+                                                           VALIDADO
+                                                            </button>
+                                                        @endif
+                                                        @if ($telefono->inventariado == false && $telefono->revisar_delegado == true)
+                                                        <button class="btn btn-dark text-white border-0 ml-3"
+                                                        type="button">
+                                                            REVISAR DELEGADO
+                                                        </button>
+                                                        @endif
+                                                    </div>
                                                 </td>
 
 
@@ -705,6 +737,7 @@
         @include('livewire.equiposusuarios.modal-changes-monitor')
         @include('livewire.equiposusuarios.modal-changes-teclado')
         @include('livewire.equiposusuarios.modal-changes-mouse')
+        @include('livewire.equiposusuarios.modal-changes-telefono')
         @include('livewire.equiposusuarios.script')
 
 

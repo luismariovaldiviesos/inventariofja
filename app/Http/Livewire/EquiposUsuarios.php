@@ -26,7 +26,7 @@ class EquiposUsuarios extends Component
     // para el modal de cambios
     public $afId,$observaciones,$af;
 
-    public $observacionesLa, $observacionesMo, $observacionesTe, $observacionesRa;
+    public $observacionesLa, $observacionesMo, $observacionesTe, $observacionesRa, $observacionesTel;
 
 
     public function render()
@@ -367,5 +367,32 @@ class EquiposUsuarios extends Component
          $this->noty('Inventario actualizado', 'noty');
          $this->dispatchBrowserEvent('close-modal-changes-ra'); // evento que va al front para cerrar el modal (a traves de JS)
      }
+
+     public  function aceptTelefono($id)
+     {
+         $telefono = Telefono::find($id);
+         $telefono->inventariado = true;
+         $telefono->update();
+         $this->noty('Inventario actualizado', 'noty', false);
+     }
+
+
+     // agrega observaciones telefono
+     public function addObservacionesTel($observaciones)
+     {
+         $this->observacionesTel = $observaciones;
+         $telefono = Telefono::find($this->afId);
+         $telefono->inventariado = false;
+         $telefono->revisar_delegado = true;
+         $telefono->update();
+         $observacion =  Observacion::create([
+             'observacion' => $this->observacionesTel,
+             'af_id' => $this->afId,
+             'af_type' => 'App\Models\Telefono'
+         ]);
+         $this->noty('Inventario actualizado', 'noty');
+         $this->dispatchBrowserEvent('close-modal-changes-tel'); // evento que va al front para cerrar el modal (a traves de JS)
+     }
+
 
 }

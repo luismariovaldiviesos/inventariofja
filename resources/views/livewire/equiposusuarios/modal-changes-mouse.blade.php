@@ -11,7 +11,7 @@
             <div class="modal-body grid gap-4">
                 <div class="row">
                     <div class="col-sm-12">
-                        <b>OBSERVACIONES AL TECLADO</b>
+                        <b>OBSERVACIONES AL MOUSE</b>
                         <textarea id="observaciones" cols="30" rows="10" class="form-control kioskboard"></textarea>
                     </div>
                 </div>
