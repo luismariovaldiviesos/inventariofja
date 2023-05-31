@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Delegado;
+use App\Models\Observacion;
 use App\Models\Pc;
 use Livewire\Component;
 use DB;
@@ -15,12 +16,22 @@ class RevisarDelegados extends Component
     public $tabPcs = true, $tabLaptops = false, $tabMonitores = false, $tabTeclados =false, $tabMouses=false,
     $tabTelefonos = false, $tabScanners = false, $tabImpresoras = false;
 
+    //para reasignar usuario
+    public $usuarioSelected = "Asignar nuevo usuario";
+
     public $pcs = [], $laptops ,$monitores, $teclados, $mouses, $telefonos, $scanners, $impresoras;
 
     public function render()
     {
-       $this->pcsAsignadas();
-        return view('livewire.revisardelegados.component')->layout('layouts.theme.app');;
+
+
+        return view('livewire.revisardelegados.component',
+        [
+            'pcs' => $this->pcsAsignadas(),
+
+        ]
+
+        )->layout('layouts.theme.app');;
     }
 
     public function setTabActive($tabName)
@@ -117,9 +128,9 @@ class RevisarDelegados extends Component
         //                 //->join('unidads as uni', 'u.id','d.unidad_id')
         // ->select('pcs.*')
         // ->where('pcs.revisar_delegado',true)
-        // // ->where('d.user_id','=', Auth()->user()->id)
-        // // ->where('d.unidad_id','=', Auth()->user()->unidad_id)
-        // //->where('pcs.user_id','=',Auth()->user()->id)
+        //  ->where('d.user_id','=', Auth()->user()->id)
+        //  ->where('d.unidad_id','=', Auth()->user()->unidad_id)
+        // ->where('pcs.user_id','=',Auth()->user()->id)
         // ->get();
         // dd($this->pcs);
 
@@ -132,19 +143,40 @@ class RevisarDelegados extends Component
         // dd($this->pcs);
 
         // primero sacar la unidad y el delegado
-        $pcsRevisar = DB::table('pcs')
-    ->join('users', 'pcs.user_id', '=', 'users.id')
-    ->where('users.unidad_id', '=', $tuUnidadId)
-    ->where('pcs.revisar_delegado', '=', true)
-    ->select('pcs.*')
+    //     $pcsRevisar = DB::table('pcs')
+    // ->join('users', 'pcs.user_id', '=', 'users.id')
+    // ->where('users.unidad_id', '=', $tuUnidadId)
+    // ->where('pcs.revisar_delegado', '=', true)
+    // ->select('pcs.*')
+    // ->get();
+
+    $this->pcs = DB::table('pcs')
+    ->join('users', 'users.id', '=', 'pcs.user_id')
+    ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+    ->join('observations as o','o.af_id','pcs.id')
+     ->where('pcs.revisar_delegado', true)
+    // ->where('users.unidad_id',  Auth()->user()->unidad_id)
+    // ->where('delegados.unidad_id', Auth()->user()->unidad_id)
+    ->select('pcs.*','users.name as usuario','o.observacion as observacion')
     ->get();
-
-
-
-
-
-
-
+        //return $info;
+    //dd($this->pcs);
 
     }
+
+    public function getDetails($id)
+    {
+        $pc = Pc::find($id);
+        //dd($pc);
+        $oberservaciones = $pc->observaciones;
+        foreach ($oberservaciones as $ober) {
+           dd($ober->observacion);
+        }
+    }
+
+
+
+
+
+
 }

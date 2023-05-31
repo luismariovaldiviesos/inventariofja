@@ -12,4 +12,10 @@ class Observacion extends Model
     protected $table =  'observations';
 
     protected $fillable = ['observacion', 'af_id', 'af_type'];
+
+
+    public function model()
+    {
+        return $this->morphTo();
+    }
 }

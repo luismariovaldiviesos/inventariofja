@@ -93,14 +93,15 @@
                                             <tr class="text-theme-1">
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
                                                 {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @forelse ($pcs as $pc )
+                                            @forelse ($pcs as $pc )
                                                 <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
 
                                                     <td class="dark:border-dark-5">
@@ -112,33 +113,34 @@
                                                         <h6 class="mb-1 font-medium">{{ $pc->af }}</h6>
                                                     </td>
                                                     <td class="dark:border-dark-5">
-                                                        <h6 class="mb-1 font-medium">{{ $pc->modelo->nombre }}</h6>
+                                                        <h6 class="mb-1 font-medium">{{ $pc->usuario }}</h6>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        {{-- <h6 class="mb-1 font-medium">{{ $pc->observacion }}</h6> --}}
+                                                        <button wire:click.prevent="getDetails({{$pc->id}})"
+                                                            class="btn btn-dark btn-sm">
+                                                            <i class="fas fa-list"></i>
+                                                        </button>
                                                     </td>
                                                     <td class="dark:border-dark-5 text-center">
                                                         <div class="d-flex justify-content-center">
-                                                            @if ($pc->inventariado == false && $pc->revisar_delegado == false)
-                                                                <button class="btn btn-primary text-white border-0 ml-3"
+
+                                                            {{-- <button onclick="openModal({{ $pc->id }})"
+                                                                class="btn btn-success fas fa-search  mb-3">
+                                                             </button>&nbsp --}}
+                                                             <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">{{$usuarioSelected}}</button>
+
+
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="aceptaActivo({{ $pc->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
-                                                                <small class="font-normal">aceptar</small>
+                                                                <small class="font-normal">OK</small>
                                                                 </button>
-                                                                <button onclick="openModal({{ $pc->id }})"
-                                                                class="btn btn-danger fas fa-thumbs-down  mb-3">
-                                                                </button>&nbsp
-                                                            @endif
-                                                            @if ($pc->inventariado == true && $pc->revisar_delegado == false)
-                                                                <button class="btn btn-success text-white border-0 ml-3"
-                                                                type="button">
-                                                               VALIDADO
-                                                                </button>
-                                                            @endif
-                                                            @if ($pc->inventariado == false && $pc->revisar_delegado == true)
-                                                            <button class="btn btn-dark text-white border-0 ml-3"
-                                                            type="button">
-                                                                REVISAR DELEGADO
-                                                            </button>
-                                                            @endif
+
+
+
+
                                                         </div>
                                                     </td>
 
@@ -149,7 +151,7 @@
                                                         <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
                                                     </td>
                                                 </tr>
-                                            @endforelse --}}
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
