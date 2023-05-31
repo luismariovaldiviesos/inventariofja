@@ -26,6 +26,7 @@ use App\Http\Livewire\Delegados;
 use App\Http\Livewire\EquiposUsuarios;
 use App\Http\Livewire\ImportController;
 use App\Http\Livewire\ReportsController;
+use App\Http\Livewire\RevisarDelegados;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +82,9 @@ Route::middleware(['auth'])->group(function (){
 
     //delegados
     Route::get('delegados', Delegados::class)->name('delegados');
+
+    //revisare delegados
+    Route::get('revisardelegados', RevisarDelegados::class)->name('revisardelegados');
 
 
 
