@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Delegado;
 use App\Models\Observacion;
 use App\Models\Pc;
+use App\Models\User;
 use Livewire\Component;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -16,13 +17,27 @@ class RevisarDelegados extends Component
     public $tabPcs = true, $tabLaptops = false, $tabMonitores = false, $tabTeclados =false, $tabMouses=false,
     $tabTelefonos = false, $tabScanners = false, $tabImpresoras = false;
 
+
     //para reasignar usuario
-    public $usuarioSelected = "Asignar nuevo usuario";
+    public $usuarioSelected = "";
+
+    //observaciones
+    public $oberservacionesPC = [];
+
+    //usuarios
+   public  $usuarios =[], $searchUsuario;
 
     public $pcs = [], $laptops ,$monitores, $teclados, $mouses, $telefonos, $scanners, $impresoras;
 
     public function render()
     {
+        if(strlen($this->searchUsuario) > 0){
+            $this->usuarios =  User::where('name','like',"%{$this->searchUsuario}%")
+            ->orderBy('name','asc')->get()->take(8); //primeros 8 clientes
+        }
+        else{
+            $this->usuarios =  User::orderBy('name','asc')->get()->take(8); //primeros 8 clientes
+        }
 
 
         return view('livewire.revisardelegados.component',
@@ -120,47 +135,38 @@ class RevisarDelegados extends Component
 
     }
 
+    public function noty($msg, $eventName = 'noty', $reset = true, $action = '')
+    {
+        $this->dispatchBrowserEvent($eventName, ['msg' => $msg, 'type' => 'success', 'action' => $action]);
+        if ($reset) $this->resetUI();
+    }
+
+
+    // para que se cierre al seleccionar el usuario
+    // esto va al front a script addEventListener(close-usuario-modal)
+    // que llama al metodo close modal usuario
+
+    public function updatedUsuarioSelected()
+    {
+        $this->dispatchBrowserEvent('close-usuario-modal');
+    }
+
     public function pcsAsignadas()
     {
+        $this->pcs = DB::table('pcs')
+        ->join('users', 'users.id', '=', 'pcs.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','pcs.id')
+        ->where('pcs.revisar_delegado', true)
+        ->groupBy('pcs.id')
+        //->distinct('pcs.user_id')
+        // ->where('users.unidad_id',  Auth()->user()->unidad_id)
+        // ->where('delegados.unidad_id', Auth()->user()->unidad_id)
+        ->select('pcs.*','users.name as usuario','o.observation as observacion')
 
-        // $this->pcs =  Pc::join('users as u','u.id','pcs.user_id')
-        //                 ->join('delegados as d', 'u.id','d.user_id')
-        //                 //->join('unidads as uni', 'u.id','d.unidad_id')
-        // ->select('pcs.*')
-        // ->where('pcs.revisar_delegado',true)
-        //  ->where('d.user_id','=', Auth()->user()->id)
-        //  ->where('d.unidad_id','=', Auth()->user()->unidad_id)
-        // ->where('pcs.user_id','=',Auth()->user()->id)
-        // ->get();
-        // dd($this->pcs);
-
-        // $this->pcs= DB::table('pcs')
-        // ->crossJoin('users')
-        // ->select('pcs.*')
-        // ->where('pcs.user_id','=',DB::raw('user.id'))
-        // ->where('pc.revisar_delegado','=',true)
-        // ->get();
-        // dd($this->pcs);
-
-        // primero sacar la unidad y el delegado
-    //     $pcsRevisar = DB::table('pcs')
-    // ->join('users', 'pcs.user_id', '=', 'users.id')
-    // ->where('users.unidad_id', '=', $tuUnidadId)
-    // ->where('pcs.revisar_delegado', '=', true)
-    // ->select('pcs.*')
-    // ->get();
-
-    $this->pcs = DB::table('pcs')
-    ->join('users', 'users.id', '=', 'pcs.user_id')
-    ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
-    ->join('observations as o','o.af_id','pcs.id')
-     ->where('pcs.revisar_delegado', true)
-    // ->where('users.unidad_id',  Auth()->user()->unidad_id)
-    // ->where('delegados.unidad_id', Auth()->user()->unidad_id)
-    ->select('pcs.*','users.name as usuario','o.observacion as observacion')
-    ->get();
-        //return $info;
-    //dd($this->pcs);
+        ->get();
+            //return $info;
+     //dd($this->pcs);
 
     }
 
@@ -168,10 +174,10 @@ class RevisarDelegados extends Component
     {
         $pc = Pc::find($id);
         //dd($pc);
-        $oberservaciones = $pc->observaciones;
-        foreach ($oberservaciones as $ober) {
-           dd($ober->observacion);
-        }
+        $this->oberservacionesPC = $pc->observaciones;
+        //dd($this->oberservacionesPC);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
     }
 
 

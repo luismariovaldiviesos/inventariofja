@@ -252,9 +252,9 @@ class EquiposUsuarios extends Component
         $pc->revisar_delegado = true;
         $pc->update();
         $observacion =  Observacion::create([
-            'observacion' => $this->observaciones,
-            'af_id' => $this->afId,
-            'af_type' => 'App\Models\Pc'
+            'observation' => $this->observaciones,
+            'observation_id' => $this->afId,
+            'observation_type' => 'App\Models\Pc'
         ]);
 
         $this->noty('Inventario actualizado', 'noty');

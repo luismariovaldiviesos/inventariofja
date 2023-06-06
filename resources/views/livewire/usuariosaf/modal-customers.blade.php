@@ -4,7 +4,7 @@
 
             <div class="modal-header">
                 <h2 class="font-medium text-base mr-auto">
-                    <b class="text-theme-1">Elegir Cliente</b>
+                    <b class="text-theme-1">Elegir Usuario</b>
                 </h2>
             </div>
 

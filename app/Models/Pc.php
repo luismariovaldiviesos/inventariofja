@@ -67,11 +67,11 @@ class Pc extends Model
         return $this->belongsTo(Modelo::class);
     }
 
- // observaciones
+ // relacion una a mucho polimorfica
 
  public function observaciones()
     {
-        return $this->morphMany(Observacion::class, 'model');
+        return $this->morphMany(Observacion::class, 'observation');
     }
 
 

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('observations', function (Blueprint $table) {
             $table->id();
-            $table->text('observacion');
-            $table->integer('af_id'); //25
-            $table->string('af_type'); // pc laptop etc
-            $table->timestamps();
+            $table->string('observation');
+            $table->unsignedBigInteger('observation_id'); //25 id_activofijo
+            $table->string('observation_type'); // pc laptop etc
+             $table->timestamps();
         });
     }
 
