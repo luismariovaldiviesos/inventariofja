@@ -19,7 +19,7 @@ class RevisarDelegados extends Component
 
 
     //para reasignar usuario
-    public $usuarioSelected = "";
+    public $usuarioSelected = "Seleccionar funcionario";
 
     //observaciones
     public $oberservacionesPC = [];

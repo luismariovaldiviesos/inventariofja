@@ -3088,14 +3088,14 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'ROSERO MORENO JENNYFER IVANA',
-            'ci' => '1714887021',
+            'name' => 'ORTEGA PAREDES MONICA CECILIA',
+            'ci' => '0104766285',
             'phone' => '',
-            'email' => 'jennifer.rosero@funcionjudicial.gob.ec',
-            'unidad_id' => 26,
+            'email' => 'monica.ortegap@funcionjudicial.gob.ec',
+            'unidad_id' => 15,
             'profile' => 'Official',
             'status' => 'ACTIVE',
-            'password' => bcrypt('1714887021')
+            'password' => bcrypt('0104766285')
         ]);
 
         User::create([

@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ModeloSeeder::class);
         $this->call(PermisosSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(DelegadoSeeder::class);
         //$this->call(PcsSeeder::class);
     }
 }
