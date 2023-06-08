@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'ci' => '0104649843',
             'phone' => '09873086688',
             'email' => 'luis.valdiviesos@funcionjudicial.gob.ec',
-            'unidad_id' => 1,
+            'unidad_id' => 12,
             'profile' => 'Admin',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104649843')

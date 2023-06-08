@@ -70,7 +70,7 @@
             </div>
 
             <div class="col-spam-12 p-5">
-                {{-- {{ $edificios->links() }} --}}
+                {{ $delegados->links() }}
             </div>
 
 
