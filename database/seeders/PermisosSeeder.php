@@ -18,9 +18,10 @@ class PermisosSeeder extends Seeder
     {
 
         //roles
-        Role::create(['name'=>'Admin']);
-        Role::create(['name'=>'Official']);
-        Role::create(['name'=>'Delegado']);
+
+      $admin =  Role::create(['name'=>'Admin']);
+       $official =  Role::create(['name'=>'Official']);
+        $delegado  = Role::create(['name'=>'Delegado']);
 
         //provincia
         Permission::create(['name' => 'crear_provincia',
@@ -213,8 +214,8 @@ class PermisosSeeder extends Seeder
             'guard_name' => 'web',
         ]);
 
-         //usuarios
-         Permission::create(['name' => 'crear_usuario',
+    //usuarios
+    Permission::create(['name' => 'crear_usuario',
          'guard_name' => 'web',
      ]);
      Permission::create([
@@ -233,13 +234,392 @@ class PermisosSeeder extends Seeder
          'name' => 'eliminar_usuario',
          'guard_name' => 'web',
      ]);
-
+    //delegados
+    Permission::create(['name' => 'crear_delegado',
+         'guard_name' => 'web',
+     ]);
      Permission::create([
-        'name' => 'asignar_permisos',
-        'guard_name' => 'web',
-    ]);
+         'name' => 'ver_delegado',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_delegado',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_delegado',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_delegado',
+         'guard_name' => 'web',
+     ]);
+    //monitor
+    Permission::create(['name' => 'crear_monitor',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_monitor',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_monitor',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_monitor',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_monitor',
+         'guard_name' => 'web',
+     ]);
+    //teclado
+    Permission::create(['name' => 'crear_teclado',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_teclado',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_teclado',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_teclado',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_teclado',
+         'guard_name' => 'web',
+     ]);
+    //mouse
+    Permission::create(['name' => 'crear_mouse',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_mouse',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_mouse',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_mouse',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_mouse',
+         'guard_name' => 'web',
+     ]);
+    //telefono
+    Permission::create(['name' => 'crear_telefono',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_telefono',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_telefono',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_telefono',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_telefono',
+         'guard_name' => 'web',
+     ]);
+    //scanner
+    Permission::create(['name' => 'crear_scanner',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_scanner',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_scanner',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_scanner',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_scanner',
+         'guard_name' => 'web',
+     ]);
+    //impresora
+    Permission::create(['name' => 'crear_impresora',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_impresora',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_impresora',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_impresora',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_impresora',
+         'guard_name' => 'web',
+     ]);
+    //pc
+    Permission::create(['name' => 'crear_pc',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_pc',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_pc',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_pc',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_pc',
+         'guard_name' => 'web',
+     ]);
+    //laptop
+    Permission::create(['name' => 'crear_laptop',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'ver_laptop',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'buscar_laptop',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'editar_laptop',
+         'guard_name' => 'web',
+     ]);
+     Permission::create([
+         'name' => 'eliminar_laptop',
+         'guard_name' => 'web',
+     ]);
 
 
+
+     //asignar permisos al role Admin
+        $admin->givePermissionTo([
+            //provincia
+            'crear_provincia',
+            'ver_provincia',
+            'buscar_provincia',
+            'editar_provincia',
+            'eliminar_provincia',
+
+            //canton
+            'crear_canton',
+            'ver_canton',
+            'buscar_canton',
+            'editar_canton',
+            'eliminar_canton',
+
+            //edificio
+            'crear_edificio',
+            'ver_edificio',
+            'buscar_edificio',
+            'editar_edificio',
+            'eliminar_edificio',
+
+            //unidad
+            'crear_unidad',
+            'ver_unidad',
+            'buscar_unidad',
+            'editar_unidad',
+            'eliminar_unidad',
+
+            //marca
+            'crear_marca',
+            'ver_marca',
+            'buscar_marca',
+            'editar_marca',
+            'eliminar_marca',
+
+            //tipo
+            'crear_tipo',
+            'ver_tipo',
+            'buscar_tipo',
+            'editar_tipo',
+            'eliminar_tipo',
+
+            //modelo
+            'crear_modelo',
+            'ver_modelo',
+            'buscar_modelo',
+            'editar_modelo',
+            'eliminar_modelo',
+
+            //rol
+            'crear_rol',
+            'ver_rol',
+            'buscar_rol',
+            'editar_rol',
+            'eliminar_rol',
+
+            //permiso
+            'crear_permiso',
+            'ver_permiso',
+            'buscar_permiso',
+            'editar_permiso',
+            'eliminar_permiso',
+
+            //usuarios
+            'crear_usuario',
+            'ver_usuario',
+            'buscar_usuario',
+            'editar_usuario',
+            'eliminar_usuario',
+
+            //delegado
+            'crear_delegado',
+            'ver_delegado',
+            'buscar_delegado',
+            'editar_delegado',
+            'eliminar_delegado',
+
+            //permiso
+            'editar_permiso',
+            'eliminar_permiso',
+
+            //monitor
+            'crear_monitor',
+            'ver_monitor',
+            'buscar_monitor',
+            'editar_monitor',
+            'eliminar_monitor',
+
+            //teclado
+            'crear_teclado',
+            'ver_teclado',
+            'buscar_teclado',
+            'editar_teclado',
+            'eliminar_teclado',
+
+            //mouse
+            'crear_mouse',
+            'ver_mouse',
+            'buscar_mouse',
+            'editar_mouse',
+            'eliminar_mouse',
+
+            //telefono
+            'crear_telefono',
+            'ver_telefono',
+            'buscar_telefono',
+            'editar_telefono',
+            'eliminar_telefono',
+
+
+            //scanner
+            'crear_scanner',
+            'ver_scanner',
+            'buscar_scanner',
+            'editar_scanner',
+            'eliminar_scanner',
+
+
+            //impresora
+            'crear_impresora',
+            'ver_impresora',
+            'buscar_impresora',
+            'editar_impresora',
+            'eliminar_impresora',
+
+            //pc
+            'crear_pc',
+            'ver_pc',
+            'buscar_pc',
+            'editar_pc',
+            'eliminar_pc',
+
+            //laptop
+            'crear_laptop',
+            'ver_laptop',
+            'buscar_laptop',
+            'editar_laptop',
+            'eliminar_laptop'
+
+        ]);
+
+        $delegado->givePermissionTo([
+            //monitor
+            'crear_monitor',
+            'ver_monitor',
+            'buscar_monitor',
+            'editar_monitor',
+            'eliminar_monitor',
+
+            //teclado
+            'crear_teclado',
+            'ver_teclado',
+            'buscar_teclado',
+            'editar_teclado',
+            'eliminar_teclado',
+
+            //mouse
+            'crear_mouse',
+            'ver_mouse',
+            'buscar_mouse',
+            'editar_mouse',
+            'eliminar_mouse',
+
+            //telefono
+            'crear_telefono',
+            'ver_telefono',
+            'buscar_telefono',
+            'editar_telefono',
+            'eliminar_telefono',
+
+
+            //scanner
+            'crear_scanner',
+            'ver_scanner',
+            'buscar_scanner',
+            'editar_scanner',
+            'eliminar_scanner',
+
+
+            //impresora
+            'crear_impresora',
+            'ver_impresora',
+            'buscar_impresora',
+            'editar_impresora',
+            'eliminar_impresora',
+
+            //pc
+            'crear_pc',
+            'ver_pc',
+            'buscar_pc',
+            'editar_pc',
+            'eliminar_pc',
+
+            //laptop
+            'crear_laptop',
+            'ver_laptop',
+            'buscar_laptop',
+            'editar_laptop',
+            'eliminar_laptop'
+
+        ]);
 
 
 

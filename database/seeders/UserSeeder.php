@@ -15,19 +15,22 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+
+      $admin1=  User::create([
             'name' => 'VALDIVIESO SOLANO LUIS MARIO',
             'ci' => '0104649843',
             'phone' => '09873086688',
             'email' => 'luis.valdiviesos@funcionjudicial.gob.ec',
             'unidad_id' => 12,
-            'profile' => 'Delegado',
+            'profile' => 'Admin',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104649843')
         ]);
 
+        $admin1->syncRoles('Admin');
+
         //2
-        User::create([
+     $u1 =   User::create([
             'name' => 'ARGUDO DUMAN JUAN BERNARDO',
             'ci' => '0301089561',
             'phone' => '',
@@ -37,7 +40,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0301089561')
         ]);
-        User::create([
+       $u2= User::create([
             'name' => 'ASTUDILLO CAÑAR ZONIA ELIZABETH',
             'ci' => '0703100644',
             'phone' => '',
@@ -48,7 +51,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0703100644')
         ]);
 
-        User::create([
+        $u3=  User::create([
             'name' => 'ATARIGUANA QUEZADA PEDRO',
             'ci' => '0104996525',
             'phone' => '',
@@ -59,7 +62,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0104996525')
         ]);
 
-        User::create([
+        $u4= User::create([
             'name' => 'BELTRAN BERMEO ESTEBAN VICENTE',
             'ci' => '0705039386',
             'phone' => '',
@@ -70,7 +73,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0705039386')
         ]);
 
-        User::create([
+       $u5= User::create([
             'name' => 'CARDENAS ORDOÑEZ TARQUINO EDUARDO',
             'ci' => '0301164042',
             'phone' => '',
@@ -81,7 +84,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0301164042')
         ]);
 
-        User::create([
+         $u6=User::create([
             'name' => 'GONZALEZ ALVAREZ RENE OSWALDO',
             'ci' => '0300827821',
             'phone' => '',
@@ -92,7 +95,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0300827821')
         ]);
 
-        User::create([
+         $u7= User::create([
             'name' => 'LUPERCIO CAMPOVERDE OLGA SUSANA',
             'ci' => '0102372034',
             'phone' => '',
@@ -102,7 +105,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102372034')
         ]);
-        User::create([
+        $u8=  User::create([
             'name' => 'ORTEGA VINTIMILLA ALEXANDRA PATRICIA',
             'ci' => '0102603636',
             'phone' => '',
@@ -113,7 +116,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102603636')
         ]);
 
-        User::create([
+       $d1= User::create([
             'name' => 'PORTILLA VELEZ ALEX RUBEN',
             'ci' => '0103803904',
             'phone' => '',
@@ -123,8 +126,10 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103803904')
         ]);
+        $d1->syncRoles('Delegado');
 
-        User::create([
+
+        $u9= User::create([
             'name' => 'QUIZHPI CRIOLLO JORGE FELIPE',
             'ci' => '0103169009',
             'phone' => '',
@@ -135,7 +140,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0103169009')
         ]);
 
-        User::create([
+        $u10=  User::create([
             'name' => 'RAMON RIVERA HENRY FABIAN',
             'ci' => '0102288776',
             'phone' => '',
@@ -146,7 +151,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102288776')
         ]);
 
-        User::create([
+        $u11=  User::create([
             'name' => 'SARMIENTO LEON PAUL GUILLERMO',
             'ci' => '0102110111',
             'phone' => '',
@@ -157,7 +162,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102110111')
         ]);
 
-        User::create([
+        $u12=  User::create([
             'name' => 'URGILES VERDUGO MARTIN ANGEL',
             'ci' => '0101848232',
             'phone' => '',
@@ -170,7 +175,7 @@ class UserSeeder extends Seeder
 
         //3
 
-        User::create([
+        $u13=  User::create([
             'name' => 'ANDRADE GUZMAN MARIA LORENA',
             'ci' => '0103439956',
             'phone' => '',
@@ -181,7 +186,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0103439956')
         ]);
 
-        User::create([
+        $u14=  User::create([
             'name' => 'ANZIETA CALLE FERNANDO ESTEBAN',
             'ci' => '0104229422',
             'phone' => '',
@@ -191,7 +196,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104229422')
         ]);
-        User::create([
+        $u15=   User::create([
             'name' => 'ARIAS FEIJOO CESAR EDUARDO',
             'ci' => '0102193034',
             'phone' => '',
@@ -201,7 +206,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102193034')
         ]);
-        User::create([
+        $u16=   User::create([
             'name' => 'ARIAS FLORES BYRON ENRIQUE',
             'ci' => '0704064484',
             'phone' => '',
@@ -211,7 +216,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0704064484')
         ]);
-        User::create([
+        $u17=  User::create([
             'name' => 'AUQUILLA VILLA NELSON RAFAEL',
             'ci' => '0105364244',
             'phone' => '',
@@ -221,7 +226,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0105364244')
         ]);
-        User::create([
+        $u18=  User::create([
             'name' => 'AVELLAN SANCHEZ MIGUEL DEMARIO',
             'ci' => '0103238598',
             'phone' => '',
@@ -231,7 +236,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103238598')
         ]);
-        User::create([
+        $u19=  User::create([
             'name' => 'CADME ORELLANA MARCO VINICIO',
             'ci' => '0104427042',
             'phone' => '',
@@ -241,7 +246,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104427042')
         ]);
-        User::create([
+        $u20= User::create([
             'name' => 'CHICAIZA JARA CHRISTIAN FABIAN',
             'ci' => '0106544422',
             'phone' => '',
@@ -251,7 +256,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0106544422')
         ]);
-        User::create([
+        $u21= User::create([
             'name' => 'CONDOR VINTIMILLA JUAN PABLO',
             'ci' => '0103815296',
             'phone' => '',
@@ -261,7 +266,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103815296')
         ]);
-        User::create([
+        $u22= User::create([
             'name' => 'CRESPO VALDIVIESO CRISTIAN ESTEBAN',
             'ci' => '0102144995',
             'phone' => '',
@@ -272,7 +277,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102144995')
         ]);
 
-        User::create([
+        $u23=  User::create([
             'name' => 'FAUSTO MACHUCA RAMON',
             'ci' => '0103168878',
             'phone' => '',
@@ -282,7 +287,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103168878')
         ]);
-        User::create([
+        $u24=  User::create([
             'name' => 'FLORES FLORES RUTH MARCELA',
             'ci' => '0301747796',
             'phone' => '',
@@ -292,7 +297,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0301747796')
         ]);
-        User::create([
+        $u25=   User::create([
             'name' => 'LARA CISNEROS SANTIAGO RAFAEL',
             'ci' => '0104240973',
             'phone' => '',
@@ -302,7 +307,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104240973')
         ]);
-        User::create([
+        $u26=   User::create([
             'name' => 'MENDEZ MUÑOZ SUSANA DEL CARMEN',
             'ci' => '1802237022',
             'phone' => '',
@@ -313,7 +318,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('1802237022')
         ]);
 
-        User::create([
+        $u27=   User::create([
             'name' => 'MONTERO CARDENAS IVAN JUANITO',
             'ci' => '0102822483',
             'phone' => '',
@@ -323,7 +328,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102822483')
         ]);
-        User::create([
+        $u28= User::create([
             'name' => 'NARVAEZ IZQUIERDO JUAN CARLOS',
             'ci' => '0105017628',
             'phone' => '',
@@ -333,7 +338,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0105017628')
         ]);
-        User::create([
+        $u29=  User::create([
             'name' => 'ORDOÑEZ CARDENAS JUAN FERNANDO',
             'ci' => '0104973474',
             'phone' => '',
@@ -343,7 +348,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104973474')
         ]);
-        User::create([
+        $u30=  User::create([
             'name' => 'ORTEGA PALACIOS NOELIA JANINA',
             'ci' => '0301910063',
             'phone' => '',
@@ -353,7 +358,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0301910063')
         ]);
-        User::create([
+        $u31=  User::create([
             'name' => 'PACHECO BORJA JOSUE SEBASTIAN',
             'ci' => '0103959193',
             'phone' => '',
@@ -363,7 +368,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103959193')
         ]);
-        User::create([
+        $u32= User::create([
             'name' => 'RIVERA GUTIERRES FREDDY EUGENIO',
             'ci' => '0103890596',
             'phone' => '',
@@ -373,7 +378,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0300894987')
         ]);
-        User::create([
+        $u33= User::create([
             'name' => 'ROMAN CORREA MARCOS ANDRES',
             'ci' => '0103890596',
             'phone' => '',
@@ -383,7 +388,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103890596')
         ]);
-        User::create([
+        $u34=  User::create([
             'name' => 'SERRANO RODAS JOSE LUIS',
             'ci' => '0300936184',
             'phone' => '',
@@ -393,7 +398,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0300936184')
         ]);
-        User::create([
+        $u35= User::create([
             'name' => 'VINTIMILLA NEIRA BRUNO PAUL',
             'ci' => '0104196720',
             'phone' => '',
@@ -405,7 +410,7 @@ class UserSeeder extends Seeder
         ]);
 
         //4
-        User::create([
+        $u36= User::create([
             'name' => 'ABAD ABAD JUAN FRANCISCO',
             'ci' => '0102332640',
             'phone' => '',
@@ -415,7 +420,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102332640')
         ]);
-        User::create([
+        $u37= User::create([
             'name' => 'CABRERA CHOCHO JUAN CARLOS',
             'ci' => '0105356281',
             'phone' => '',
@@ -425,7 +430,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0105356281')
         ]);
-        User::create([
+        $u38= User::create([
             'name' => 'CAMPI MACIAS WELLINGTON DAVID',
             'ci' => '0104554365',
             'phone' => '',
@@ -435,7 +440,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104554365')
         ]);
-        User::create([
+        $u39=  User::create([
             'name' => 'CASTILLO GUILLEN JUAN JOSE',
             'ci' => '0104550835',
             'phone' => '',
@@ -445,7 +450,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104550835')
         ]);
-        User::create([
+        $u40=  User::create([
             'name' => 'LUCERO PACURUCU JORGE ROLANDO',
             'ci' => '0105380299',
             'phone' => '',
@@ -455,7 +460,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0105380299')
         ]);
-        User::create([
+        $u41= User::create([
             'name' => 'PINOS VELEZ CRISTIAN JAVIER',
             'ci' => '0103898540',
             'phone' => '',
@@ -465,7 +470,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103898540')
         ]);
-        User::create([
+      $d2 =  User::create([
             'name' => 'QUINDE MALDONADO CATALINA ALEXANDRA',
             'ci' => '1102996129',
             'phone' => '',
@@ -475,7 +480,10 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('1102996129')
         ]);
-        User::create([
+
+        $d2->syncRoles('Delegado');
+
+        $u42=  User::create([
             'name' => 'RAMIREZ SILVA JOE RICHARD',
             'ci' => '0105059992',
             'phone' => '',
@@ -488,7 +496,7 @@ class UserSeeder extends Seeder
 
         //5
 
-        User::create([
+        $u43= User::create([
             'name' => ' AGUIRRE ROMERO SEBASTIAN ALEJANDRO',
             'ci' => '0702745233',
             'phone' => '',
@@ -499,7 +507,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0702745233')
         ]);
 
-        User::create([
+        $u44=  User::create([
             'name' => 'ALBAN ORTEGA BAYARDO ALEXANDER',
             'ci' => '1104341605',
             'phone' => '',
@@ -510,7 +518,8 @@ class UserSeeder extends Seeder
             'password' => bcrypt('1104341605')
         ]);
 
-        User::create([
+
+       $u45= User::create([
             'name' => 'AVELLAN SÁNCHEZ MARÍA ALEJANDRA',
             'ci' => '0103238531',
             'phone' => '',
@@ -520,7 +529,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103238531')
         ]);
-        User::create([
+        $u46= User::create([
             'name' => 'BECERRA CANDO MARIANA DE JESUS',
             'ci' => '0104781281',
             'phone' => '',
@@ -530,7 +539,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104781281')
         ]);
-        User::create([
+        $u47=  User::create([
             'name' => 'ALVAREZ CORNEJO MARIA GABRIELA',
             'ci' => '0103923272',
             'phone' => '',
@@ -540,7 +549,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103923272')
         ]);
-        User::create([
+        $u48=  User::create([
             'name' => 'CORONEL SIGUENZA MARIA GABRIELA',
             'ci' => '0301572251',
             'phone' => '',
@@ -550,7 +559,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0301572251')
         ]);
-        User::create([
+        $u49=  User::create([
             'name' => 'LOPEZ BARRETO BLANCA LORENA',
             'ci' => '0103098711',
             'phone' => '',
@@ -560,7 +569,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103098711')
         ]);
-        User::create([
+        $u50=  User::create([
             'name' => 'ALVAREZ PACHECON JUAN CARLOS',
             'ci' => '1715119051',
             'phone' => '',
@@ -571,7 +580,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('1715119051')
         ]);
 
-        User::create([
+        $u51=  User::create([
             'name' => 'AVILA CAMPOVERDE OLGA PATRICIA',
             'ci' => '0103539540',
             'phone' => '',
@@ -582,7 +591,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0103539540')
         ]);
 
-         User::create([
+        $u52=  User::create([
             'name' => 'TORRES BORJA PABLO FERNANDO',
             'ci' => '0101880219',
             'phone' => '',
@@ -592,7 +601,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0101880219')
         ]);
-        User::create([
+        $u53= User::create([
             'name' => 'VASQUEZ REINOSO FAUSTO SILVERIO',
             'ci' => '0101956118',
             'phone' => '',
@@ -602,7 +611,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0101956118')
         ]);
-            User::create([
+        $u54=    User::create([
             'name' => 'BOADA HERRERA LINETH ALEXANDRA',
             'ci' => '0603528266',
             'phone' => '',
@@ -612,7 +621,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0603528266')
         ]);
-            User::create([
+        $u55= User::create([
             'name' => 'BRAVO ORDOÑEZ GINA FILOMENA',
             'ci' => '0102295474',
             'phone' => '',
@@ -622,7 +631,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102295474')
         ]);
-         User::create([
+        $u56= User::create([
             'name' => 'ALVAREZ MARQUEZ MARCO ESTEBAN',
             'ci' => '0104738950',
             'phone' => '',
@@ -1306,7 +1315,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0103751665')
         ]);
 
-	    User::create([
+	    $d3 =User::create([
             'name' => 'CAIMAYO GONZALEZ MIGUEL ESTEBAN',
             'ci' => '0300978228',
             'phone' => '',
@@ -1316,6 +1325,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0300978228')
         ]);
+        $d3->syncRoles('Delegado');
 
 	    User::create([
             'name' => 'GALARZA LOPEZ NANCY YOLANDA',
@@ -1363,7 +1373,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102448107')
         ]);
 
-	    User::create([
+	  $d4 =  User::create([
             'name' => 'SANCHEZ PINOS DIEGO FERNANDO',
             'ci' => '0102498003',
             'phone' => '',
@@ -1373,6 +1383,8 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102498003')
         ]);
+
+        $d4->syncRoles('Delegado');
 
 
 
@@ -1490,7 +1502,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102305695')
         ]);
 
-	    User::create([
+	  $d5=  User::create([
             'name' => 'ESPINOZA MACANCELA PRISSILA TATIANA',
             'ci' => '0302298120',
             'phone' => '',
@@ -1500,6 +1512,8 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0302298120')
         ]);
+
+        $d5->syncRoles('Delegado');
 
 	    User::create([
             'name' => 'HERRERA ROMERO KATTY YANINE',
@@ -1850,7 +1864,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0702985995')
         ]);
 
-	    User::create([
+	   $d6 = User::create([
             'name' => 'AVILA ORDOÑEZ JUAN JOSE',
             'ci' => '0104387451',
             'phone' => '',
@@ -1860,8 +1874,9 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104387451')
         ]);
+        $d6->syncRoles('Delegado');
 
-	    User::create([
+	  $d7=  User::create([
             'name' => 'CABRERA CORNEJO LUCIA PATRICIA',
             'ci' => '0102696184',
             'phone' => '',
@@ -1871,6 +1886,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102696184')
         ]);
+        $d7->syncRoles('Delegado');
 
 	    User::create([
             'name' => 'DARQUEA ARIAS JUAN FERNANDO ',
@@ -1894,7 +1910,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0104493002')
         ]);
 
-	    User::create([
+	   $d8= User::create([
             'name' => 'IDROVO LEON GERMAN ANTONIO',
             'ci' => '0101827509',
             'phone' => '',
@@ -1904,6 +1920,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0101827509')
         ]);
+        $d8->syncRoles('Delegado');
 
 	    User::create([
             'name' => 'IZQUIERDO BUESTAN FREDY ANTONIO',
@@ -1916,7 +1933,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0300743051')
         ]);
 
-	    User::create([
+	     $d9 =User::create([
             'name' => 'MEDINA CAÑIZARES ESTEBAN MAURICIO',
             'ci' => '0102420700',
             'phone' => '',
@@ -1926,8 +1943,9 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102420700')
         ]);
+        $d9->syncRoles('Delegado');
 
-	    User::create([
+	  $d10=  User::create([
             'name' => 'SIGUA SIGUA RUBEN EDUARDO',
             'ci' => '0104840327',
             'phone' => '',
@@ -1937,6 +1955,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104840327')
         ]);
+        $d10->syncRoles('Delegado');
 
 	    User::create([
             'name' => 'VASQUEZ QUEZADA NESTOR FABIAN',
@@ -1949,7 +1968,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0103650958')
         ]);
 
-	    User::create([
+	   $d11= User::create([
             'name' => 'ZALAMEA CARRASCO MARIA FERNANDA',
             'ci' => '0103629069',
             'phone' => '',
@@ -1959,6 +1978,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103629069')
         ]);
+        $d11->syncRoles('Delegado');
 
 		//unidad_id "23"
 
@@ -2128,7 +2148,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0301825154')
         ]);
 
-	    User::create([
+	  $d12=  User::create([
             'name' => 'ROMO SALINAS CHRISTIAN FERNANDO',
             'ci' => '0301555124',
             'phone' => '',
@@ -2138,6 +2158,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0301555124')
         ]);
+        $d12->syncRoles('Delegado');
 
 	    User::create([
             'name' => 'BARRERA LOZANO MANUEL OSWALDO',
@@ -2536,7 +2557,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0704009588')
         ]);
 
-	    User::create([
+	  $d13=  User::create([
             'name' => 'MARTINEZ CALLE SILVIA DEL ROSARIO',
             'ci' => '0300749439',
             'phone' => '',
@@ -2546,7 +2567,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0300749439')
         ]);
-
+        $d13->syncRoles('Delegado');
 	    User::create([
             'name' => 'NAVAS AMOROSO EULALIA GABRIELA',
             'ci' => '0301938726',
@@ -2995,7 +3016,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102408960')
         ]);
 
-        User::create([
+      $d14=  User::create([
             'name' => 'CUZME ORTEGA KARINA ELIZABETH',
             'ci' => '0918142837',
             'phone' => '',
@@ -3005,6 +3026,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0918142837')
         ]);
+        $d14->syncRoles('Delegado');
 
         User::create([
             'name' => 'LOPEZ HUERTA SEBASTIAN MATEO',
@@ -3041,7 +3063,7 @@ class UserSeeder extends Seeder
 
         //unidad_id "26"
 
-        User::create([
+       $d15= User::create([
             'name' => 'BRAVO NUÑEZ ASTRID DEL CISNE',
             'ci' => '1104497068',
             'phone' => '',
@@ -3051,7 +3073,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('1104497068')
         ]);
-
+        $d15->syncRoles('Delegado');
 
         User::create([
             'name' => 'LAMBERT MOSCOSO INGRID LEONOR',
@@ -3087,7 +3109,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0103734497')
         ]);
 
-        User::create([
+      $d16=  User::create([
             'name' => 'ORTEGA PAREDES MONICA CECILIA',
             'ci' => '0104766285',
             'phone' => '',
@@ -3097,6 +3119,8 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104766285')
         ]);
+
+        $d16->syncRoles('Delegado');
 
         User::create([
             'name' => 'TACURI SALTO ANGELICA MARIA',
@@ -3269,7 +3293,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0105254411')
         ]);
 
-        User::create([
+      $d17=  User::create([
             'name' => 'VASQUEZ ROJAS MARIA CECILIA',
             'ci' => '0104806534',
             'phone' => '',
@@ -3279,6 +3303,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104806534')
         ]);
+        $d17->syncRoles('Delegado');
 
         User::create([
             'name' => 'VAZQUEZ WEBSTER PAOLA ALEXANDRA',
@@ -4061,7 +4086,7 @@ class UserSeeder extends Seeder
 
         //unidad_id "41"
 
-        User::create([
+      $d18=  User::create([
             'name' => 'DAVILA CORDERO JANNETH PRICILA',
             'ci' => '0102291028',
             'phone' => '',
@@ -4071,8 +4096,9 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102291028')
         ]);
+        $d18->syncRoles('Delegado');
 
-        User::create([
+       $d19= User::create([
             'name' => 'GONZALEZ RUGEL ELBA MARIA',
             'ci' => '0103311502',
             'phone' => '',
@@ -4082,6 +4108,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103311502')
         ]);
+        $d19->syncRoles('Delegado');
 
         User::create([
             'name' => 'MORENO SANCHEZ PAOLA CAROLINA',
@@ -4646,7 +4673,7 @@ class UserSeeder extends Seeder
 
         //unidad_id "48"
 
-        User::create([
+      $d20 =  User::create([
             'name' => 'AUQUILLA QUINDE MELIDA BEATRIZ',
             'ci' => '0101031987',
             'phone' => '',
@@ -4656,6 +4683,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0101031987')
         ]);
+        $d20->syncRoles('Delegado');
 
         User::create([
             'name' => 'PIEDRA ORAMAS CLARA MARÍA',
@@ -5192,7 +5220,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0301645933')
         ]);
 
-        User::create([
+     $d21=   User::create([
             'name' => 'TACURI QUEZADA MARIA SOLEDAD',
             'ci' => '0104162359',
             'phone' => '',
@@ -5202,6 +5230,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104162359')
         ]);
+        $d21->syncRoles('Delegado');
 
         User::create([
             'name' => 'VERDUGO MENDOZA LEONARDO FABIAN',
@@ -5327,7 +5356,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102499761')
         ]);
 
-        User::create([
+      $d22=  User::create([
             'name' => 'SAMANIEGO ZHUNIO DALILA ELIZABEH',
             'ci' => '0105968630',
             'phone' => '',
@@ -5337,6 +5366,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0105968630')
         ]);
+        $d22->syncRoles('Delegado');
 
         User::create([
             'name' => 'SEGOVIA PESANTEZ TELMO ENRIQUE',
@@ -5554,7 +5584,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0102272572')
         ]);
 
-        User::create([
+       $d23= User::create([
             'name' => 'GALARZA CAMACHO MARILI DEL ROCIO',
             'ci' => '0703621235',
             'phone' => '',
@@ -5564,7 +5594,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0703621235')
         ]);
-
+        $d23->syncRoles('Delegado');
         User::create([
             'name' => 'MOLINA IZQUIERDO MAYRA PATRICIA',
             'ci' => '1400412969',
@@ -5590,7 +5620,7 @@ class UserSeeder extends Seeder
         //unidad_id "55"
 
 
-        User::create([
+      $d24=  User::create([
             'name' => 'CARRION TAPIA GILBERTO DAVID',
             'ci' => '0101707008',
             'phone' => '',
@@ -5600,6 +5630,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0101707008')
         ]);
+        $d24->syncRoles('Delegado');
 
         User::create([
             'name' => 'ORDOÑEZ AGUIRRE IVAN SEVERO',
@@ -5626,7 +5657,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0105015721')
         ]);
 
-        User::create([
+     $d25=   User::create([
             'name' => 'MALLA RIVAS ANDRES FERNANDO',
             'ci' => '0104371356',
             'phone' => '',
@@ -5636,7 +5667,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104371356')
         ]);
-
+        $d25->syncRoles('Delegado');
         User::create([
             'name' => 'SERRANO VALLEJO PAUL ESTEBAN',
             'ci' => '0103848842',
@@ -5662,7 +5693,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0703937854')
         ]);
 
-        User::create([
+      $d26=  User::create([
             'name' => 'INDIO ZAMBRANO STEFANIA GEOMAR',
             'ci' => '0302861562',
             'phone' => '',
@@ -5672,6 +5703,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0302861562')
         ]);
+        $d26->syncRoles('Delegado');
 
         User::create([
             'name' => 'MALLA AYORA RICARDO HERIBERTO',
@@ -6234,7 +6266,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0104476494')
         ]);
 
-        User::create([
+      $d27 =  User::create([
             'name' => 'CHICA ROJAS MARCELO ADRIAN',
             'ci' => '0103649539',
             'phone' => '',
@@ -6244,11 +6276,11 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103649539')
         ]);
-
+        $d27->syncRoles('Delegado');
         //unidad_id "61"
 
 
-        User::create([
+     $d28=   User::create([
             'name' => 'ITURRALDE PESANTEZ JOSE LUIS',
             'ci' => '0103556130',
             'phone' => '',
@@ -6258,6 +6290,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0103556130')
         ]);
+        $d28->syncRoles('Delegado');
 
         //unidad_id "62"
 
@@ -6284,7 +6317,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0401112693')
         ]);
 
-        User::create([
+      $d29=  User::create([
             'name' => 'PLAZA TINTIN GALO ANDRES',
             'ci' => '0104571633',
             'phone' => '',
@@ -6294,7 +6327,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0104571633')
         ]);
-
+        $d29->syncRoles('Delegado');
         User::create([
             'name' => 'PERALTA PULLA WALTER LEONARDO',
             'ci' => '0104774484',
@@ -6306,7 +6339,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('0104774484')
         ]);
 
-        User::create([
+      $d30=  User::create([
             'name' => 'JARAMILLO RAMIREZ JORGE EDUARDO',
             'ci' => '0102424371',
             'phone' => '',
@@ -6316,6 +6349,7 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102424371')
         ]);
+        $d30->syncRoles('Delegado');
 
         User::create([
             'name' => 'VAZQUEZ LEON JUAN ANDRES',
@@ -6383,6 +6417,9 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('1104491699')
         ]);
+
+
+
 
 
 

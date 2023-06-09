@@ -1,16 +1,16 @@
 <nav class="side-nav">
-    {{-- @hasrole('Admin') --}}
+    @hasrole('Admin')
     <a href="{{ url('dash') }}" class="intro-x flex items-center pl-5 pt-4">
         <img alt="logo" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
         <span class="hidden xl:block text-white text-lg ml-3"><span class="font-medium">DASH</span> </span>
     </a>
-    {{-- @endhasrole --}}
+    @endhasrole
     <div class="side-nav__devider my-6"></div>
 
     <ul>
         <li>
 
-            {{-- @hasrole('Admin') --}}
+            @hasrole('Admin')
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
                 <div class="side-menu__title">
@@ -18,7 +18,7 @@
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
-            {{-- @endhasrole --}}
+            @endhasrole
 
 
 
@@ -55,6 +55,7 @@
         </li>
 
         <li>
+            @hasrole('Admin')
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title">
@@ -62,6 +63,7 @@
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
+            @endhasrole
             <ul class="">
 
 
@@ -199,14 +201,14 @@
             </ul>
         </li>
 
-         {{-- @hasrole('Delegado') --}}
+
         <li>
             <a href="{{ route('revisardelegados') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
                 <div class="side-menu__title"> REVISAR INVENTARIO  </div>
             </a>
         </li>
-            {{-- @endhasrole --}}
+
 
         <li>
             <a href="{{ route('reportes') }}" class="side-menu">
