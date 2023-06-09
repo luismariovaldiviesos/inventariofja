@@ -199,12 +199,14 @@
             </ul>
         </li>
 
+         {{-- @hasrole('Delegado') --}}
         <li>
             <a href="{{ route('revisardelegados') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
                 <div class="side-menu__title"> REVISAR INVENTARIO  </div>
             </a>
         </li>
+            {{-- @endhasrole --}}
 
         <li>
             <a href="{{ route('reportes') }}" class="side-menu">

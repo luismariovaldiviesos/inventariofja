@@ -20,6 +20,7 @@ class PermisosSeeder extends Seeder
         //roles
         Role::create(['name'=>'Admin']);
         Role::create(['name'=>'Official']);
+        Role::create(['name'=>'Delegado']);
 
         //provincia
         Permission::create(['name' => 'crear_provincia',

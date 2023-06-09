@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'phone' => '09873086688',
             'email' => 'luis.valdiviesos@funcionjudicial.gob.ec',
             'unidad_id' => 12,
-            'profile' => 'Admin',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104649843')
         ]);
@@ -119,7 +119,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'alex.portilla@funcionjudicial.gob.ec',
             'unidad_id' => 2,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0103803904')
         ]);
@@ -471,7 +471,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'catalina.quinde@funcionjudicial.gob.ec',
             'unidad_id' => 4,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('1102996129')
         ]);
@@ -1312,7 +1312,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'miguel.caimayo@funcionjudicial.gob.ec',
             'unidad_id' => 6,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0300978228')
         ]);
@@ -1369,7 +1369,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'diego.sanchez@funcionjudicial.gob.ec',
             'unidad_id' => 12,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0102498003')
         ]);
@@ -1496,7 +1496,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'prissila.espinoza@funcionjudicial.gob.ec',
             'unidad_id' => 14,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0302298120')
         ]);
@@ -1856,7 +1856,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'juan.avila@funcionjudicial.gob.ec',
             'unidad_id' => 22,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104387451')
         ]);
@@ -1867,7 +1867,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'patricia.cabrera@funcionjudicial.gob.ec',
             'unidad_id' => 22,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0102696184')
         ]);
@@ -1900,7 +1900,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'german.idrovo@funcionjudicial.gob.ec',
             'unidad_id' => 22,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0101827509')
         ]);
@@ -1922,7 +1922,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'esteban.medina@funcionjudicial.gob.ec',
             'unidad_id' => 22,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0102420700')
         ]);
@@ -1933,7 +1933,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'ruben.sigua@funcionjudicial.gob.ec',
             'unidad_id' => 22,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104840327')
         ]);
@@ -1955,7 +1955,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'maria.zalamea@funcionjudicial.gob.ec',
             'unidad_id' => 22,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0103629069')
         ]);
@@ -2134,7 +2134,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'christian.romo@funcionjudicial.gob.ec',
             'unidad_id' => 23,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0301555124')
         ]);
@@ -2542,7 +2542,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'silvia.martinez@funcionjudicial.gob.ec',
             'unidad_id' => 23,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0300749439')
         ]);
@@ -3001,7 +3001,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'karina.cuzme@funcionjudicial.gob.ec',
             'unidad_id' => 24,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0918142837')
         ]);
@@ -3047,7 +3047,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'astrid.bravo@funcionjudicial.gob.ec',
             'unidad_id' => 26,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('1104497068')
         ]);
@@ -3093,7 +3093,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'monica.ortegap@funcionjudicial.gob.ec',
             'unidad_id' => 15,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104766285')
         ]);
@@ -3275,7 +3275,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'maria.vasquezr@funcionjudicial.gob.ec',
             'unidad_id' => 35,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104806534')
         ]);
@@ -4067,7 +4067,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'priscila.davila@funcionjudicial.gob.ec',
             'unidad_id' => 41,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0102291028')
         ]);
@@ -4078,7 +4078,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'elba.gonzalez@funcionjudicial.gob.ec',
             'unidad_id' => 41,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0103311502')
         ]);
@@ -4652,7 +4652,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'melida.auquilla@funcionjudicial.gob.ec',
             'unidad_id' => 48,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0101031987')
         ]);
@@ -5198,7 +5198,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'maria.tacuri@funcionjudicial.gob.ec',
             'unidad_id' => 51,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104162359')
         ]);
@@ -5333,7 +5333,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'dalila.samaniego@funcionjudicial.gob.ec',
             'unidad_id' => 52,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0105968630')
         ]);
@@ -5560,7 +5560,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'marili.galarza@funcionjudicial.gob.ec',
             'unidad_id' => 54,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0703621235')
         ]);
@@ -5596,7 +5596,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'david.carrion@funcionjudicial.gob.ec',
             'unidad_id' => 55,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0101707008')
         ]);
@@ -5632,7 +5632,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'andres.malla@funcionjudicial.gob.ec',
             'unidad_id' => 56,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104371356')
         ]);
@@ -5668,7 +5668,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'stefania.indio@funcionjudicial.gob.ec',
             'unidad_id' => 57,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0302861562')
         ]);
@@ -6240,7 +6240,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'adrian.chica@funcionjudicial.gob.ec',
             'unidad_id' => 60,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0103649539')
         ]);
@@ -6254,7 +6254,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'jose.iturralde@funcionjudicial.gob.ec',
             'unidad_id' => 61,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0103556130')
         ]);
@@ -6290,7 +6290,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'galo.plaza@funcionjudicial.gob.ec',
             'unidad_id' => 53,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0104571633')
         ]);
@@ -6312,7 +6312,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => ' 	jorge.jaramillor@funcionjudicial.gob.ec',
             'unidad_id' => 40,
-            'profile' => 'Official',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0102424371')
         ]);

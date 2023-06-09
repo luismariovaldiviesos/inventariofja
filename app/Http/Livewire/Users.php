@@ -102,7 +102,7 @@ class Users extends Component
     public function Store()
     {
         $this->validate(User::rules($this->selected_id), User::$messages);
-
+        //dd($this->profile);
 
         $usuario =User::updateOrCreate(
             ['id' => $this->selected_id],
