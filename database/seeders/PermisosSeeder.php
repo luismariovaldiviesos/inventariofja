@@ -621,6 +621,58 @@ class PermisosSeeder extends Seeder
 
         ]);
 
+        $official->givePermissionTo([
+            //monitor
+
+            'ver_monitor',
+            'buscar_monitor',
+
+
+            //teclado
+
+            'ver_teclado',
+            'buscar_teclado',
+
+
+            //mouse
+
+            'ver_mouse',
+            'buscar_mouse',
+
+            //telefono
+
+            'ver_telefono',
+            'buscar_telefono',
+
+
+
+            //scanner
+
+            'ver_scanner',
+            'buscar_scanner',
+
+
+
+            //impresora
+
+            'ver_impresora',
+            'buscar_impresora',
+
+
+            //pc
+
+            'ver_pc',
+            'buscar_pc',
+
+
+            //laptop
+
+            'ver_laptop',
+            'buscar_laptop',
+
+
+        ]);
+
 
 
 
