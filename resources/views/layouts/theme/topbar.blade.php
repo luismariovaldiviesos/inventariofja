@@ -4,9 +4,7 @@
          <a href="https://khipuweb.herokuapp.com/">Ir Sitio web</a>
           <i data-feather="chevron-right" class="breadcrumb__icon"></i>
            <a href="" class="breadcrumb--active"> Usuario:
-              {{-- {{Auth()->user()->name}} --}}
-
-              cambar el usuario logeuado
+              {{Auth()->user()->name}}
             </a>
         </div>
     <!-- END: Breadcrumb -->
@@ -34,12 +32,12 @@
             <div class="dropdown-menu__content box bg-theme-26 dark:bg-dark-6 text-white">
                 <div class="p-4 border-b border-theme-27 dark:border-dark-3">
                     <div class="font-medium">
-                        {{-- {{Auth()->user()->name}} --}}
-                        cambiar el usuario logueado
+                        {{Auth()->user()->name}}
+
                     </div>
                     <div class="text-xs text-theme-28 mt-0.5 dark:text-gray-600">
-                        {{-- {{Auth()->user()->profile}} --}}
-                        cambiar el perfil del usuario logueado
+                        {{Auth()->user()->profile}}
+
                     </div>
                 </div>
                 {{-- <div class="p-2">

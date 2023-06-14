@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -6419,17 +6420,35 @@ class UserSeeder extends Seeder
         ]);
 
 
+        // $delegados =  User::where('profile','Delegado');
+        // foreach ($delegados as $delegado) {
+        //     $delegado->syncRoles('Delegado');
+        // }
+        // $usuarios =  User::where('profile','Official');
+        // foreach ($usuarios as $usuario) {
+        //     $usuario->syncRoles('Official');
+        // }
 
-        $usuarios =  User::where('profile','Official');
-        $delegados =  User::where('profile','Delegado');
-
-
-        foreach ($usuarios as $usuario) {
-            $usuario->syncRoles('Official');
+        $usuarios = User::all();
+        foreach ($usuarios as $user) {
+          if($user->profile === 'Admin')
+          {
+            $user->assignRole('Admin');
+            $user->syncRoles('Admin');
+          }
+          elseif($user->profile === 'Delegado')
+          {
+            $user->assignRole('Delegado');
+            $user->syncRoles('Delegado');
+          }
+          elseif($user->profile === 'Official')
+          {
+            $user->assignRole('Official');
+            $user->syncRoles('Official');
+          }
         }
-        foreach ($delegados as $delegado) {
-            $delegado->syncRoles('Delegado');
-        }
+
+
 
 
 

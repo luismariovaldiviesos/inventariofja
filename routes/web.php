@@ -42,63 +42,45 @@ Route::get('users', Users::class)->name('users');
 
 Route::middleware(['auth'])->group(function (){
 
-    Route::get('provincias', Provincias::class)->name('provincias');
-    Route::get('cantones', Cantones::class)->name('cantones');
-    Route::get('edificios', Edificios::class)->name('edificios');
-    Route::get('unidades', Unidades::class)->name('unidades');
+    Route::group(['middleware' => ['role:Admin']], function () {
+        Route::get('provincias', Provincias::class)->name('provincias');
+        Route::get('cantones', Cantones::class)->name('cantones');
+        Route::get('edificios', Edificios::class)->name('edificios');
+        Route::get('unidades', Unidades::class)->name('unidades');
+        Route::get('marcas', Marcas::class)->name('marcas');
+        Route::get('tipos', Tipos::class)->name('tipos');
+        Route::get('modelos',Modelos::class)->name('modelos');
+        Route::get('roles', Roles::class)->name('roles');
+        Route::get('permisos', Permisos::class)->name('permisos');
+        Route::get('asignar', Asignar::class)->name('asignar');
+        Route::get('monitores', Monitores::class)->name('monitores');
+        Route::get('teclados', Teclados::class)->name('teclados');
+        Route::get('ratones', Ratones::class)->name('ratones');
+        Route::get('telefonos', Telefonos::class)->name('telefonos');
 
-    Route::get('marcas', Marcas::class)->name('marcas');
-    Route::get('tipos', Tipos::class)->name('tipos');
-    Route::get('modelos',Modelos::class)->name('modelos');
+        Route::get('scanners', Scanners::class)->name('scanners');
+        Route::get('impresoras', Impresoras::class)->name('impresoras');
 
+        Route::get('pcs', Pcs::class)->name('pcs');
 
-    Route::get('roles', Roles::class)->name('roles');
-    Route::get('permisos', Permisos::class)->name('permisos');
-    Route::get('asignar', Asignar::class)->name('asignar');
+        Route::get('laptops', Laptops::class)->name('laptops');
+        Route::get('importar', ImportController::class)->name('importar');
+        Route::get('reportes', ReportsController::class)->name('reportes');
+         //para el excel boton
+        Route::get('reportexls/{tipo}',[ReportsController::class, 'reporteGeneral']);
+
+        Route::get('inventario',[ReportsController::class, 'Inventario']);
+        //delegados
+        Route::get('delegados', Delegados::class)->name('delegados');
+
+    });
+
     Route::get('dash', Dashboard::class)->name('dash');
-
-
-    Route::get('monitores', Monitores::class)->name('monitores');
-    Route::get('teclados', Teclados::class)->name('teclados');
-    Route::get('ratones', Ratones::class)->name('ratones');
-
-    Route::get('telefonos', Telefonos::class)->name('telefonos');
-
-    Route::get('scanners', Scanners::class)->name('scanners');
-    Route::get('impresoras', Impresoras::class)->name('impresoras');
-
-    Route::get('pcs', Pcs::class)->name('pcs');
-
-    Route::get('laptops', Laptops::class)->name('laptops');
-    Route::get('importar', ImportController::class)->name('importar');
-    Route::get('reportes', ReportsController::class)->name('reportes');
-
-    //para el excel boton
-    Route::get('reportexls/{tipo}',[ReportsController::class, 'reporteGeneral']);
-
-    Route::get('inventario',[ReportsController::class, 'Inventario']);
-
     Route::get('misequipos', EquiposUsuarios::class)->name('misequipos');
-
-    //delegados
-    Route::get('delegados', Delegados::class)->name('delegados');
-
     //revisare delegados
     Route::get('revisardelegados', RevisarDelegados::class)->name('revisardelegados');
 
-
-
-
-
-
-
-
-
-
 });
-
-
-
 
 // ruta principal
 Route::get('/', function () {

@@ -1,10 +1,10 @@
 <nav class="side-nav">
-    @hasrole('Admin')
+
     <a href="{{ url('dash') }}" class="intro-x flex items-center pl-5 pt-4">
         <img alt="logo" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
         <span class="hidden xl:block text-white text-lg ml-3"><span class="font-medium">DASH</span> </span>
     </a>
-    @endhasrole
+
     <div class="side-nav__devider my-6"></div>
 
     <ul>
@@ -48,10 +48,12 @@
         </li>
 
         <li>
+
             <a href="{{ route('misequipos') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="database"></i> </div>
                 <div class="side-menu__title"> MIS EQUIPOS  </div>
             </a>
+
         </li>
 
         <li>
@@ -103,6 +105,7 @@
 
 
         <li>
+            @hasrole('Admin')
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="database"></i> </div>
                 <div class="side-menu__title">
@@ -110,6 +113,7 @@
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
+            @endhasrole
             <ul class="">
 
 
@@ -132,6 +136,7 @@
 
 
         <li>
+            @hasrole('Admin')
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="shuffle"></i> </div>
                 <div class="side-menu__title">
@@ -139,6 +144,7 @@
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
+            @endhasrole
             <ul class="">
 
 
@@ -167,6 +173,7 @@
         </li>
 
         <li>
+            @hasrole('Admin')
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
                 <div class="side-menu__title">
@@ -174,6 +181,7 @@
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
+            @endhasrole
             <ul class="">
 
 
@@ -201,24 +209,29 @@
             </ul>
         </li>
 
-
+       @hasrole('Delegado')
         <li>
             <a href="{{ route('revisardelegados') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
                 <div class="side-menu__title"> REVISAR INVENTARIO  </div>
             </a>
         </li>
+        @endhasrole
+
 
 
         <li>
+            @hasrole('Admin')
             <a href="{{ route('reportes') }}" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
                 <div class="side-menu__title"> REPORTES  </div>
             </a>
+            @endhasrole
         </li>
 
 
         <li>
+            @hasrole('Admin')
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
                 <div class="side-menu__title">
@@ -226,6 +239,7 @@
                     <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
                 </div>
             </a>
+            @endhasrole
             <ul class="">
 
 
@@ -250,6 +264,75 @@
                 </li> --}}
 
 
+            </ul>
+        </li>
+
+        <li>
+
+            @hasrole('Admin')
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="map-pin"></i> </div>
+                <div class="side-menu__title">
+                    SITIOS
+                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                </div>
+            </a>
+            @endhasrole
+
+            <ul class="">
+
+                <li>
+                    <a href="{{ route('provincias') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="corner-right-down"></i> </div>
+                        <div class="side-menu__title"> Provincias  </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('cantones') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="corner-up-right"></i> </div>
+                        <div class="side-menu__title"> Cantones  </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('edificios') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="corner-up-left"></i> </div>
+                        <div class="side-menu__title"> Edificios  </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('unidades') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="corner-left-up"></i> </div>
+                        <div class="side-menu__title"> Unidades Judiciales  </div>
+                    </a>
+                </li>
+
+                <li>
+                    {{-- <a href="{{ route('roles') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
+                        <div class="side-menu__title"> ROLES  </div>
+                    </a> --}}
+                </li>
+                <li>
+                    {{-- <a href="{{ route('permisos') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> PERMISOS  </div>
+                    </a> --}}
+                </li>
+                <li>
+                    {{-- <a href="{{ route('asignar') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> ASIGNAR PERMISOS  </div>
+                    </a> --}}
+                </li>
+                <li>
+                    {{-- <a href="{{ route('users') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="key"></i> </div>
+                        <div class="side-menu__title"> USUARIOS  </div>
+                    </a> --}}
+                </li>
             </ul>
         </li>
 
@@ -321,74 +404,7 @@
 
 
 
-        <li>
 
-            {{-- @hasrole('Admin') --}}
-            <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="map-pin"></i> </div>
-                <div class="side-menu__title">
-                    SITIOS
-                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                </div>
-            </a>
-            {{-- @endhasrole --}}
-
-            <ul class="">
-
-                <li>
-                    <a href="{{ route('provincias') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="corner-right-down"></i> </div>
-                        <div class="side-menu__title"> Provincias  </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ route('cantones') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="corner-up-right"></i> </div>
-                        <div class="side-menu__title"> Cantones  </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ route('edificios') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="corner-up-left"></i> </div>
-                        <div class="side-menu__title"> Edificios  </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ route('unidades') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="corner-left-up"></i> </div>
-                        <div class="side-menu__title"> Unidades Judiciales  </div>
-                    </a>
-                </li>
-
-                <li>
-                    {{-- <a href="{{ route('roles') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
-                        <div class="side-menu__title"> ROLES  </div>
-                    </a> --}}
-                </li>
-                <li>
-                    {{-- <a href="{{ route('permisos') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> PERMISOS  </div>
-                    </a> --}}
-                </li>
-                <li>
-                    {{-- <a href="{{ route('asignar') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> ASIGNAR PERMISOS  </div>
-                    </a> --}}
-                </li>
-                <li>
-                    {{-- <a href="{{ route('users') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="key"></i> </div>
-                        <div class="side-menu__title"> USUARIOS  </div>
-                    </a> --}}
-                </li>
-            </ul>
-        </li>
 
 
 

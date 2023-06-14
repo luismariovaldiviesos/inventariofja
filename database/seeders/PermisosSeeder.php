@@ -414,6 +414,10 @@ class PermisosSeeder extends Seeder
          'name' => 'eliminar_laptop',
          'guard_name' => 'web',
      ]);
+     Permission::create([
+         'name' => 'revisar_inventario',
+         'guard_name' => 'web',
+     ]);
 
 
 
@@ -617,7 +621,10 @@ class PermisosSeeder extends Seeder
             'ver_laptop',
             'buscar_laptop',
             'editar_laptop',
-            'eliminar_laptop'
+            'eliminar_laptop',
+
+            //revissar inventario
+            'revisar_inventario'
 
         ]);
 
