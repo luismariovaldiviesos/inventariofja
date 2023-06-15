@@ -272,18 +272,21 @@ class EquiposUsuarios extends Component
     // agrega observaciones la
     public function addObservacionesLa($observaciones)
     {
-        //dd($this->observaciones);
+
         $this->observacionesLa = $observaciones;
         //dd($this->observacionesLa);
         $laptop = Laptop::find($this->afId);
+        //dd($laptop);
         $laptop->inventariado = false;
         $laptop->revisar_delegado = true;
         $laptop->update();
-        $observacion =  Observacion::create([
-            'observacion' => $this->observacionesLa,
-            'af_id' => $this->afId,
-            'af_type' => 'App\Models\Laptop'
+        //dd($laptop);
+        $o1 = Observacion::create([
+            'observation' => $this->observacionesLa,
+            'observation_id' => $this->afId,
+            'observation_type' => 'App\Models\Laptop'
         ]);
+
         $this->noty('Inventario actualizado', 'noty');
         $this->dispatchBrowserEvent('close-modal-changes-la'); // evento que va al front para cerrar el modal (a traves de JS)
     }
@@ -308,15 +311,13 @@ class EquiposUsuarios extends Component
         $monitor->revisar_delegado = true;
         $monitor->update();
         $observacion =  Observacion::create([
-            'observacion' => $this->observacionesMo,
-            'af_id' => $this->afId,
-            'af_type' => 'App\Models\Monitor'
+            'observation' => $this->observacionesMo,
+            'observation_id' => $this->afId,
+            'observation_type' => 'App\Models\Monitor'
         ]);
         $this->noty('Inventario actualizado', 'noty');
         $this->dispatchBrowserEvent('close-modal-changes-mo'); // evento que va al front para cerrar el modal (a traves de JS)
     }
-
-
 
     public  function aceptTeclado($id)
     {
@@ -325,7 +326,6 @@ class EquiposUsuarios extends Component
         $teclado->update();
         $this->noty('Inventario actualizado', 'noty', false);
     }
-
      // agrega observaciones tecldo
      public function addObservacionesTe($observaciones)
      {
@@ -336,15 +336,13 @@ class EquiposUsuarios extends Component
          $teclado->revisar_delegado = true;
          $teclado->update();
          $observacion =  Observacion::create([
-             'observacion' => $this->observacionesTe,
-             'af_id' => $this->afId,
-             'af_type' => 'App\Models\Teclado'
+             'observation' => $this->observacionesTe,
+             'observation_id' => $this->afId,
+             'observation_type' => 'App\Models\Teclado'
          ]);
          $this->noty('Inventario actualizado', 'noty');
          $this->dispatchBrowserEvent('close-modal-changes-te'); // evento que va al front para cerrar el modal (a traves de JS)
      }
-
-
 
      public  function aceptRaton($id)
      {
@@ -353,9 +351,6 @@ class EquiposUsuarios extends Component
          $raton->update();
          $this->noty('Inventario actualizado', 'noty', false);
      }
-
-
-
      // agrega observaciones mouse
      public function addObservacionesRa($observaciones)
      {
@@ -366,9 +361,9 @@ class EquiposUsuarios extends Component
          $raton->revisar_delegado = true;
          $raton->update();
          $observacion =  Observacion::create([
-             'observacion' => $this->observacionesRa,
-             'af_id' => $this->afId,
-             'af_type' => 'App\Models\Raton'
+             'observation' => $this->observacionesRa,
+             'observation_id' => $this->afId,
+             'observation_type' => 'App\Models\Raton'
          ]);
          $this->noty('Inventario actualizado', 'noty');
          $this->dispatchBrowserEvent('close-modal-changes-ra'); // evento que va al front para cerrar el modal (a traves de JS)
@@ -381,8 +376,6 @@ class EquiposUsuarios extends Component
          $telefono->update();
          $this->noty('Inventario actualizado', 'noty', false);
      }
-
-
      // agrega observaciones telefono
      public function addObservacionesTel($observaciones)
      {
@@ -393,9 +386,9 @@ class EquiposUsuarios extends Component
          $telefono->revisar_delegado = true;
          $telefono->update();
          $observacion =  Observacion::create([
-             'observacion' => $this->observacionesTel,
-             'af_id' => $this->afId,
-             'af_type' => 'App\Models\Telefono'
+             'observation' => $this->observacionesTel,
+             'observation_id' => $this->afId,
+             'observation_type' => 'App\Models\Telefono'
          ]);
          $this->noty('Inventario actualizado', 'noty');
          $this->dispatchBrowserEvent('close-modal-changes-tel'); // evento que va al front para cerrar el modal (a traves de JS)
@@ -409,8 +402,6 @@ class EquiposUsuarios extends Component
          $this->noty('Inventario actualizado', 'noty', false);
      }
 
-
-
       // agrega observaciones scanner
       public function addObservacionesSca($observaciones)
       {
@@ -421,17 +412,13 @@ class EquiposUsuarios extends Component
           $scanner->revisar_delegado = true;
           $scanner->update();
           $observacion =  Observacion::create([
-              'observacion' => $this->observacionesSca,
-              'af_id' => $this->afId,
-              'af_type' => 'App\Models\Scanner'
+              'observation' => $this->observacionesSca,
+              'observation_id' => $this->afId,
+              'observation_type' => 'App\Models\Scanner'
           ]);
           $this->noty('Inventario actualizado', 'noty');
           $this->dispatchBrowserEvent('close-modal-changes-sca'); // evento que va al front para cerrar el modal (a traves de JS)
       }
-
-
-
-
       public  function aceptImpresora($id)
       {
           $impresora = Impresora::find($id);
@@ -439,7 +426,6 @@ class EquiposUsuarios extends Component
           $impresora->update();
           $this->noty('Inventario actualizado', 'noty', false);
       }
-
 
       // agrega observaciones impresora
       public function addObservacionesImp($observaciones)
@@ -451,9 +437,9 @@ class EquiposUsuarios extends Component
           $impresora->revisar_delegado = true;
           $impresora->update();
           $observacion =  Observacion::create([
-              'observacion' => $this->observacionesImp,
-              'af_id' => $this->afId,
-              'af_type' => 'App\Models\Impresora'
+              'observation' => $this->observacionesImp,
+              'observation_id' => $this->afId,
+              'observation_type' => 'App\Models\Impresora'
           ]);
           $this->noty('Inventario actualizado', 'noty');
           $this->dispatchBrowserEvent('close-modal-changes-imp'); // evento que va al front para cerrar el modal (a traves de JS)
