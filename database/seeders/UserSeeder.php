@@ -6412,12 +6412,32 @@ class UserSeeder extends Seeder
             'name' => 'RIOFRIO PEREZ ANABEL DEL CISNE',
             'ci' => '1104491699',
             'phone' => '',
-            'email' => 'anabel.riofrio@funcionjudicial.gob.ec ',
+            'email' => 'anabel.riofrio@funcionjudicial.gob.ec',
             'unidad_id' => 29,
             'profile' => 'Official',
             'status' => 'ACTIVE',
             'password' => bcrypt('1104491699')
         ]);
+        User::create([
+            'name' => 'MOSCOSO ULLAURI JOSE ALBERTO ',
+            'ci' => '0102315751',
+            'phone' => '',
+            'email' => 'jose.moscoso@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0102315751')
+        ]);
+        // User::create([
+        //     'name' => 'ROMEO BLACIO JUAN CARLOS ',
+        //     'ci' => '0705052165',
+        //     'phone' => '',
+        //     'email' => 'juan.romerob@funcionjudicial.gob.ec',
+        //     'unidad_id' => 57,
+        //     'profile' => 'Official',
+        //     'status' => 'ACTIVE',
+        //     'password' => bcrypt('0705052165')
+        // ]);
 
 
         // $delegados =  User::where('profile','Delegado');

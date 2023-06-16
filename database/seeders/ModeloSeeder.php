@@ -471,6 +471,19 @@ class ModeloSeeder extends Seeder
                 'tipo_id' =>  7
             ]);
 
+            // laptops nuevas
+            Modelo::create([
+                'nombre' => 'LATITUD 3420',
+                'marca_id' => 6,
+                'tipo_id' =>  2
+            ]);
+            // IMPRSORA NUEVA
+            Modelo::create([
+                'nombre' => 'VERSALINK B405',
+                'marca_id' =>22,
+                'tipo_id' =>  6
+            ]);
+
 
     }
 }

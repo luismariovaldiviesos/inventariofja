@@ -349,6 +349,13 @@ class MarcaTipoSeeder extends Seeder
         'marca_id' => 27 ,
         'tipo_id'  => 8
     ]);
+    //----------------------
+    MarcaTipo::create([
+        'marca_id' => 6,
+        'tipo_id'  => 2
+    ]);
+
+
 
 
 
