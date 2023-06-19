@@ -20,7 +20,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($oberservacionesPC as $d)
+                  @foreach($oberservaciones as $d)
                   <tr>
                     <td class='text-center'><h6>{{$d->id}}</h6></td>
                     <td class='text-center'><h6>{{$d->observation}}</h6></td>

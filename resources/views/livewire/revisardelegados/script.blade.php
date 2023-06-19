@@ -10,20 +10,6 @@ window.addEventListener('show-modal-observaciones', event => {
         modal.classList.add("overflow-y-auto", "show")
         modal.style.cssText = "margin-top: 0px; margin-left: -100px;  z-index: 10000;"
 
-        //console.log('si llegamos');
-        // window.livewire.on('show-modal', Msg =>{
-        //     $('#modalObservaciones').modal('show')
-        // })
     }
-
-
-
-
-
-
-
-
-
-
 
 </script>

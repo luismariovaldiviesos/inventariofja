@@ -55,8 +55,8 @@ class Teclado extends Model
     }
 
       // observaciones
-      public function observaciones()
-      {
-          return $this->morphMany(Observacion::class, 'model');
-      }
+    public function observaciones()
+    {
+        return $this->morphMany(Observacion::class, 'observation');
+    }
 }

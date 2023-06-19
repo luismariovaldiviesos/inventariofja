@@ -3,8 +3,15 @@
 namespace App\Http\Livewire;
 
 use App\Models\Delegado;
+use App\Models\Impresora;
+use App\Models\Laptop;
+use App\Models\Monitor;
 use App\Models\Observacion;
 use App\Models\Pc;
+use App\Models\Raton;
+use App\Models\Scanner;
+use App\Models\Teclado;
+use App\Models\Telefono;
 use App\Models\User;
 use Livewire\Component;
 use DB;
@@ -22,12 +29,15 @@ class RevisarDelegados extends Component
     public $usuarioSelected = "Seleccionar funcionario";
 
     //observaciones
-    public $oberservacionesPC = [];
+    public $oberservaciones = [];
+    //public $oberservacionesLptop = [];
+    // public $oberservacionesPC = [];
+    // public $oberservacionesPC = [];
 
     //usuarios
    public  $usuarios =[], $searchUsuario;
 
-    public $pcs = [], $laptops ,$monitores, $teclados, $mouses, $telefonos, $scanners, $impresoras;
+    public $pcs = [], $laptops=[] ,$monitores =[], $teclados =[], $mouses =[], $telefonos =[], $scanners =[], $impresoras =[];
 
     public function render()
     {
@@ -43,6 +53,10 @@ class RevisarDelegados extends Component
         return view('livewire.revisardelegados.component',
         [
             'pcs' => $this->pcsAsignadas(),
+            'laptops' => $this->laptopsAsignadas(),
+            'monitores' => $this->monitoresAsignados(),
+            'teclados' => $this->tecladosAsignados(),
+            'mouses' => $this->mouseAsignados(),
 
         ]
 
@@ -169,16 +183,182 @@ class RevisarDelegados extends Component
      //dd($this->pcs);
 
     }
+    public function laptopsAsignadas()
+    {
+        $this->laptops = DB::table('laptops')
+        ->join('users', 'users.id', '=', 'laptops.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','laptops.id')
+        ->where('laptops.revisar_delegado', true)
+        ->groupBy('laptops.id')
+        //->distinct('laptops.user_id')
+        // ->where('users.unidad_id',  Auth()->user()->unidad_id)
+        // ->where('delegados.unidad_id', Auth()->user()->unidad_id)
+        ->select('laptops.*','users.name as usuario','o.observation as observacion')
+
+        ->get();
+            //return $info;
+     //dd($this->laptops);
+
+    }
+    public function monitoresAsignados()
+    {
+        $this->monitores = DB::table('monitors')
+        ->join('users', 'users.id', '=', 'monitors.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','monitors.id')
+        ->where('monitors.revisar_delegado', true)
+        ->groupBy('monitors.id')
+        ->select('monitors.*','users.name as usuario','o.observation as observacion')
+        ->get();
+
+    }
+    public function tecladosAsignados()
+    {
+        $this->teclados = DB::table('teclados')
+        ->join('users', 'users.id', '=', 'teclados.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','teclados.id')
+        ->where('teclados.revisar_delegado', true)
+        ->groupBy('teclados.id')
+        ->select('teclados.*','users.name as usuario','o.observation as observacion')
+        ->get();
+
+    }
+    public function mouseAsignados()
+    {
+        $this->mouses = DB::table('ratons')
+        ->join('users', 'users.id', '=', 'ratons.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','ratons.id')
+        ->where('ratons.revisar_delegado', true)
+        ->groupBy('ratons.id')
+        ->select('ratons.*','users.name as usuario','o.observation as observacion')
+        ->get();
+
+    }
+    public  function reasignaAF($id)
+    {
+
+        if ($this->tabPcs == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $pc = Pc::find($id);
+            $pc->revisar_delegado = false;
+            $pc->user_id = $user_id;
+            $pc->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+
+
+        }
+        if ($this->tabLaptops == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $laptop = Laptop::find($id);
+            $laptop->revisar_delegado = false;
+            $laptop->user_id = $user_id;
+            $laptop->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+        }
+        if ($this->tabMonitores == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $monitor = Monitor::find($id);
+            $monitor->revisar_delegado = false;
+            $monitor->user_id = $user_id;
+            $monitor->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+        }
+        if ($this->tabTeclados == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $teclado = Teclado::find($id);
+            $teclado->revisar_delegado = false;
+            $teclado->user_id = $user_id;
+            $teclado->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+        }
+        if ($this->tabMouses == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $mouse = Raton::find($id);
+            $mouse->revisar_delegado = false;
+            $mouse->user_id = $user_id;
+            $mouse->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+        }
+        if ($this->tabImpresoras == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $impresora = Impresora::find($id);
+            $impresora->revisar_delegado = false;
+            $impresora->user_id = $user_id;
+            $impresora->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+        }
+        if ($this->tabScanners == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $scanner = Scanner::find($id);
+            $scanner->revisar_delegado = false;
+            $scanner->user_id = $user_id;
+            $scanner->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+        }
+        if ($this->tabTelefonos == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $telefono = Telefono::find($id);
+            $telefono->revisar_delegado = false;
+            $telefono->user_id = $user_id;
+            $telefono->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+        }
+
+
+
+    }
+
 
     public function getDetails($id)
     {
         $pc = Pc::find($id);
         //dd($pc);
-        $this->oberservacionesPC = $pc->observaciones;
+        $this->oberservaciones = $pc->observaciones;
+        //dd($this->oberservaciones);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
+    }
+    public function getDetailsLa($id)
+    {
+        $laptop = Laptop::find($id);
+        //dd($pc);
+        $this->oberservaciones = $laptop->observaciones;
         //dd($this->oberservacionesPC);
         $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
 
     }
+    public function getDetailsMo($id)
+    {
+        $monitor = Monitor::find($id);
+        //dd($pc);
+        $this->oberservaciones = $monitor->observaciones;
+        //dd($this->oberservacionesPC);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
+    }
+    public function getDetailsTe($id)
+    {
+        $teclado = Teclado::find($id);
+        //dd($pc);
+        $this->oberservaciones = $teclado->observaciones;
+        //dd($this->oberservacionesPC);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
+    }
+    public function getDetailsRA($id)
+    {
+        $mouse = Raton::find($id);
+        //dd($pc);
+        $this->oberservaciones = $mouse->observaciones;
+        //dd($this->oberservacionesPC);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
+    }
+
+
 
 
 

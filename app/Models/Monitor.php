@@ -54,9 +54,10 @@ class Monitor extends Model
     }
 
      // observaciones
+     // observaciones
      public function observaciones()
      {
-         return $this->morphMany(Observacion::class, 'model');
+         return $this->morphMany(Observacion::class, 'observation');
      }
 
 
