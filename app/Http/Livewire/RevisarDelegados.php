@@ -57,7 +57,9 @@ class RevisarDelegados extends Component
             'monitores' => $this->monitoresAsignados(),
             'teclados' => $this->tecladosAsignados(),
             'mouses' => $this->mouseAsignados(),
-
+            'telefonos' => $this->telefonosAsignados(),
+            'scanners' => $this->scannersAsignados(),
+            'impresoras' => $this->impresorasAsignadas(),
         ]
 
         )->layout('layouts.theme.app');;
@@ -237,6 +239,42 @@ class RevisarDelegados extends Component
         ->get();
 
     }
+    public function telefonosAsignados()
+    {
+        $this->telefonos = DB::table('telefonos')
+        ->join('users', 'users.id', '=', 'telefonos.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','telefonos.id')
+        ->where('telefonos.revisar_delegado', true)
+        ->groupBy('telefonos.id')
+        ->select('telefonos.*','users.name as usuario','o.observation as observacion')
+        ->get();
+
+    }
+    public function scannersAsignados()
+    {
+        $this->scanners = DB::table('scanners')
+        ->join('users', 'users.id', '=', 'scanners.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','scanners.id')
+        ->where('scanners.revisar_delegado', true)
+        ->groupBy('scanners.id')
+        ->select('scanners.*','users.name as usuario','o.observation as observacion')
+        ->get();
+
+    }
+    public function impresorasAsignadas()
+    {
+        $this->impresoras = DB::table('impresoras')
+        ->join('users', 'users.id', '=', 'impresoras.user_id')
+        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+        ->join('observations as o','o.observation_id','impresoras.id')
+        ->where('impresoras.revisar_delegado', true)
+        ->groupBy('impresoras.id')
+        ->select('impresoras.*','users.name as usuario','o.observation as observacion')
+        ->get();
+
+    }
     public  function reasignaAF($id)
     {
 
@@ -357,6 +395,39 @@ class RevisarDelegados extends Component
         $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
 
     }
+    public function getDetailsTel($id)
+    {
+        $telefono = Telefono::find($id);
+        //dd($pc);
+        $this->oberservaciones = $telefono->observaciones;
+        //dd($this->oberservacionesPC);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
+    }
+    public function getDetailsSca($id)
+    {
+        $scanner = Scanner::find($id);
+        //dd($pc);
+        $this->oberservaciones = $scanner->observaciones;
+        //dd($this->oberservacionesPC);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
+    }
+    public function getDetailsImp($id)
+    {
+        $impr = Impresora::find($id);
+        //dd($pc);
+        $this->oberservaciones = $impr->observaciones;
+        //dd($this->oberservacionesPC);
+        $this->dispatchBrowserEvent('show-modal-observaciones'); // evento que va al front para cerrar el modal (a traves de JS)
+
+    }
+
+
+    // hay que hacer un reset el rato de guardar
+    // que semuestren full equipos de revisar en el component
+
+
 
 
 

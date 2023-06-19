@@ -520,72 +520,75 @@
                                 <div class="overflow-x-auto">
                                     <table class="table">
                                         <thead>
-                                            <tr class="text-theme-6">
+                                            <tr class="text-theme-1">
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
+                                                {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @forelse($telefonos  as $telefono)
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            @forelse ($telefonos as $telefono )
+                                                <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $telefono->serie }}</h6>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $telefono->serie }}</h6>
 
-                                                </td>
+                                                    </td>
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $telefono->af }}</h6>
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $telefono->modelo->nombre }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-
-                                                    <div class="d-flex justify-content-center">
-
-                                                        @if ($telefono->inventariado == false && $telefono->revisar_delegado == false)
-                                                            <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="aceptTelefono({{ $telefono->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">aceptar</small>
-                                                            </button>
-
-                                                            <button onclick="openModalTelefono({{ $telefono->id }})"
-                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
-                                                            </button>&nbsp
-
-
-                                                        @endif
-                                                        @if ($telefono->inventariado == true && $telefono->revisar_delegado == false)
-                                                            <button class="btn btn-success text-white border-0 ml-3"
-                                                            type="button">
-                                                           VALIDADO
-                                                            </button>
-                                                        @endif
-                                                        @if ($telefono->inventariado == false && $telefono->revisar_delegado == true)
-                                                        <button class="btn btn-dark text-white border-0 ml-3"
-                                                        type="button">
-                                                            REVISAR DELEGADO
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $telefono->af }}</h6>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $telefono->usuario }}</h6>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        {{-- <h6 class="mb-1 font-medium">{{ $telefono->observacion }}</h6> --}}
+                                                        <button wire:click.prevent="getDetailsTel({{$telefono->id}})"
+                                                            class="btn btn-dark btn-sm">
+                                                            <i class="fas fa-list"></i>
                                                         </button>
-                                                        @endif
-                                                    </div>
-                                                </td>
+                                                    </td>
+                                                    <td class="dark:border-dark-5 text-center">
+                                                        <div class="d-flex justify-content-center">
+
+                                                             <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
+                                                                {{$usuarioSelected}}
+                                                            </button>
 
 
-                                            </tr>
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                                wire:click.prevent="reasignaAF({{ $telefono->id }})"
+                                                                type="button">
+                                                                <i class="fas fa-thumbs-up"></i>&nbsp
+                                                                <small class="font-normal">OK</small>
+                                                                </button>
+
+
+
+
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
                                             @empty
-                                            <tr>
-                                                <td colspan="5" class="text-center">NO TIENE MOUESE A SU CARGO</td>
-                                            </tr>
-                                            @endforelse --}}
+                                                <tr class="bg-gray-200 dark:bg-dark-1">
+                                                    <td colspan="2">
+                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                    </td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
+
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -601,71 +604,75 @@
                                 <div class="overflow-x-auto">
                                     <table class="table">
                                         <thead>
-                                            <tr class="text-theme-6">
+                                            <tr class="text-theme-1">
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
+                                                {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @forelse($scanners  as $scanner)
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            @forelse ($scanners as $scanner )
+                                                <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $scanner->serie }}</h6>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $scanner->serie }}</h6>
 
-                                                </td>
+                                                    </td>
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $scanner->af }}</h6>
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $scanner->modelo->nombre }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-
-                                                    <div class="d-flex justify-content-center">
-
-                                                        @if ($scanner->inventariado == false && $scanner->revisar_delegado == false)
-                                                            <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="aceptScanner({{ $scanner->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">aceptar</small>
-                                                            </button>
-
-                                                            <button onclick="openModalScanner({{ $scanner->id }})"
-                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
-                                                            </button>&nbsp
-
-
-                                                        @endif
-                                                        @if ($scanner->inventariado == true && $scanner->revisar_delegado == false)
-                                                            <button class="btn btn-success text-white border-0 ml-3"
-                                                            type="button">
-                                                           VALIDADO
-                                                            </button>
-                                                        @endif
-                                                        @if ($scanner->inventariado == false && $scanner->revisar_delegado == true)
-                                                        <button class="btn btn-dark text-white border-0 ml-3"
-                                                        type="button">
-                                                            REVISAR DELEGADO
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $scanner->af }}</h6>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $scanner->usuario }}</h6>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        {{-- <h6 class="mb-1 font-medium">{{ $scanner->observacion }}</h6> --}}
+                                                        <button wire:click.prevent="getDetailsSca({{$scanner->id}})"
+                                                            class="btn btn-dark btn-sm">
+                                                            <i class="fas fa-list"></i>
                                                         </button>
-                                                        @endif
-                                                    </div>
-                                                </td>
+                                                    </td>
+                                                    <td class="dark:border-dark-5 text-center">
+                                                        <div class="d-flex justify-content-center">
+
+                                                             <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
+                                                                {{$usuarioSelected}}
+                                                            </button>
 
 
-                                            </tr>
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                                wire:click.prevent="reasignaAF({{ $scanner->id }})"
+                                                                type="button">
+                                                                <i class="fas fa-thumbs-up"></i>&nbsp
+                                                                <small class="font-normal">OK</small>
+                                                                </button>
+
+
+
+
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
                                             @empty
-                                            <tr>
-                                                <td colspan="5" class="text-center">NO TIENE SCANNER A SU CARGO</td>
-                                            </tr>
-                                            @endforelse --}}
+                                                <tr class="bg-gray-200 dark:bg-dark-1">
+                                                    <td colspan="2">
+                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                    </td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
+
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -681,73 +688,75 @@
                                 <div class="overflow-x-auto">
                                     <table class="table">
                                         <thead>
-                                            <tr class="text-theme-6">
+                                            <tr class="text-theme-1">
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                                 <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO </th>
-                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >INVENTARIO</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
+                                                <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
+                                                {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @forelse($impresoras  as $impresora)
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            @forelse ($impresoras as $impresora )
+                                                <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $impresora->serie }}</h6>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $impresora->serie }}</h6>
 
-                                                </td>
+                                                    </td>
 
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $impresora->af }}</h6>
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $impresora->modelo->nombre }}</h6>
-                                                </td>
-
-                                                <td class="dark:border-dark-5 text-center">
-
-                                                    <div class="d-flex justify-content-center">
-
-                                                        @if ($impresora->inventariado == false && $impresora->revisar_delegado == false)
-                                                            <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="aceptImpresora({{ $impresora->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">aceptar</small>
-                                                            </button>
-
-                                                            <button onclick="openModalImpresora({{ $impresora->id }})"
-                                                            class="btn btn-danger fas fa-thumbs-down  mb-3">
-                                                            </button>&nbsp
-
-
-                                                        @endif
-                                                        @if ($impresora->inventariado == true && $impresora->revisar_delegado == false)
-                                                            <button class="btn btn-success text-white border-0 ml-3"
-                                                            type="button">
-                                                           VALIDADO
-                                                            </button>
-                                                        @endif
-                                                        @if ($impresora->inventariado == false && $impresora->revisar_delegado == true)
-                                                        <button class="btn btn-dark text-white border-0 ml-3"
-                                                        type="button">
-                                                            REVISAR DELEGADO
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $impresora->af }}</h6>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        <h6 class="mb-1 font-medium">{{ $impresora->usuario }}</h6>
+                                                    </td>
+                                                    <td class="dark:border-dark-5">
+                                                        {{-- <h6 class="mb-1 font-medium">{{ $impresora->observacion }}</h6> --}}
+                                                        <button wire:click.prevent="getDetailsImp({{$impresora->id}})"
+                                                            class="btn btn-dark btn-sm">
+                                                            <i class="fas fa-list"></i>
                                                         </button>
-                                                        @endif
-                                                    </div>
-                                                </td>
+                                                    </td>
+                                                    <td class="dark:border-dark-5 text-center">
+                                                        <div class="d-flex justify-content-center">
+
+                                                             <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
+                                                                {{$usuarioSelected}}
+                                                            </button>
 
 
-                                            </tr>
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                                wire:click.prevent="reasignaAF({{ $impresora->id }})"
+                                                                type="button">
+                                                                <i class="fas fa-thumbs-up"></i>&nbsp
+                                                                <small class="font-normal">OK</small>
+                                                                </button>
+
+
+
+
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
                                             @empty
-                                            <tr>
-                                                <td colspan="5" class="text-center">NO TIENE SCANNER A SU CARGO</td>
-                                            </tr>
-                                            @endforelse --}}
+                                                <tr class="bg-gray-200 dark:bg-dark-1">
+                                                    <td colspan="2">
+                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                    </td>
+                                                </tr>
+                                            @endforelse
                                         </tbody>
                                     </table>
+
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
