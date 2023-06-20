@@ -727,17 +727,12 @@
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $impresora->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
-
+                                                            </button>
                                                         </div>
                                                     </td>
 
@@ -772,56 +767,145 @@
         <div class="col-span-12 lg:col-span-3">
             <div class="intro-y box p-5">
                 <div>
-                    <h2 class="text-2xl text-center mb-3">Resumen de Inventario</h2>
+                    <h2 class="text-2xl text-center mb-3">PENDIENTES DE REVISION</h2>
                 </div>
-                <div class="mt-3">
-                    <h1 class="text-2x1 font-bold">ITEMS</h1>
-                    {{-- <h4 class="text-2x5">{{$totpcs+$totlaptops+$totmonitores+ $totteclados+ $totmouses+ $tottelefonos+ $totscanners+ $totimpresoras}}</h4> --}}
-                </div>
+
+                {{-- azul amarikilo y rojo  --}}
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">PCS</h1>
-                    {{-- <h4 class="text-2x1">{{$totpcs}}</h4> --}}
+                    @if ($totpcs <=5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$totpcs}}</small>
+                    </button>
+                    @elseif ($totpcs >= 5 && $totpcs <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$totpcs}}</small>
+                    </button>
+                    @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$totpcs}}</small>
+                    </button>
+                    @endif
+
                 </div>
                 <div class="mt-3">
-                    <h1 class="text-2x1 font-bold">LAPTOP</h1>
-                    {{-- <h4 class="text-2x1"> {{$totlaptops}}</h4> --}}
+                    <h1 class="text-2x1 font-bold">LAPTOPS</h1>
+                    @if ($totlaptops < 5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$totlaptops}}</small>
+                    </button>
+
+                    @elseif ($totlaptops >= 5 && $totlaptops <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$totlaptops}}</small>
+                    </button>
+                    @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$totlaptops}}</small>
+                    </button>
+                    @endif
                 </div>
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">MONITORES</h1>
-                    {{-- <h4 class="text-2x1"> {{$totmonitores}}</h4> --}}
+                    @if ($totmonitores < 5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$totmonitores}}</small>
+                    </button>
+                   @elseif ($totmonitores >= 5 && $totmonitores <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$totmonitores}}</small>
+                    </button>
+                    @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$totmonitores}}</small>
+                    </button>
+                    @endif
                 </div>
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">TECLADOS</h1>
-                    {{-- <h4 class="text-2x1"> {{$totteclados}}</h4> --}}
+                    @if ($totteclados < 5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$totteclados}}</small>
+                    </button>
+                    @elseif ($totteclados >= 5 && $totteclados <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$totteclados}}</small>
+                    </button>
+                    @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$totteclados}}</small>
+                    </button>
+                    @endif
                 </div>
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">MOUSES</h1>
-                    {{-- <h4 class="text-2x1"> {{$totmouses}}</h4> --}}
+                    @if ($totmouses < 5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$totmouses}}</small>
+                    </button>
+                    @elseif ($totmouses >= 5 && $totmouses <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$totmouses}}</small>
+                    </button>
+                    @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$totmouses}}</small>
+                    </button>
+                    @endif
                 </div>
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">TELEFONOS</h1>
-                    {{-- <h4 class="text-2x1"> {{$tottelefonos}}</h4> --}}
+                    @if ($tottelefonos < 5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$tottelefonos}}</small>
+                    </button>
+                   @elseif ($tottelefonos >= 5 && $tottelefonos <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$tottelefonos}}</small>
+                    </button>
+                   @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$tottelefonos}}</small>
+                    </button>
+                    @endif
                 </div>
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">SCANNERS</h1>
-                    {{-- <h4 class="text-2x1"> {{$totscanners}} </h4> --}}
+                    @if ($totscanners < 5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$totscanners}}</small>
+                    </button>
+                   @elseif ($totscanners >= 5 && $totscanners <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$totscanners}}</small>
+                    </button>
+                   @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$totscanners}}</small>
+                    </button>
+                    @endif
                 </div>
                 <div class="mt-3">
                     <h1 class="text-2x1 font-bold">IMPRESORAS</h1>
-                    {{-- <h4 class="text-2x1"> {{$totimpresoras}} </h4> --}}
+                    @if ($totimpresoras < 5)
+                    <button class="btn btn-primary text-white" type="button">
+                        <small class="font-normal">{{$totimpresoras}}</small>
+                    </button>
+                   @elseif ($totimpresoras >= 5 && $totimpresoras <=10)
+                    <button class="btn btn-warning text-white" type="button">
+                        <small class="font-normal">{{$totimpresoras}}</small>
+                    </button>
+                  @else
+                    <button class="btn btn-danger text-white" type="button">
+                        <small class="font-normal">{{$totimpresoras}}</small>
+                    </button>
+                    @endif
                 </div>
 
             </div>
         </div>
 
-        {{-- @include('livewire.equiposusuarios.modal-changes')
-        @include('livewire.equiposusuarios.modal-changes-laptop')
-        @include('livewire.equiposusuarios.modal-changes-monitor')
-        @include('livewire.equiposusuarios.modal-changes-teclado')
-        @include('livewire.equiposusuarios.modal-changes-mouse')
-        @include('livewire.equiposusuarios.modal-changes-telefono')
-        @include('livewire.equiposusuarios.modal-changes-scanner')
-        @include('livewire.equiposusuarios.modal-changes-impresora') --}}
+
         @include('livewire.revisardelegados.modalObservaciones')
         @include('livewire.revisardelegados.script')
         @include('livewire.usuariosaf.modal-customers')

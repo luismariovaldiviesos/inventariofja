@@ -22,7 +22,10 @@ class RevisarDelegados extends Component
 {
 
     public $tabPcs = true, $tabLaptops = false, $tabMonitores = false, $tabTeclados =false, $tabMouses=false,
-    $tabTelefonos = false, $tabScanners = false, $tabImpresoras = false, $paginate =10;
+    $tabTelefonos = false, $tabScanners = false, $tabImpresoras = false;
+
+    //totales
+    public $totpcs, $totlaptops ,$totmonitores, $totteclados, $totmouses, $tottelefonos, $totscanners, $totimpresoras;
 
 
     //para reasignar usuario
@@ -39,6 +42,19 @@ class RevisarDelegados extends Component
 
     public $pcs = [], $laptops=[] ,$monitores =[], $teclados =[], $mouses =[], $telefonos =[], $scanners =[], $impresoras =[];
 
+    public function resetUI()
+    {
+        // limpiar mensajes rojos de validación
+        $this->resetValidation();
+        // regresar a la página inicial del componente
+       // $this->resetPage();
+        // regresar propiedades a su valor por defecto
+        $this->reset('totpcs', 'totlaptops' ,'totmonitores',
+                    'totteclados', 'totmouses', 'tottelefonos', 'totscanners',
+                    'totimpresoras','usuarioSelected','oberservaciones','usuarios',
+                     'searchUsuario','pcs' , 'laptops' ,'monitores' ,
+                     'teclados' , 'mouses' , 'telefonos' , 'scanners' , 'impresoras' );
+    }
     public function render()
     {
         if(strlen($this->searchUsuario) > 0){
@@ -64,6 +80,8 @@ class RevisarDelegados extends Component
 
         )->layout('layouts.theme.app');;
     }
+
+
 
     public function setTabActive($tabName)
     {
@@ -179,6 +197,7 @@ class RevisarDelegados extends Component
         ->get();
             //return $info;
             //dd($this->pcs);
+        $this->totpcs = count($this->pcs);
 
     }
         public function laptopsAsignadas()
@@ -191,6 +210,7 @@ class RevisarDelegados extends Component
             ->groupBy('laptops.id')
             ->select('laptops.*','users.name as usuario','o.observation as observacion')
         ->get();
+        $this->totlaptops = count($this->laptops);
 
         }
     public function monitoresAsignados()
@@ -203,6 +223,7 @@ class RevisarDelegados extends Component
         ->groupBy('monitors.id')
         ->select('monitors.*','users.name as usuario','o.observation as observacion')
         ->get();
+        $this->totmonitores = count($this->monitores);
 
     }
     public function tecladosAsignados()
@@ -215,6 +236,7 @@ class RevisarDelegados extends Component
         ->groupBy('teclados.id')
         ->select('teclados.*','users.name as usuario','o.observation as observacion')
         ->get();
+        $this->totteclados = count($this->teclados);
 
     }
     public function mouseAsignados()
@@ -227,6 +249,7 @@ class RevisarDelegados extends Component
         ->groupBy('ratons.id')
         ->select('ratons.*','users.name as usuario','o.observation as observacion')
         ->get();
+        $this->totmouses = count($this->mouses);
 
     }
     public function telefonosAsignados()
@@ -239,6 +262,8 @@ class RevisarDelegados extends Component
         ->groupBy('telefonos.id')
         ->select('telefonos.*','users.name as usuario','o.observation as observacion')
         ->get();
+        $this->tottelefonos = count($this->telefonos);
+
 
     }
     public function scannersAsignados()
@@ -251,6 +276,7 @@ class RevisarDelegados extends Component
         ->groupBy('scanners.id')
         ->select('scanners.*','users.name as usuario','o.observation as observacion')
         ->get();
+        $this->totscanners = count($this->scanners);
 
     }
     public function impresorasAsignadas()
@@ -263,6 +289,7 @@ class RevisarDelegados extends Component
         ->groupBy('impresoras.id')
         ->select('impresoras.*','users.name as usuario','o.observation as observacion')
         ->get();
+        $this->totimpresoras = count($this->impresoras);
 
     }
     public  function reasignaAF($id)
@@ -275,6 +302,7 @@ class RevisarDelegados extends Component
             $pc->user_id = $user_id;
             $pc->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
 
 
         }
@@ -285,6 +313,7 @@ class RevisarDelegados extends Component
             $laptop->user_id = $user_id;
             $laptop->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
         }
         if ($this->tabMonitores == true) {
             $user_id = User::where('name',$this->usuarioSelected)->first()->id;
@@ -293,6 +322,7 @@ class RevisarDelegados extends Component
             $monitor->user_id = $user_id;
             $monitor->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
         }
         if ($this->tabTeclados == true) {
             $user_id = User::where('name',$this->usuarioSelected)->first()->id;
@@ -301,6 +331,7 @@ class RevisarDelegados extends Component
             $teclado->user_id = $user_id;
             $teclado->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
         }
         if ($this->tabMouses == true) {
             $user_id = User::where('name',$this->usuarioSelected)->first()->id;
@@ -309,6 +340,7 @@ class RevisarDelegados extends Component
             $mouse->user_id = $user_id;
             $mouse->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
         }
         if ($this->tabImpresoras == true) {
             $user_id = User::where('name',$this->usuarioSelected)->first()->id;
@@ -317,6 +349,7 @@ class RevisarDelegados extends Component
             $impresora->user_id = $user_id;
             $impresora->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
         }
         if ($this->tabScanners == true) {
             $user_id = User::where('name',$this->usuarioSelected)->first()->id;
@@ -325,6 +358,7 @@ class RevisarDelegados extends Component
             $scanner->user_id = $user_id;
             $scanner->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
         }
         if ($this->tabTelefonos == true) {
             $user_id = User::where('name',$this->usuarioSelected)->first()->id;
@@ -333,6 +367,7 @@ class RevisarDelegados extends Component
             $telefono->user_id = $user_id;
             $telefono->update();
             $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
         }
 
 
