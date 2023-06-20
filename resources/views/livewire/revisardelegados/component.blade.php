@@ -132,16 +132,14 @@
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-
+                                                         @if ($usuarioSelected != 'Seleccionar funcionario')
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $pc->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
+                                                            </button>
+                                                        @endif
 
                                                         </div>
                                                     </td>
@@ -209,23 +207,18 @@
                                                     <td class="dark:border-dark-5 text-center">
                                                         <div class="d-flex justify-content-center">
 
-                                                            {{-- <button onclick="openModal({{ $pc->id }})"
-                                                                class="btn btn-success fas fa-search  mb-3">
-                                                             </button>&nbsp --}}
                                                              <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-
+                                                            @if ($usuarioSelected != 'Seleccionar funcionario')
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $laptop->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
+                                                            </button>
+                                                            @endif
 
                                                         </div>
                                                     </td>
@@ -298,23 +291,17 @@
                                                     <td class="dark:border-dark-5 text-center">
                                                         <div class="d-flex justify-content-center">
 
-                                                            {{-- <button onclick="openModal({{ $pc->id }})"
-                                                                class="btn btn-success fas fa-search  mb-3">
-                                                             </button>&nbsp --}}
                                                              <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
                                                                 {{$usuarioSelected}}
                                                             </button>
-
-
+                                                            @if ($usuarioSelected != 'Seleccionar funcionario')
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $monitor->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
+                                                            </button>
+                                                            @endif
 
                                                         </div>
                                                     </td>
@@ -390,17 +377,14 @@
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-
+                                                            @if ($usuarioSelected != 'Seleccionar funcionario')
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $teclado->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
-
+                                                            </button>
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -475,17 +459,14 @@
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-
+                                                            @if ($usuarioSelected != 'Seleccionar funcionario')
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $mouse->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
-
+                                                            </button>
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -559,17 +540,14 @@
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-
+                                                            @if ($usuarioSelected != 'Seleccionar funcionario')
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $telefono->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
-
+                                                            </button>
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -583,12 +561,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -643,17 +615,14 @@
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-
+                                                            @if ($usuarioSelected != 'Seleccionar funcionario')
                                                             <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $scanner->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                                </button>
-
-
-
-
+                                                            </button>
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -727,12 +696,16 @@
                                                                 {{$usuarioSelected}}
                                                             </button>
 
-                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            @if ($usuarioSelected != 'Seleccionar funcionario')
+                                                                <button class="btn btn-primary text-white border-0 ml-3"
                                                                 wire:click.prevent="reasignaAF({{ $impresora->id }})"
                                                                 type="button">
                                                                 <i class="fas fa-thumbs-up"></i>&nbsp
                                                                 <small class="font-normal">OK</small>
-                                                            </button>
+                                                                </button>
+                                                            @endif
+
+
                                                         </div>
                                                     </td>
 
