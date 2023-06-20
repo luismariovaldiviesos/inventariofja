@@ -14,15 +14,15 @@ use App\Models\Teclado;
 use App\Models\Telefono;
 use App\Models\User;
 use Livewire\Component;
-use DB;
+
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB as FacadesDB;
+use Illuminate\Support\Facades\DB as DB;
 
 class RevisarDelegados extends Component
 {
 
     public $tabPcs = true, $tabLaptops = false, $tabMonitores = false, $tabTeclados =false, $tabMouses=false,
-    $tabTelefonos = false, $tabScanners = false, $tabImpresoras = false;
+    $tabTelefonos = false, $tabScanners = false, $tabImpresoras = false, $paginate =10;
 
 
     //para reasignar usuario
@@ -175,34 +175,24 @@ class RevisarDelegados extends Component
         ->join('observations as o','o.observation_id','pcs.id')
         ->where('pcs.revisar_delegado', true)
         ->groupBy('pcs.id')
-        //->distinct('pcs.user_id')
-        // ->where('users.unidad_id',  Auth()->user()->unidad_id)
-        // ->where('delegados.unidad_id', Auth()->user()->unidad_id)
         ->select('pcs.*','users.name as usuario','o.observation as observacion')
-
         ->get();
             //return $info;
-     //dd($this->pcs);
+            //dd($this->pcs);
 
     }
-    public function laptopsAsignadas()
-    {
-        $this->laptops = DB::table('laptops')
-        ->join('users', 'users.id', '=', 'laptops.user_id')
-        ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
-        ->join('observations as o','o.observation_id','laptops.id')
-        ->where('laptops.revisar_delegado', true)
-        ->groupBy('laptops.id')
-        //->distinct('laptops.user_id')
-        // ->where('users.unidad_id',  Auth()->user()->unidad_id)
-        // ->where('delegados.unidad_id', Auth()->user()->unidad_id)
-        ->select('laptops.*','users.name as usuario','o.observation as observacion')
-
+        public function laptopsAsignadas()
+        {
+            $this->laptops = DB::table('laptops')
+            ->join('users', 'users.id', '=', 'laptops.user_id')
+            ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
+            ->join('observations as o','o.observation_id','laptops.id')
+            ->where('laptops.revisar_delegado', true)
+            ->groupBy('laptops.id')
+            ->select('laptops.*','users.name as usuario','o.observation as observacion')
         ->get();
-            //return $info;
-     //dd($this->laptops);
 
-    }
+        }
     public function monitoresAsignados()
     {
         $this->monitores = DB::table('monitors')

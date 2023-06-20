@@ -64,7 +64,7 @@ class Impresoras extends Component
 
         $info = Impresora::join('users as u','u.id','impresoras.user_id')
         ->select('impresoras.*','u.name as usuario')
-            ->paginate($this->pagination);
+            ->get($this->pagination);
 
 
         return view('livewire.impresoras.component', [
