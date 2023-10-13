@@ -50,7 +50,7 @@ class UnidadSeeder extends Seeder
             'edificio_id' => 1
         ]);
         Unidad::create([
-            'nombre' =>  'COUNTER DE  INFORMACION',
+            'nombre' =>  'VENTANILLA DE INFORMACION BLOQUE A',
             'edificio_id' => 1
         ]);
 
@@ -148,7 +148,7 @@ class UnidadSeeder extends Seeder
         ]);
 
         Unidad::create([
-            'nombre' =>  'INFORMACIÓN ',
+            'nombre' =>  'VENTANILLA INFORMACIÓN BLOQUE B',
             'edificio_id' => 2
         ]);
 

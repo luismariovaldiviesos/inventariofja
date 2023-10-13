@@ -37,7 +37,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '5',
-            'user_id' => '178',
+            'user_id' => '214',
 
         ]);
         Delegado::create([
@@ -59,7 +59,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '9',
-            'user_id' => '296',
+            'user_id' => '174',
 
         ]);
         Delegado::create([
@@ -69,7 +69,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '11',
-            'user_id' => '176',
+            'user_id' => '214',
 
         ]);
         Delegado::create([
@@ -79,7 +79,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '13',
-            'user_id' => '175',
+            'user_id' => '569',
 
         ]);
         Delegado::create([
@@ -89,7 +89,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '15',
-            'user_id' => '280',
+            'user_id' => '13',
 
         ]);
         Delegado::create([
@@ -109,12 +109,12 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '19',
-            'user_id' => '296',
+            'user_id' => '160',
 
         ]);
         Delegado::create([
             'unidad_id' => '20',
-            'user_id' => '367',
+            'user_id' => '289',
 
         ]);
         Delegado::create([
@@ -124,7 +124,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '22',
-            'user_id' => '296',
+            'user_id' => '172',
 
         ]);
         Delegado::create([
@@ -184,7 +184,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '34',
-            'user_id' => '367',
+            'user_id' => '289',
 
         ]);
         Delegado::create([
@@ -203,10 +203,10 @@ class DelegadoSeeder extends Seeder
 
         ]);
 
-        //sigua
+        //
         Delegado::create([
             'unidad_id' => '38',
-            'user_id' => '176',
+            'user_id' => '214',
 
         ]);
         Delegado::create([
@@ -226,7 +226,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '42',
-            'user_id' => '169',
+            'user_id' => '546',
 
         ]);
         Delegado::create([
@@ -271,17 +271,17 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '51',
-            'user_id' => '468',
+            'user_id' => '464',
 
         ]);
         Delegado::create([
             'unidad_id' => '52',
-            'user_id' => '480',
+            'user_id' => '472',
 
         ]);
         Delegado::create([
             'unidad_id' => '53',
-            'user_id' => '564',
+            'user_id' => '491',
 
         ]);
         Delegado::create([
@@ -291,7 +291,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '55',
-            'user_id' => '503',
+            'user_id' => '322',
 
         ]);
         Delegado::create([
@@ -326,7 +326,7 @@ class DelegadoSeeder extends Seeder
         ]);
         Delegado::create([
             'unidad_id' => '62',
-            'user_id' => '272',
+            'user_id' => '562',
 
         ]);
 
