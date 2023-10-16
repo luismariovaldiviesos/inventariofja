@@ -6428,16 +6428,47 @@ class UserSeeder extends Seeder
             'status' => 'ACTIVE',
             'password' => bcrypt('0102315751')
         ]);
-        // User::create([
-        //     'name' => 'ROMEO BLACIO JUAN CARLOS ',
-        //     'ci' => '0705052165',
-        //     'phone' => '',
-        //     'email' => 'juan.romerob@funcionjudicial.gob.ec',
-        //     'unidad_id' => 57,
-        //     'profile' => 'Official',
-        //     'status' => 'ACTIVE',
-        //     'password' => bcrypt('0705052165')
-        // ]);
+
+        User::create([
+            'name' => 'MOSCOSO VASQUEZ PEDRO JOSE',
+            'ci' => '0104261789',
+            'phone' => '',
+            'email' => 'pedro.moscoso@funcionjudicial.gob.ec',
+            'unidad_id' => 51,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0104261789')
+        ]);
+        User::create([
+            'name' => 'VELASQUEZ MOROCHO NANCY CAROLINA',
+            'ci' => '0106210917',
+            'phone' => '',
+            'email' => 'nancy.velasquez@funcionjudicial.gob.ec',
+            'unidad_id' => 23,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0106210917')
+        ]);
+        User::create([
+            'name' => 'BARAHONA COBOS MARIA EMILIA',
+            'ci' => '0104529581',
+            'phone' => '',
+            'email' => 'maria.barahona@funcionjudicial.gob.ec',
+            'unidad_id' => 54,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0104529581')
+        ]);
+        User::create([
+            'name' => 'QUINTEROS RIVERA GUIDO GEOVANNY',
+            'ci' => '0300883576',
+            'phone' => '',
+            'email' => 'guido.quinteros@funcionjudicial.gob.ec',
+            'unidad_id' => 5,
+            'profile' => 'Official',
+            'status' => 'ACTIVE',
+            'password' => bcrypt('0300883576')
+        ]);
 
 
         // $delegados =  User::where('profile','Delegado');
