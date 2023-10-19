@@ -220,6 +220,16 @@
                                                             </button>
                                                             @endif
 
+                                                            @hasrole('DelegadoActivos')
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="darBajaAF({{ $laptop->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">ENVIAR A BODEGA</small>
+                                                            </button>
+                                                            @endhasrole
+
+
                                                         </div>
                                                     </td>
 
@@ -227,7 +237,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY LAPTOPS REGISTRADAS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -310,7 +320,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY MONITORES REGISTRADOS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -392,7 +402,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY TECLADOS REGISTRADOS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -474,7 +484,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY RATONES REGISTRADOS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -555,7 +565,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY TELEFONOS REGISTRADOS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -630,7 +640,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY SACNNERS REGISTRADOS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -713,7 +723,7 @@
                                             @empty
                                                 <tr class="bg-gray-200 dark:bg-dark-1">
                                                     <td colspan="2">
-                                                        <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                        <h6 class="text-center">NO HAY IMPRESORAS REGISTRADAS </h6>
                                                     </td>
                                                 </tr>
                                             @endforelse

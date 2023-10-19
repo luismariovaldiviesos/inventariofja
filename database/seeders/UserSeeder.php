@@ -1380,7 +1380,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'diego.sanchez@funcionjudicial.gob.ec',
             'unidad_id' => 12,
-            'profile' => 'Delegado',
+            'profile' => 'DelegadoActivos',
             'status' => 'ACTIVE',
             'password' => bcrypt('0102498003')
         ]);
@@ -6487,6 +6487,11 @@ class UserSeeder extends Seeder
             $user->assignRole('Admin');
             $user->syncRoles('Admin');
           }
+          elseif($user->profile === 'DelegadoActivos')
+          {
+            $user->assignRole('DelegadoActivos');
+            $user->syncRoles('DelegadoActivos');
+          }
           elseif($user->profile === 'Delegado')
           {
             $user->assignRole('Delegado');
@@ -6497,6 +6502,7 @@ class UserSeeder extends Seeder
             $user->assignRole('Official');
             $user->syncRoles('Official');
           }
+         
         }
 
 

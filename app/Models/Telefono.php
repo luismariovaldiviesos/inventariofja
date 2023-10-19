@@ -10,7 +10,7 @@ class Telefono extends Model
     use HasFactory;
 
 
-    protected $fillable = ['serie','af','ac','modelo_id','user_id','inventariado','revisar_delegado'];
+    protected $fillable = ['serie','af','ac','modelo_id','user_id','inventariado','revisar_delegado','activo'];
 
     public static function rules($id)
     {

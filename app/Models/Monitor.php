@@ -9,7 +9,7 @@ class Monitor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['serie','af','marca_id','user_id','inventariado','revisar_delegado'];
+    protected $fillable = ['serie','af','marca_id','user_id','inventariado','revisar_delegado','activo'];
 
     public static function rules($id)
     {

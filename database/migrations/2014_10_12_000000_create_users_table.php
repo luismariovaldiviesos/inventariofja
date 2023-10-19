@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('ci',13);
             $table->string('phone',15)->nullable();
             $table->string('email')->unique();
-            $table->enum('profile',['Admin','Official','Delegado'])->default('Admin');
+            $table->enum('profile',['Admin','Official','Delegado','DelegadoActivos'])->default('Admin');
             $table->enum('status',['ACTIVE','LOCKED'])->default('ACTIVE');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

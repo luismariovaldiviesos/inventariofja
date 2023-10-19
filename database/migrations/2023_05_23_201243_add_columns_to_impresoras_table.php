@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('impresoras', function (Blueprint $table) {
             $table->boolean('inventariado')->default(false)->before('user_id');
             $table->boolean('revisar_delegado')->default(false)->before('inventariado');
+            $table->boolean('activo')->default(true)->before('revisar_delegado');
         });
     }
 
@@ -27,7 +28,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('impresoras', function (Blueprint $table) {
-            $table->dropColumn(['inventariado', 'revisar_delegado']);
+            $table->dropColumn(['inventariado', 'revisar_delegado','activo']);
         });
     }
 };

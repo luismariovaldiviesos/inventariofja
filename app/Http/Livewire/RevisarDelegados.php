@@ -452,6 +452,89 @@ class RevisarDelegados extends Component
     // hay que hacer un reset el rato de guardar
     // que semuestren full equipos de revisar en el component
 
+    public  function darBajaAF($id)
+    {
+
+        if ($this->tabPcs == true) {
+            
+            //$user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $pc = Pc::find($id);
+            dd($pc);
+            $pc->revisar_delegado = false;
+            $pc->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+
+
+        }
+        if ($this->tabLaptops == true) {
+            //$user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $laptop = Laptop::find($id);
+            dd($laptop);
+            $laptop->revisar_delegado = false;
+            $laptop->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+        }
+        if ($this->tabMonitores == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $monitor = Monitor::find($id);
+            $monitor->revisar_delegado = false;
+            $monitor->user_id = $user_id;
+            $monitor->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+        }
+        if ($this->tabTeclados == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $teclado = Teclado::find($id);
+            $teclado->revisar_delegado = false;
+            $teclado->user_id = $user_id;
+            $teclado->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+        }
+        if ($this->tabMouses == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $mouse = Raton::find($id);
+            $mouse->revisar_delegado = false;
+            $mouse->user_id = $user_id;
+            $mouse->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+        }
+        if ($this->tabImpresoras == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $impresora = Impresora::find($id);
+            $impresora->revisar_delegado = false;
+            $impresora->user_id = $user_id;
+            $impresora->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+        }
+        if ($this->tabScanners == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $scanner = Scanner::find($id);
+            $scanner->revisar_delegado = false;
+            $scanner->user_id = $user_id;
+            $scanner->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+        }
+        if ($this->tabTelefonos == true) {
+            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
+            $telefono = Telefono::find($id);
+            $telefono->revisar_delegado = false;
+            $telefono->user_id = $user_id;
+            $telefono->update();
+            $this->noty('Inventario actualizado', 'noty', false);
+            $this->resetUI();
+        }
+
+
+
+    }
+
 
 
 

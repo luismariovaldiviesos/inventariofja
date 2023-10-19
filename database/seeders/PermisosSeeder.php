@@ -19,9 +19,10 @@ class PermisosSeeder extends Seeder
 
         //roles
 
-      $admin =  Role::create(['name'=>'Admin']);
-       $official =  Role::create(['name'=>'Official']);
-        $delegado  = Role::create(['name'=>'Delegado']);
+     $admin =  Role::create(['name'=>'Admin']);
+     $official =  Role::create(['name'=>'Official']);
+     $delegado  = Role::create(['name'=>'Delegado']);
+     $delegadoActivos =  Role::create(['name'=> 'DelegadoActivos']);
 
         //provincia
         Permission::create(['name' => 'crear_provincia',
@@ -418,6 +419,10 @@ class PermisosSeeder extends Seeder
          'name' => 'revisar_inventario',
          'guard_name' => 'web',
      ]);
+     Permission::create([
+         'name' => 'dar_baja',
+         'guard_name' => 'web',
+     ]);
 
 
 
@@ -677,6 +682,72 @@ class PermisosSeeder extends Seeder
             'ver_laptop',
             'buscar_laptop',
 
+
+        ]);
+        $delegadoActivos->givePermissionTo([
+            //monitor
+            'crear_monitor',
+            'ver_monitor',
+            'buscar_monitor',
+            'editar_monitor',
+            'eliminar_monitor',
+
+            //teclado
+            'crear_teclado',
+            'ver_teclado',
+            'buscar_teclado',
+            'editar_teclado',
+            'eliminar_teclado',
+
+            //mouse
+            'crear_mouse',
+            'ver_mouse',
+            'buscar_mouse',
+            'editar_mouse',
+            'eliminar_mouse',
+
+            //telefono
+            'crear_telefono',
+            'ver_telefono',
+            'buscar_telefono',
+            'editar_telefono',
+            'eliminar_telefono',
+
+
+            //scanner
+            'crear_scanner',
+            'ver_scanner',
+            'buscar_scanner',
+            'editar_scanner',
+            'eliminar_scanner',
+
+
+            //impresora
+            'crear_impresora',
+            'ver_impresora',
+            'buscar_impresora',
+            'editar_impresora',
+            'eliminar_impresora',
+
+            //pc
+            'crear_pc',
+            'ver_pc',
+            'buscar_pc',
+            'editar_pc',
+            'eliminar_pc',
+
+            //laptop
+            'crear_laptop',
+            'ver_laptop',
+            'buscar_laptop',
+            'editar_laptop',
+            'eliminar_laptop',
+
+            //revissar inventario
+            'revisar_inventario',
+
+            //dar de baja 
+            'dar_baja'
 
         ]);
 
