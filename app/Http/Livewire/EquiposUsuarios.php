@@ -47,6 +47,7 @@ class EquiposUsuarios extends Component
         $this->pcs =  Pc::join('users as u','u.id','pcs.user_id')
             ->select('pcs.*')
             ->where('pcs.user_id','=',Auth()->user()->id)
+            ->where('pcs.activo',true)
             ->get();
 
         $this->totpcs = count($this->pcs);
@@ -57,6 +58,7 @@ class EquiposUsuarios extends Component
         $this->laptops =  Laptop::join('users as u','u.id','laptops.user_id')
             ->select('laptops.*')
             ->where('laptops.user_id','=',Auth()->user()->id)
+            ->where('laptops.activo',true)
             ->get();
 
             $this->totlaptops = count($this->laptops);
@@ -67,6 +69,7 @@ class EquiposUsuarios extends Component
         $this->monitores =  Monitor::join('users as u','u.id','monitors.user_id')
             ->select('monitors.*')
             ->where('monitors.user_id','=',Auth()->user()->id)
+            ->where('monitors.activo',true)
             ->get();
 
             $this->totmonitores = count($this->monitores);
@@ -77,6 +80,7 @@ class EquiposUsuarios extends Component
         $this->teclados =  Teclado::join('users as u','u.id','teclados.user_id')
             ->select('teclados.*')
             ->where('teclados.user_id','=',Auth()->user()->id)
+            ->where('teclados.activo',true)
             ->get();
 
             $this->totteclados = count($this->teclados);
@@ -87,6 +91,7 @@ class EquiposUsuarios extends Component
         $this->mouses =  Raton::join('users as u','u.id','ratons.user_id')
             ->select('ratons.*')
             ->where('ratons.user_id','=',Auth()->user()->id)
+            ->where('ratons.activo',true)
             ->get();
 
             $this->totmouses = count($this->mouses);
@@ -97,6 +102,7 @@ class EquiposUsuarios extends Component
         $this->telefonos =  Telefono::join('users as u','u.id','telefonos.user_id')
             ->select('telefonos.*')
             ->where('telefonos.user_id','=',Auth()->user()->id)
+            ->where('telefonos.activo',true)
             ->get();
 
             $this->tottelefonos = count($this->telefonos);
@@ -106,6 +112,7 @@ class EquiposUsuarios extends Component
         $this->scanners =  Scanner::join('users as u','u.id','scanners.user_id')
             ->select('scanners.*')
             ->where('scanners.user_id','=',Auth()->user()->id)
+            ->where('scanners.activo',true)
             ->get();
 
             $this->totscanners = count($this->scanners);
@@ -116,6 +123,7 @@ class EquiposUsuarios extends Component
         $this->impresoras =  Impresora::join('users as u','u.id','impresoras.user_id')
             ->select('impresoras.*')
             ->where('impresoras.user_id','=',Auth()->user()->id)
+            ->where('impresoras.activo',true)
             ->get();
 
             $this->totimpresoras = count($this->impresoras);
@@ -228,7 +236,10 @@ class EquiposUsuarios extends Component
         // regresar a la página inicial del componente
         //$this->resetPage();
         // regresar propiedades a su valor por defecto
-       // $this->reset('nombre', 'provincia_id', 'selected_id', 'search', 'action', 'componentName', 'form','provincia');
+        $this->reset('observacionesLa', 'observacionesMo', 'observacionesTe', 'observacionesRa',
+         'observacionesTel', 'observacionesSca','observacionesImp','afId','observaciones','af');    
+
+        
     }
 
 

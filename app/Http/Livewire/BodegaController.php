@@ -153,103 +153,54 @@ class BodegaController extends Component
 
     public function pcsAsignadas()
     {
-        $this->pcs = DB::table('pcs')
-        //->join('users', 'users.id', '=', 'pcs.user_id')
-        //->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
-        //->join('observations as o','o.observation_id','pcs.id')
-        //->where('pcs.revisar_delegado', true)
-        ->where('pcs.activo', false)
-        ->groupBy('pcs.id')
-        ->select('pcs.*')
-        ->get();
-            //return $info;
-            //dd($this->pcs);
+        $this->pcs = Pc::where('activo',false)->orderBy('id')->get();
         $this->totpcs = count($this->pcs);
+       
 
     }
 
     public function laptopsAsignadas()
-        {
-        //     $this->laptops = DB::table('laptops')
-        //     //->join('users', 'users.id', '=', 'laptops.user_id')
-        //     //->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
-        //     //->join('observations as o','o.observation_id','laptops.id')
-        //     //->where('laptops.revisar_delegado', true)
-        //     ->where('laptops.activo', false)
-        //     ->groupBy('laptops.id')
-        //     ->select('laptops.*')
-        // ->get();
-        //dd($this->laptops);
-
+    {
+        
         $this->laptops = Laptop::where('activo',false)->orderBy('id')->get();
-        //dd($this->laptops);
         $this->totlaptops = count($this->laptops);
 
-        }
+    }
         public function monitoresAsignados()
         {
-            $this->monitores = DB::table('monitors')            
-            ->where('monitors.activo', false)
-            ->groupBy('monitors.id')
-            ->select('monitors.*')
-            ->get();
+            $this->monitores = Monitor::where('activo',false)->orderBy('id')->get();
             $this->totmonitores = count($this->monitores);
     
         }
 
         public function tecladosAsignados()
         {
-            $this->teclados = DB::table('teclados')
-            
-            ->where('teclados.activo', false)
-            ->groupBy('teclados.id')
-            ->select('teclados.*')
-            ->get();
+            $this->teclados = Teclado::where('activo',false)->orderBy('id')->get();
             $this->totteclados = count($this->teclados);
     
         }
         public function mouseAsignados()
         {
-            $this->mouses = DB::table('ratons')
-            
-            ->where('ratons.activo', false)
-            ->groupBy('ratons.id')
-            ->select('ratons.*')
-            ->get();
+            $this->mouses = Raton::where('activo',false)->orderBy('id')->get();
             $this->totmouses = count($this->mouses);
     
         }
         public function telefonosAsignados()
         {
-            $this->telefonos = DB::table('telefonos')
-            
-            ->where('telefonos.activo', false)
-            ->groupBy('telefonos.id')
-            ->select('telefonos.*')
-            ->get();
+            $this->telefonos = Telefono::where('activo',false)->orderBy('id')->get();
             $this->tottelefonos = count($this->telefonos);
     
     
         }
         public function scannersAsignados()
         {
-            $this->scanners = DB::table('scanners')
-            
-            ->where('scanners.activo', false)
-            ->groupBy('scanners.id')
-            ->select('scanners.*')
-            ->get();
+            $this->scanners = Scanner::where('activo',false)->orderBy('id')->get();
             $this->totscanners = count($this->scanners);
     
         }
         public function impresorasAsignadas()
         {
-            $this->impresoras = DB::table('impresoras')
-            
-            ->where('impresoras.activo', false)
-            ->groupBy('impresoras.id')
-            ->select('impresoras.*')
-            ->get();
+            $this->impresoras = Impresora::where('activo',false)->orderBy('id')->get();
             $this->totimpresoras = count($this->impresoras);
     
         }

@@ -93,11 +93,8 @@
                                         <tr class="text-theme-1">
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
-                                            {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
-
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -113,42 +110,19 @@
                                                     <h6 class="mb-1 font-medium">{{ $pc->af }}</h6>
                                                 </td>
                                                 <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $pc->usuario }}</h6>
+                                                    <h6 class="mb-1 font-medium">{{ $pc->modelo->nombre }}</h6>
                                                 </td>
                                                 <td class="dark:border-dark-5">
-                                                    {{-- <h6 class="mb-1 font-medium">{{ $pc->observacion }}</h6> --}}
-                                                    <button wire:click.prevent="getDetails({{$pc->id}})"
-                                                        class="btn btn-dark btn-sm">
-                                                        <i class="fas fa-list"></i>
-                                                    </button>
+                                                    <h6 class="mb-1 font-medium">{{ $pc->modelo->marca->nombre }}</h6>
                                                 </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
-
-                                                        {{-- <button onclick="openModal({{ $pc->id }})"
-                                                            class="btn btn-success fas fa-search  mb-3">
-                                                         </button>&nbsp --}}
-                                                         <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
-                                                            {{$usuarioSelected}}
-                                                        </button>
-
-                                                     @if ($usuarioSelected != 'Seleccionar funcionario')
-                                                        <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="reasignaAF({{ $pc->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">OK</small>
-                                                        </button>
-                                                    @endif
-
-                                                    </div>
-                                                </td>
+                                               
+                                                
 
                                             </tr>
                                         @empty
                                             <tr class="bg-gray-200 dark:bg-dark-1">
                                                 <td colspan="2">
-                                                    <h6 class="text-center">NO HAY PC REGISTRADOS </h6>
+                                                    <h6 class="text-center">NO HAY LAPTOPS REGISTRADAS </h6>
                                                 </td>
                                             </tr>
                                         @endforelse
@@ -234,56 +208,28 @@
                                 <table class="table">
                                     <thead>
                                         <tr class="text-theme-1">
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
-                                            {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
-
-                                        </tr>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA</th>
+                                        </tr>                            
                                     </thead>
                                     <tbody>
                                         @forelse ($monitores as $monitor )
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $monitor->serie }}</h6>
-
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $monitor->af }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $monitor->usuario }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    {{-- <h6 class="mb-1 font-medium">{{ $monitor->observacion }}</h6> --}}
-                                                    <button wire:click.prevent="getDetailsMo({{$monitor->id}})"
-                                                        class="btn btn-dark btn-sm">
-                                                        <i class="fas fa-list"></i>
-                                                    </button>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
-
-                                                         <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
-                                                            {{$usuarioSelected}}
-                                                        </button>
-                                                        @if ($usuarioSelected != 'Seleccionar funcionario')
-                                                        <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="reasignaAF({{ $monitor->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">OK</small>
-                                                        </button>
-                                                        @endif
-
-                                                    </div>
-                                                </td>
-
-                                            </tr>
+                                        <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            <td class="dark:border-dark-5">
+                                              <h6 class="mb-1 font-medium">{{ $monitor->serie }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $monitor->af }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $monitor->marca->nombre }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $monitor->marca->modelo }}</h6>
+                                            </td>
+                                      </tr>
                                         @empty
                                             <tr class="bg-gray-200 dark:bg-dark-1">
                                                 <td colspan="2">
@@ -316,56 +262,28 @@
                                 <table class="table">
                                     <thead>
                                         <tr class="text-theme-1">
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
-                                            {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
-
-                                        </tr>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
+                                          <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA</th>
+                                        </tr>                            
                                     </thead>
                                     <tbody>
                                         @forelse ($teclados as $teclado )
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $teclado->serie }}</h6>
-
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $teclado->af }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $teclado->usuario }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    {{-- <h6 class="mb-1 font-medium">{{ $teclado->observacion }}</h6> --}}
-                                                    <button wire:click.prevent="getDetailsTe({{$teclado->id}})"
-                                                        class="btn btn-dark btn-sm">
-                                                        <i class="fas fa-list"></i>
-                                                    </button>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
-
-                                                         <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
-                                                            {{$usuarioSelected}}
-                                                        </button>
-
-                                                        @if ($usuarioSelected != 'Seleccionar funcionario')
-                                                        <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="reasignaAF({{ $teclado->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">OK</small>
-                                                        </button>
-                                                        @endif
-                                                    </div>
-                                                </td>
-
-                                            </tr>
+                                        <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            <td class="dark:border-dark-5">
+                                              <h6 class="mb-1 font-medium">{{ $teclado->serie }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $teclado->af }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $teclado->marca->nombre }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $teclado->marca->modelo }}</h6>
+                                            </td>
+                                      </tr>
                                         @empty
                                             <tr class="bg-gray-200 dark:bg-dark-1">
                                                 <td colspan="2">
@@ -375,12 +293,6 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -400,54 +312,26 @@
                                         <tr class="text-theme-1">
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
-                                            {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
-
-                                        </tr>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA</th>
+                                          </tr>  
                                     </thead>
                                     <tbody>
                                         @forelse ($mouses as $mouse )
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $mouse->serie }}</h6>
-
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $mouse->af }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $mouse->usuario }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    {{-- <h6 class="mb-1 font-medium">{{ $mouse->observacion }}</h6> --}}
-                                                    <button wire:click.prevent="getDetailsRA({{$mouse->id}})"
-                                                        class="btn btn-dark btn-sm">
-                                                        <i class="fas fa-list"></i>
-                                                    </button>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
-
-                                                         <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
-                                                            {{$usuarioSelected}}
-                                                        </button>
-
-                                                        @if ($usuarioSelected != 'Seleccionar funcionario')
-                                                        <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="reasignaAF({{ $mouse->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">OK</small>
-                                                        </button>
-                                                        @endif
-                                                    </div>
-                                                </td>
-
-                                            </tr>
+                                        <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            <td class="dark:border-dark-5">
+                                              <h6 class="mb-1 font-medium">{{ $mouse->serie }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $mouse->af }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $mouse->marca->nombre }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $mouse->marca->modelo }}</h6>
+                                            </td>
+                                      </tr>
                                         @empty
                                             <tr class="bg-gray-200 dark:bg-dark-1">
                                                 <td colspan="2">
@@ -457,12 +341,6 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -481,54 +359,26 @@
                                         <tr class="text-theme-1">
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
-                                            {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
-
-                                        </tr>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA</th>
+                                          </tr>                            
                                     </thead>
                                     <tbody>
                                         @forelse ($telefonos as $telefono )
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $telefono->serie }}</h6>
-
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $telefono->af }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $telefono->usuario }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    {{-- <h6 class="mb-1 font-medium">{{ $telefono->observacion }}</h6> --}}
-                                                    <button wire:click.prevent="getDetailsTel({{$telefono->id}})"
-                                                        class="btn btn-dark btn-sm">
-                                                        <i class="fas fa-list"></i>
-                                                    </button>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
-
-                                                         <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
-                                                            {{$usuarioSelected}}
-                                                        </button>
-
-                                                        @if ($usuarioSelected != 'Seleccionar funcionario')
-                                                        <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="reasignaAF({{ $telefono->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">OK</small>
-                                                        </button>
-                                                        @endif
-                                                    </div>
-                                                </td>
-
-                                            </tr>
+                                        <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            <td class="dark:border-dark-5">
+                                              <h6 class="mb-1 font-medium">{{ $telefono->serie }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $telefono->af }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $telefono->modelo->nombre }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $telefono->modelo->marca->nombre }}</h6>
+                                            </td>
+                                      </tr>
                                         @empty
                                             <tr class="bg-gray-200 dark:bg-dark-1">
                                                 <td colspan="2">
@@ -556,54 +406,26 @@
                                         <tr class="text-theme-1">
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
-                                            {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
-
-                                        </tr>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA</th>
+                                          </tr> 
                                     </thead>
                                     <tbody>
                                         @forelse ($scanners as $scanner )
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $scanner->serie }}</h6>
-
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $scanner->af }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $scanner->usuario }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    {{-- <h6 class="mb-1 font-medium">{{ $scanner->observacion }}</h6> --}}
-                                                    <button wire:click.prevent="getDetailsSca({{$scanner->id}})"
-                                                        class="btn btn-dark btn-sm">
-                                                        <i class="fas fa-list"></i>
-                                                    </button>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
-
-                                                         <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
-                                                            {{$usuarioSelected}}
-                                                        </button>
-
-                                                        @if ($usuarioSelected != 'Seleccionar funcionario')
-                                                        <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="reasignaAF({{ $scanner->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">OK</small>
-                                                        </button>
-                                                        @endif
-                                                    </div>
-                                                </td>
-
-                                            </tr>
+                                        <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            <td class="dark:border-dark-5">
+                                              <h6 class="mb-1 font-medium">{{ $scanner->serie }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $scanner->af }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $scanner->modelo->nombre }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $scanner->modelo->marca->nombre }}</h6>
+                                            </td>
+                                      </tr>
                                         @empty
                                             <tr class="bg-gray-200 dark:bg-dark-1">
                                                 <td colspan="2">
@@ -613,12 +435,6 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -637,56 +453,26 @@
                                         <tr class="text-theme-1">
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >SERIE</th>
                                             <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >ACTIVO FIJO </th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >USUARRIO REPORTA</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >OBSERVACIONES</th>
-                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap text-center" >ASIGNAR</th>
-                                            {{-- <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >NOVEDAD </th> --}}
-
-                                        </tr>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MODELO</th>
+                                            <th class="border-b-2 dark:border-dark-5 whitespace-nowrap" >MARCA</th>
+                                          </tr> 
                                     </thead>
                                     <tbody>
                                         @forelse ($impresoras as $impresora )
-                                            <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $impresora->serie }}</h6>
-
-                                                </td>
-
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $impresora->af }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    <h6 class="mb-1 font-medium">{{ $impresora->usuario }}</h6>
-                                                </td>
-                                                <td class="dark:border-dark-5">
-                                                    {{-- <h6 class="mb-1 font-medium">{{ $impresora->observacion }}</h6> --}}
-                                                    <button wire:click.prevent="getDetailsImp({{$impresora->id}})"
-                                                        class="btn btn-dark btn-sm">
-                                                        <i class="fas fa-list"></i>
-                                                    </button>
-                                                </td>
-                                                <td class="dark:border-dark-5 text-center">
-                                                    <div class="d-flex justify-content-center">
-
-                                                         <button onclick="openModalCustomer()" class="btn btn-outline-dark w-full mb-3">
-                                                            {{$usuarioSelected}}
-                                                        </button>
-
-                                                        @if ($usuarioSelected != 'Seleccionar funcionario')
-                                                            <button class="btn btn-primary text-white border-0 ml-3"
-                                                            wire:click.prevent="reasignaAF({{ $impresora->id }})"
-                                                            type="button">
-                                                            <i class="fas fa-thumbs-up"></i>&nbsp
-                                                            <small class="font-normal">OK</small>
-                                                            </button>
-                                                        @endif
-
-
-                                                    </div>
-                                                </td>
-
-                                            </tr>
+                                        <tr class=" dark:bg-dark-1 {{ $loop->index % 2> 0 ? 'bg-gray-200' : '' }}">
+                                            <td class="dark:border-dark-5">
+                                              <h6 class="mb-1 font-medium">{{ $impresora->serie }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $impresora->af }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $impresora->modelo->nombre }}</h6>
+                                            </td>
+                                            <td class="dark:border-dark-5">
+                                                <h6 class="mb-1 font-medium">{{ $impresora->modelo->marca->nombre }}</h6>
+                                            </td>
+                                      </tr>
                                         @empty
                                             <tr class="bg-gray-200 dark:bg-dark-1">
                                                 <td colspan="2">
@@ -696,12 +482,6 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>

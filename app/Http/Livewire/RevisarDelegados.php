@@ -495,7 +495,7 @@ class RevisarDelegados extends Component
             $this->resetUI();
         }
         if ($this->tabMouses == true) {
-            $mouse = Mouse::find($id);
+            $mouse = Raton::find($id);
             $mouse->activo = false;
             $mouse->update();
             $this->noty('AF ingreesado a bodega', 'noty', false);
@@ -503,6 +503,7 @@ class RevisarDelegados extends Component
         }
         if ($this->tabImpresoras == true) {
             $impresora = Impresora::find($id);
+            //dd($impresora);
             $impresora->activo = false;
             $impresora->update();
             $this->noty('AF ingreesado a bodega', 'noty', false);
