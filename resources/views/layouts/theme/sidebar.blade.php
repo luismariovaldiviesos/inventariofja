@@ -228,6 +228,16 @@
         @endif
 
 
+        @hasrole('DelegadoActivos')
+        <li>
+            <a href="{{ route('bodega') }}" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
+                <div class="side-menu__title"> ACTIVOS EN BODEGA  </div>
+            </a>
+        </li>
+        @endhasrole
+
+
 
         <li>
             @hasrole('Admin')

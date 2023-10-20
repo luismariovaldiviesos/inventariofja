@@ -192,6 +192,7 @@ class RevisarDelegados extends Component
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','pcs.id')
         ->where('pcs.revisar_delegado', true)
+        ->where('pcs.activo', true)
         ->groupBy('pcs.id')
         ->select('pcs.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -207,6 +208,7 @@ class RevisarDelegados extends Component
             ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
             ->join('observations as o','o.observation_id','laptops.id')
             ->where('laptops.revisar_delegado', true)
+            ->where('laptops.activo', true)
             ->groupBy('laptops.id')
             ->select('laptops.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -220,6 +222,7 @@ class RevisarDelegados extends Component
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','monitors.id')
         ->where('monitors.revisar_delegado', true)
+        ->where('monitors.activo', true)
         ->groupBy('monitors.id')
         ->select('monitors.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -233,6 +236,7 @@ class RevisarDelegados extends Component
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','teclados.id')
         ->where('teclados.revisar_delegado', true)
+        ->where('teclados.activo', true)
         ->groupBy('teclados.id')
         ->select('teclados.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -246,6 +250,7 @@ class RevisarDelegados extends Component
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','ratons.id')
         ->where('ratons.revisar_delegado', true)
+        ->where('ratons.activo', true)
         ->groupBy('ratons.id')
         ->select('ratons.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -259,6 +264,7 @@ class RevisarDelegados extends Component
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','telefonos.id')
         ->where('telefonos.revisar_delegado', true)
+        ->where('telefonos.activo', true)
         ->groupBy('telefonos.id')
         ->select('telefonos.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -273,6 +279,7 @@ class RevisarDelegados extends Component
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','scanners.id')
         ->where('scanners.revisar_delegado', true)
+        ->where('scanners.activo', true)
         ->groupBy('scanners.id')
         ->select('scanners.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -286,6 +293,7 @@ class RevisarDelegados extends Component
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','impresoras.id')
         ->where('impresoras.revisar_delegado', true)
+        ->where('impresoras.activo', true)
         ->groupBy('impresoras.id')
         ->select('impresoras.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -457,77 +465,61 @@ class RevisarDelegados extends Component
 
         if ($this->tabPcs == true) {
             
-            //$user_id = User::where('name',$this->usuarioSelected)->first()->id;
             $pc = Pc::find($id);
-            dd($pc);
-            $pc->revisar_delegado = false;
+            $pc->activo = false;
             $pc->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
 
 
         }
         if ($this->tabLaptops == true) {
-            //$user_id = User::where('name',$this->usuarioSelected)->first()->id;
             $laptop = Laptop::find($id);
-            dd($laptop);
-            $laptop->revisar_delegado = false;
+            $laptop->activo = false;
             $laptop->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
         }
         if ($this->tabMonitores == true) {
-            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
             $monitor = Monitor::find($id);
-            $monitor->revisar_delegado = false;
-            $monitor->user_id = $user_id;
+            $monitor->activo = false;
             $monitor->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
         }
         if ($this->tabTeclados == true) {
-            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
             $teclado = Teclado::find($id);
-            $teclado->revisar_delegado = false;
-            $teclado->user_id = $user_id;
+            $teclado->activo = false;
             $teclado->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
         }
         if ($this->tabMouses == true) {
-            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
-            $mouse = Raton::find($id);
-            $mouse->revisar_delegado = false;
-            $mouse->user_id = $user_id;
+            $mouse = Mouse::find($id);
+            $mouse->activo = false;
             $mouse->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
         }
         if ($this->tabImpresoras == true) {
-            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
             $impresora = Impresora::find($id);
-            $impresora->revisar_delegado = false;
-            $impresora->user_id = $user_id;
+            $impresora->activo = false;
             $impresora->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
         }
         if ($this->tabScanners == true) {
-            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
             $scanner = Scanner::find($id);
-            $scanner->revisar_delegado = false;
-            $scanner->user_id = $user_id;
+            $scanner->activo = false;
             $scanner->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
         }
         if ($this->tabTelefonos == true) {
-            $user_id = User::where('name',$this->usuarioSelected)->first()->id;
             $telefono = Telefono::find($id);
-            $telefono->revisar_delegado = false;
-            $telefono->user_id = $user_id;
+            $telefono->activo = false;
             $telefono->update();
-            $this->noty('Inventario actualizado', 'noty', false);
+            $this->noty('AF ingreesado a bodega', 'noty', false);
             $this->resetUI();
         }
 

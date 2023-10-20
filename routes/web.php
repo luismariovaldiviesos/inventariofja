@@ -27,6 +27,7 @@ use App\Http\Livewire\EquiposUsuarios;
 use App\Http\Livewire\ImportController;
 use App\Http\Livewire\ReportsController;
 use App\Http\Livewire\RevisarDelegados;
+use App\Http\Livewire\BodegaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('misequipos', EquiposUsuarios::class)->name('misequipos');
     //revisare delegados
     Route::get('revisardelegados', RevisarDelegados::class)->name('revisardelegados');
+    Route::get('bodega', BodegaController::class)->name('bodega');
 
 });
 

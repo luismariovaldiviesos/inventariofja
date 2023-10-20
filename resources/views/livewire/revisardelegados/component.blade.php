@@ -141,6 +141,15 @@
                                                             </button>
                                                         @endif
 
+                                                        @hasrole('DelegadoActivos')
+                                                        <button class="btn btn-primary text-white border-0 ml-3"
+                                                        wire:click.prevent="darBajaAF({{ $pc->id }})"
+                                                        type="button">
+                                                        <i class="fas fa-thumbs-up"></i>&nbsp
+                                                        <small class="font-normal">ENVIAR A BODEGA</small>
+                                                        </button>
+                                                        @endhasrole
+
                                                         </div>
                                                     </td>
 
@@ -312,6 +321,14 @@
                                                                 <small class="font-normal">OK</small>
                                                             </button>
                                                             @endif
+                                                            @hasrole('DelegadoActivos')
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="darBajaAF({{ $monitor->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">ENVIAR A BODEGA</small>
+                                                            </button>
+                                                            @endhasrole
 
                                                         </div>
                                                     </td>
@@ -395,6 +412,14 @@
                                                                 <small class="font-normal">OK</small>
                                                             </button>
                                                             @endif
+                                                            @hasrole('DelegadoActivos')
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="darBajaAF({{ $teclado->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">ENVIAR A BODEGA</small>
+                                                            </button>
+                                                            @endhasrole
                                                         </div>
                                                     </td>
 
@@ -477,6 +502,14 @@
                                                                 <small class="font-normal">OK</small>
                                                             </button>
                                                             @endif
+                                                            @hasrole('DelegadoActivos')
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="darBajaAF({{ $mouse->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">ENVIAR A BODEGA</small>
+                                                            </button>
+                                                            @endhasrole
                                                         </div>
                                                     </td>
 
@@ -558,6 +591,14 @@
                                                                 <small class="font-normal">OK</small>
                                                             </button>
                                                             @endif
+                                                            @hasrole('DelegadoActivos')
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="darBajaAF({{ $telefono->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">ENVIAR A BODEGA</small>
+                                                            </button>
+                                                            @endhasrole
                                                         </div>
                                                     </td>
 
@@ -633,6 +674,14 @@
                                                                 <small class="font-normal">OK</small>
                                                             </button>
                                                             @endif
+                                                            @hasrole('DelegadoActivos')
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="darBajaAF({{ $scanner->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">ENVIAR A BODEGA</small>
+                                                            </button>
+                                                            @endhasrole
                                                         </div>
                                                     </td>
 
@@ -714,6 +763,14 @@
                                                                 <small class="font-normal">OK</small>
                                                                 </button>
                                                             @endif
+                                                            @hasrole('DelegadoActivos')
+                                                            <button class="btn btn-primary text-white border-0 ml-3"
+                                                            wire:click.prevent="darBajaAF({{ $impresora->id }})"
+                                                            type="button">
+                                                            <i class="fas fa-thumbs-up"></i>&nbsp
+                                                            <small class="font-normal">ENVIAR A BODEGA</small>
+                                                            </button>
+                                                            @endhasrole
 
 
                                                         </div>

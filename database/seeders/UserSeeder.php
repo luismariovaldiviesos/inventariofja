@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'zonia.astudillo@funcionjudicial.gob.ec',
             'unidad_id' => 2,
-            'profile' => 'Official',
+            'profile' => 'DelegadoActivos',
             'status' => 'ACTIVE',
             'password' => bcrypt('0703100644')
         ]);
@@ -1380,7 +1380,7 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'diego.sanchez@funcionjudicial.gob.ec',
             'unidad_id' => 12,
-            'profile' => 'DelegadoActivos',
+            'profile' => 'Delegado',
             'status' => 'ACTIVE',
             'password' => bcrypt('0102498003')
         ]);

@@ -17,12 +17,12 @@ class DelegadoSeeder extends Seeder
     {
         Delegado::create([
             'unidad_id' => '1',
-            'user_id' => '10',
+            'user_id' => '3',
 
         ]);
         Delegado::create([
             'unidad_id' => '2',
-            'user_id' => '10',
+            'user_id' => '3',
 
         ]);
         Delegado::create([
