@@ -497,7 +497,7 @@
     <div class="col-span-12 lg:col-span-3">
         <div class="intro-y box p-5">
             <div>
-                <h2 class="text-2xl text-center mb-3">PENDIENTES DE REVISION</h2>
+                <h2 class="text-2xl text-center mb-3">TOTAL EN BODEGA</h2>
             </div>
 
             {{-- azul amarikilo y rojo  --}}
