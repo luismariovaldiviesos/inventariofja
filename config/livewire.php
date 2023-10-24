@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'asset_url' => "http://localhost/inventariofja/public/",
+    
+    'asset_url' => null,
 
     /*
     |--------------------------------------------------------------------------
