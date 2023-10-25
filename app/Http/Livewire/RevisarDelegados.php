@@ -39,6 +39,13 @@ class RevisarDelegados extends Component
 
     //usuarios
    public  $usuarios =[], $searchUsuario;
+   public $logeado;
+
+   public function mount()
+   {
+    $this->logeado = Auth::user()->id;
+   }
+  
 
     public $pcs = [], $laptops=[] ,$monitores =[], $teclados =[], $mouses =[], $telefonos =[], $scanners =[], $impresoras =[];
 
@@ -187,12 +194,15 @@ class RevisarDelegados extends Component
 
     public function pcsAsignadas()
     {
+        
+        // dd($user_id);
         $this->pcs = DB::table('pcs')
         ->join('users', 'users.id', '=', 'pcs.user_id')
         ->join('delegados', 'delegados.unidad_id', '=', 'users.unidad_id')
         ->join('observations as o','o.observation_id','pcs.id')
         ->where('pcs.revisar_delegado', true)
         ->where('pcs.activo', true)
+        ->where('delegados.user_id', '=', $this->logeado) 
         ->groupBy('pcs.id')
         ->select('pcs.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -209,6 +219,7 @@ class RevisarDelegados extends Component
             ->join('observations as o','o.observation_id','laptops.id')
             ->where('laptops.revisar_delegado', true)
             ->where('laptops.activo', true)
+            ->where('delegados.user_id', '=', $this->logeado) 
             ->groupBy('laptops.id')
             ->select('laptops.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -223,6 +234,7 @@ class RevisarDelegados extends Component
         ->join('observations as o','o.observation_id','monitors.id')
         ->where('monitors.revisar_delegado', true)
         ->where('monitors.activo', true)
+        ->where('delegados.user_id', '=', $this->logeado) 
         ->groupBy('monitors.id')
         ->select('monitors.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -237,6 +249,7 @@ class RevisarDelegados extends Component
         ->join('observations as o','o.observation_id','teclados.id')
         ->where('teclados.revisar_delegado', true)
         ->where('teclados.activo', true)
+        ->where('delegados.user_id', '=', $this->logeado) 
         ->groupBy('teclados.id')
         ->select('teclados.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -251,6 +264,7 @@ class RevisarDelegados extends Component
         ->join('observations as o','o.observation_id','ratons.id')
         ->where('ratons.revisar_delegado', true)
         ->where('ratons.activo', true)
+        ->where('delegados.user_id', '=', $this->logeado) 
         ->groupBy('ratons.id')
         ->select('ratons.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -265,6 +279,7 @@ class RevisarDelegados extends Component
         ->join('observations as o','o.observation_id','telefonos.id')
         ->where('telefonos.revisar_delegado', true)
         ->where('telefonos.activo', true)
+        ->where('delegados.user_id', '=', $this->logeado) 
         ->groupBy('telefonos.id')
         ->select('telefonos.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -280,6 +295,7 @@ class RevisarDelegados extends Component
         ->join('observations as o','o.observation_id','scanners.id')
         ->where('scanners.revisar_delegado', true)
         ->where('scanners.activo', true)
+        ->where('delegados.user_id', '=', $this->logeado) 
         ->groupBy('scanners.id')
         ->select('scanners.*','users.name as usuario','o.observation as observacion')
         ->get();
@@ -294,6 +310,7 @@ class RevisarDelegados extends Component
         ->join('observations as o','o.observation_id','impresoras.id')
         ->where('impresoras.revisar_delegado', true)
         ->where('impresoras.activo', true)
+        ->where('delegados.user_id', '=', $this->logeado) 
         ->groupBy('impresoras.id')
         ->select('impresoras.*','users.name as usuario','o.observation as observacion')
         ->get();
